@@ -62,8 +62,10 @@ Sowing Crops
 - Farmer: A class that represents the new type of Human, a farmer.
 - PlantBehaviour: A new behaviour for farmers that implements the Behaviour interface, it is used to simulate planting behaviour of farmers.
 - PlantAction: A class that extends Action and represents the sowing crop action. 
-- Crop: A Ground object that represents an unripe crop. Has an instance variable that counts the number of turns the crop has been planted and an instance variable that determines whether a Crop is fertilised. 
-- Human: The instance variable behaviour is replaced with a new instance variable of type Behaviour[] because there are new behaviours that needed to be added into humans such as eating food. 
+- Crop: A Ground object that represents an unripe crop. Has an instance variable that counts the number of turns the crop has been planted and an 
+        instance variable that determines whether a Crop is fertilised. 
+- Human: The instance variable behaviour is replaced with a new instance variable of type Behaviour[] because there are new behaviours that needed
+         to be added into humans such as eating food. 
 Class Interactions of Sowing Crops
 - When a new Farmer is instantiated, the new behaviour PlantBehaviour will be added into the behaviours list through the method super.add(). 
   When the PlantBehaviour is called, random will be used to calculate the chances of Farmer sowing a crop. If the roll succeeds, PlantAction will 
