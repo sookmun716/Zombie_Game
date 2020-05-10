@@ -1,0 +1,98 @@
+The UML diagram only contains classes that are modified, new classes and inheritance for better readability. 
+
+ZombieBite
+-BiteAction: Zombies can bite human giving more damage to human around them. If zombies bite successfully, zombies restore 5 health points.
+-Zombie: Added a method IntrinsicWeapon getBite() where it returns new IntrinsicWeapon(25,”bite”).
+Class interactions of ZombieBite
+-With a 50% probability , zombies can bite human instead of their normal attack giving more damage to the nearest human.In class Zombie, 
+ I call IntrinsicWeapon getBite() which performs BiteAction. If getBite() is performed, getIntrinsicWeapon() will not be performed
+
+ZombiePickUp
+- PickUpBehaviour: A new behaviour for Zombie that implements the Behaviour interface where zombies pick up the weapon near their locations.
+- PickUpAction: A class that extends Action represents the picking up of weapons for zombies.
+Class interactions of ZombiePickUp
+- If there are any weapons located near the zombies, they will pick up the weapon and use the weapon instead of intrinsic punch attack.
+
+ZombieShout
+- Zombie: Made changes in playTurn() to print a string with probability of 10%.
+Class interactions of ZombieShout
+- Random will be used to print String in playTurn(). Doing this allows the zombie to shout without taking a turn and allows the zombie to 
+  shout even when moving, attacking etc action.
+
+ZombieLimb
+- ZombieArm: Represents the arms of the zombies. Return the number of the arms for checking in method of class AttackAction.
+- ZombieLeg: Represent the legs of the zombies. Return the number of the legs for checking in method of class MoveZombieAction.
+Class interactions of ZombieLimb
+- ZombieArm and ZombieLeg are representing the number of arms and legs of the zombies. It will be called in other methods such as 
+  AttackAction and MoveZombieAction to check if the zombies drop their limbs. 
+
+MoveZombieAction
+- MoveZombieAction: A class that extends Action to check the numLeg of the zombies by giving conditions. 
+- AttackAction: A class that extends Action to check the numArm of the zombies by giving conditions.
+Class interactions of MoveZombieAction
+- MoveZombieAction checks if the zombie has dropped its leg, if the zombie dropped one of its legs then its movement speed is halved
+  where the zombie can only move on every second turn. If the zombie has dropped both legs then the zombie cannot wander around but it 
+  can perform other action such as biting and punching. AttackAction checks if the zombie has dropped its arm, if the zombie dropped one 
+  of its arms then its probability of punching is halved and it has 50% of dropping any weapon on its hand. If both arms are dropped, the 
+  zombie will drop all the weapons it's holding where zombies have only two arms.
+
+Crafting Weapons
+- ZombieArm and ZombieLeg: Represents the arms and legs of a zombie, contains an instance of CraftWeaponAction in allowableActions which 
+                           can transform a limb into a new weapon.
+- CraftWeaponAction: Transforms a zombie arm into a zombie club and a zombie into a zombie mace.
+- ZombieClub: Class that represents a zombie club.
+- ZombieMace: Class that represents a zombie mace.
+Class interactions of Crafting Weapons
+- When a player is holding either a zombie arm or leg, they will have the option to craft the limb into a new weapon at the cost of a turn, 
+  I choose to make it an action because the player should have a choice on whether they wanted to craft the weapon. If the player decides to 
+  craft the limb into the new weapon, depending on the limb the player is holding a new instance of ZombieClub or ZombieMace will be instantiated 
+  and the limb is removed from the inventory.
+
+Rising from the dead  
+- Corpse: A child of the Item class which represents a dead body.
+Class interactions of Rising from the dead
+- Item class is used instead of PortableItem as the parent class of Corpse because it makes no sense to carry a corpse around, and carrying a 
+  corpse around will add unnecessary complications such as when the corpse turns into a zombie while the player is carrying it. When a human is
+  killed, it will be converted into a Corpse class. The Corpse class will override the tick method and count the number of turns the person is 
+  dead with the instance variable deadTurns. When the number of turns reaches 5, a rand.nextBoolean() will be used in tick to determine whether 
+  the corpse is reanimated, if the corpse is still not animated when the number of turns reach 10, the corpse will automatically be reanimated 
+  and a new Zombie Object is created.
+
+Sowing Crops
+- Farmer: A class that represents the new type of Human, a farmer.
+- PlantBehaviour: A new behaviour for farmers that implements the Behaviour interface, it is used to simulate planting behaviour of farmers.
+- PlantAction: A class that extends Action and represents the sowing crop action. 
+- Crop: A Ground object that represents an unripe crop. Has an instance variable that counts the number of turns the crop has been planted and an instance variable that determines whether a Crop is fertilised. 
+- Human: The instance variable behaviour is replaced with a new instance variable of type Behaviour[] because there are new behaviours that needed to be added into humans such as eating food. 
+Class Interactions of Sowing Crops
+- When a new Farmer is instantiated, the new behaviour PlantBehaviour will be added into the behaviours list through the method super.add(). 
+  When the PlantBehaviour is called, random will be used to calculate the chances of Farmer sowing a crop. If the roll succeeds, PlantAction will 
+  be instantiated and the Dirt Object will be removed and a new Crop Object will be created.
+    
+Fertilising Crops
+- FertiliseBehaviour: A new behaviour for farmers that implements the Behaviour interface, it is used to simulate fertilise behaviour of farmers.
+- FertiliseAction: A class that extends Action and represents the fertilise crop action. 
+Class Interactions of Fertilising Crops
+- Similarly to PlantBehaviour, FertiliseBehaviour will be added into behaviours when a Farmer is instantiated. If the Farmer is standing on a 
+  Crop, FertiliseBehaviour will succeed and FertiliseAction will be instantiated, which increments ripeTurns by 10 and changes isFertilised to 
+  true. isFertilised is used as an instance variable because in real life, a farmer should not fertilise a crop repeatedly, hence the variable is 
+  used to prevent Farmer from fertilising a Crop twice. 
+
+Harvesting Crops
+- HarvestBehaviour: A new behaviour for farmers that implements the Behaviour interface, it is used to simulate harvesting behaviour of farmers.
+- HarvestAction: A class that extends Action and represents the harvest crop action. 
+- Food: A class that extends PortableItem and represents a harvested crop, contains an instance of EatFoodAction in allowableActions.
+Class Interactions of Harvesting Crops
+- HarvestBehaviour is also added into behaviours when instantiating a Farmer Object. When a Farmer or Player is standing on a Crop that has a 
+  ripeTurn of 20 or more, they can choose to harvest it. Farmer class have HarvestBehaviour which will instantiate a new HarvestAction if Crop is 
+  ripe, and Player will have the option to harvest the Crop and place it in the inventory. When a crop is harvested, the Crop Object is removed and
+  a new Dirt Object is created. 
+
+Eating Food
+- EatBehaviour: A new behaviour for Humans that implements the Behaviour interface, it is used to simulate eating behaviour.
+- EatAction: A class that extends Action and represents the eat action. 
+Class Interactions of Eating Food
+- EatBehaviour is instantiated in the behaviours instance variable in the Human class because all Humans can eat regardless of their occupation. 
+  EatBehaviour will instantiate a new EatAction which will consume the food and call the heal() method to increase hit points for the Human. 
+  FoodAction will also be added into allowableActions during the constructor so that Players can have the option to eat the food to regain health.  
+
