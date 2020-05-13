@@ -1,8 +1,10 @@
 package game;
 
-public class ZombieLeg extends WeaponItems{
+import edu.monash.fit2099.engine.WeaponItem;
+
+public class ZombieLeg extends WeaponItem{
 	
-	public ZombieLeg(String name, char displayChar, int damage, String verb) {
-		super(name, displayChar, damage, verb);
+	public ZombieLeg() {
+		super("ZombieLeg",'!',20,"hits");
 	}
 }
