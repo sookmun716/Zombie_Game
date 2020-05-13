@@ -16,6 +16,9 @@ import edu.monash.fit2099.engine.IntrinsicWeapon;
  *
  */
 public class Zombie extends ZombieActor {
+	private int numArm = 2;
+	private int numLeg = 2;
+	
 	private Behaviour[] behaviours = {
 			new AttackBehaviour(ZombieCapability.ALIVE),
 			new HuntBehaviour(Human.class, 10),
@@ -26,6 +29,21 @@ public class Zombie extends ZombieActor {
 		super(name, 'Z', 100, ZombieCapability.UNDEAD);
 	}
 	
+	public void setArm(int newArm) {
+		numArm = newArm;
+	}
+	
+	public void setLeg(int newLeg) {
+		numArm = newLeg;
+	}
+	
+	public int getArm() {
+		return numArm;
+	}
+	
+	public int getLeg() {
+		return numLeg;
+	}
 
 	@Override
 	public IntrinsicWeapon getIntrinsicWeapon() {
