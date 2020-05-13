@@ -20,17 +20,21 @@ public class Corpse extends Item{
 	
 	@Override
 	public void tick(Location currentLocation) {
+		Boolean isHuman=actor instanceof Human;
+		if(!isHuman) {
+			return;
+		}
 		deadTurns+=1;
 		System.out.println(actor_name+" dead for "+deadTurns);
-		//if deadTurns more than 5 and the corpse has a 25 percent chance to
+		//if deadTurns more than 5, the corpse has a 25 percent chance to 
 		//rise up as a corpse
-		if(deadTurns>=5 && random.nextInt(101)>=75 && actor instanceof Human ) {
+		if(deadTurns>=5 && random.nextInt(101)>=75) {
 			System.out.println(actor_name+ " has risen as a zombie!");
 			currentLocation.addActor(new Zombie(actor_name));
 			currentLocation.removeItem(this);
 		}
 		//guaranteed to rise from the dead if the dead turns reach 10
-		else if(deadTurns==10 && actor instanceof Human ) {
+		else if(deadTurns==10) {
 			System.out.println(actor_name+ " has risen as a zombie!");
 			currentLocation.addActor(new Zombie(actor_name));
 			currentLocation.removeItem(this);
