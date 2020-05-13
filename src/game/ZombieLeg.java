@@ -5,6 +5,7 @@ import edu.monash.fit2099.engine.WeaponItem;
 public class ZombieLeg extends WeaponItem{
 	
 	public ZombieLeg() {
-		super("ZombieLeg",'!',20,"hits");
+		super("zombie leg",'L',25,"hits");
+		super.allowableActions.add(new CraftWeaponAction(this));
 	}
 }
