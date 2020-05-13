@@ -47,7 +47,7 @@ public class Zombie extends ZombieActor {
 
 	@Override
 	public IntrinsicWeapon getIntrinsicWeapon() {
-		return new IntrinsicWeapon(100, "punches");
+		return new IntrinsicWeapon(15, "punches");
 	}
 
 	/**
