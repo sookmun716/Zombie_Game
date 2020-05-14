@@ -14,14 +14,14 @@ public class Crop extends Ground{
 	@Override
 	public void tick(Location location) {
 		ripeTurns+=1;
+		//Change display character if crop is ripe
+		if(ripeTurns==20)super.displayChar='!';
 	}
 	
 	public int getripeTurns() {
 		return ripeTurns;
 	}
 	
-	//did not specify parameter because this method is only called when farmer is 
-	//fertilizing the crop
 	public void setRipeTurns() {
 		ripeTurns+=10;
 	}
