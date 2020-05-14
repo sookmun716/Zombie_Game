@@ -6,6 +6,6 @@ public class ZombieArm extends WeaponItem{
 	
 	public ZombieArm() {
 		super("zombie arm",'A',20,"hits");
-		super.allowableActions.add(new CraftWeaponAction(this));
+		this.allowableActions.add(new CraftWeaponAction(this));
 	}
 }

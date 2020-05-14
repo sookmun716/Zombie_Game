@@ -6,6 +6,6 @@ public class ZombieLeg extends WeaponItem{
 	
 	public ZombieLeg() {
 		super("zombie leg",'L',25,"hits");
-		super.allowableActions.add(new CraftWeaponAction(this));
+		this.allowableActions.add(new CraftWeaponAction(this));
 	}
 }
