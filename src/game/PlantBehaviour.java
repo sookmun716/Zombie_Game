@@ -13,11 +13,6 @@ public class PlantBehaviour implements Behaviour {
 	private Random random= new Random();;
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
-		//Cannot plant if ground is not dirt
-		if(!(map.locationOf(actor).getGround() instanceof Dirt)) {
-			return null;
-		}
-		
 		//33 percent chance to plant a crop
 		if(random.nextInt(101)<67) {
 			return null;
@@ -27,7 +22,7 @@ public class PlantBehaviour implements Behaviour {
 		
 		for (Exit exit : map.locationOf(actor).getExits()) {
             Location destination = exit.getDestination();
-            if (destination.canActorEnter(actor)) {
+            if (destination.canActorEnter(actor)&& destination.getGround() instanceof Dirt) {
             	actions.add(new PlantAction(exit.getDestination()));
             }
         }
