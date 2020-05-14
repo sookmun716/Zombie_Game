@@ -15,7 +15,7 @@ public class Corpse extends Item{
 	public Corpse(Actor actor) {
 		super("dead "+ actor, '%', false);
 		this.actor=actor;
-		actor_name=super.name.split(" ")[1];
+		actor_name=this.name.split(" ")[1];
 	}
 	
 	@Override
@@ -26,7 +26,6 @@ public class Corpse extends Item{
 			return;
 		}
 		deadTurns+=1;
-		System.out.println(actor_name+" dead for "+deadTurns);
 		//if deadTurns more than 5, the corpse has a 25 percent chance to 
 		//rise up as a corpse
 		if(deadTurns>=5 && random.nextInt(101)>=75) {
