@@ -19,16 +19,16 @@ public class HarvestAction extends Action {
 		if(actor instanceof Farmer) {
 			map.at(location.x(), location.y()).addItem(new Food());
 		}
-		else {
+		else if(actor instanceof Player){
 			actor.addItemToInventory(new Food());
 		}
-		return actor+" harvested a crop";
+		return actor+" harvested a crop at "+location.x()+", "+location.y();
 	}
 
 	@Override
 	public String menuDescription(Actor actor) {
 		// TODO Auto-generated method stub
-		return actor+" harvests crop";
+		return actor+" harvests crop at " +location.x()+", "+location.y();
 	}
 
 }
