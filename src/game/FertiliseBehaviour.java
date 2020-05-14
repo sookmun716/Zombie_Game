@@ -14,7 +14,8 @@ public class FertiliseBehaviour implements Behaviour {
 		}
 		Crop crop=(Crop)map.locationOf(actor).getGround();
 		
-		if(crop.isFertilised()) {
+		//conditions to determine if fertilisation is possible
+		if(crop.isFertilised()|| crop.getripeTurns()>=20) {
 			return null;
 		}
 		return new FertiliseAction(crop);
