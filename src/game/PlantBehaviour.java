@@ -1,10 +1,13 @@
 package game;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
+import edu.monash.fit2099.engine.Exit;
 import edu.monash.fit2099.engine.GameMap;
+import edu.monash.fit2099.engine.Location;
 
 public class PlantBehaviour implements Behaviour {
 	private Random random= new Random();;
@@ -19,7 +22,22 @@ public class PlantBehaviour implements Behaviour {
 		if(random.nextInt(101)<67) {
 			return null;
 		}
-		return new PlantAction();
+		
+		ArrayList<Action> actions = new ArrayList<Action>();
+		
+		for (Exit exit : map.locationOf(actor).getExits()) {
+            Location destination = exit.getDestination();
+            if (destination.canActorEnter(actor)) {
+            	actions.add(new PlantAction(exit.getDestination()));
+            }
+        }
+		
+		if (!actions.isEmpty()) {
+			return actions.get(random.nextInt(actions.size()));
+		}
+		else {
+			return null;
+		}
 	}
 
 }
