@@ -22,16 +22,14 @@ public class Crop extends Ground{
 		return ripeTurns;
 	}
 	
-	public void setRipeTurns() {
+	public void fertilise() {
 		ripeTurns+=10;
+		isFertilised=true;
 	}
 	
 	public Boolean isFertilised(){
 		return isFertilised;
 	}
 	
-	public void setFertilised() {
-		isFertilised=true;
-	}
 	
 }
