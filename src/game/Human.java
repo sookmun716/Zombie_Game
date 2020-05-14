@@ -17,7 +17,8 @@ import edu.monash.fit2099.engine.GameMap;
  *
  */
 public class Human extends ZombieActor {
-	protected ArrayList<Behaviour> behaviour = new ArrayList<Behaviour>(Arrays.asList(new WanderBehaviour())); 
+	protected ArrayList<Behaviour> behaviour = new ArrayList<Behaviour>(
+			Arrays.asList(new WanderBehaviour())); 
 		
 
 
