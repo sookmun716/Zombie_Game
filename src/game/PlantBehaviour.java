@@ -10,7 +10,7 @@ import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Location;
 
 public class PlantBehaviour implements Behaviour {
-	private Random random= new Random();;
+	private Random random= new Random();
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
 		//33 percent chance to plant a crop
