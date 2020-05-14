@@ -17,10 +17,9 @@ import edu.monash.fit2099.engine.GameMap;
  *
  */
 public class Human extends ZombieActor {
+	//EatFoodBehaviour has priority to ensure humans eat food when they are hurt
 	protected ArrayList<Behaviour> behaviour = new ArrayList<Behaviour>(
-			Arrays.asList(new WanderBehaviour())); 
-		
-
+			Arrays.asList(new EatFoodBehaviour(),new WanderBehaviour())); 
 
 
 	/**
@@ -53,6 +52,14 @@ public class Human extends ZombieActor {
 				return action;
 		}
 		return new DoNothingAction();	
+	}
+	
+	public int getHp() {
+		return this.hitPoints;
+	}
+	
+	public int getMaxHp() {
+		return this.maxHitPoints;
 	}
 
 }
