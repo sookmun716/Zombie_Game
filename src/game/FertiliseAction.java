@@ -13,8 +13,7 @@ public class FertiliseAction extends Action {
 	}
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		crop.setRipeTurns();
-		crop.setFertilised();
+		crop.fertilise();
 		map.locationOf(actor).setGround(crop);
 		return actor+" fertilised crop";
 	}
