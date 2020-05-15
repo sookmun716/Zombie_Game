@@ -16,12 +16,10 @@ public class HarvestAction extends Action {
 	public String execute(Actor actor, GameMap map) {
 		// TODO Auto-generated method stub
 		map.at(location.x(), location.y()).setGround(new Dirt());
-		if(actor instanceof Farmer) {
+		if(actor.getDisplayChar()=='F') {
 			map.at(location.x(), location.y()).addItem(new Food());
 		}
-		else if(actor instanceof Player){
-			actor.addItemToInventory(new Food());
-		}
+		actor.addItemToInventory(new Food());
 		return actor+" harvested a crop at "+location.x()+", "+location.y();
 	}
 
