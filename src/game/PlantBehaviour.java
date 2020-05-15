@@ -22,7 +22,8 @@ public class PlantBehaviour implements Behaviour {
 		
 		for (Exit exit : map.locationOf(actor).getExits()) {
             Location destination = exit.getDestination();
-            if (destination.canActorEnter(actor)&& destination.getGround() instanceof Dirt) {
+            if (destination.canActorEnter(actor)&& 
+            	destination.getGround().getDisplayChar()=='.') {
             	actions.add(new PlantAction(exit.getDestination()));
             }
         }
