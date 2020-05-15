@@ -15,7 +15,7 @@ public class Crop extends Ground{
 	public void tick(Location location) {
 		ripeTurns+=1;
 		//Change display character if crop is ripe
-		if(ripeTurns==20)super.displayChar='!';
+		if(ripeTurns==20)this.displayChar='!';
 	}
 	
 	public int getripeTurns() {
@@ -25,6 +25,8 @@ public class Crop extends Ground{
 	public void fertilise() {
 		ripeTurns+=10;
 		isFertilised=true;
+		this.displayChar='|';
+		if(ripeTurns==20)this.displayChar='!';
 	}
 	
 	public Boolean isFertilised(){
