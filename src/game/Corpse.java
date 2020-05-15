@@ -20,7 +20,7 @@ public class Corpse extends Item{
 	
 	@Override
 	public void tick(Location currentLocation) {
-		Boolean isHuman=actor instanceof Human;
+		Boolean isHuman=actor.hasCapability(ZombieCapability.ALIVE);
 		//Check if actor is human, if actor is human proceed with resurrection. 
 		if(!isHuman) {
 			return;
