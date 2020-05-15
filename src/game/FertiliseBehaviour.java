@@ -8,17 +8,12 @@ public class FertiliseBehaviour implements Behaviour {
 
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
-		//Cannot fertilise if not standing on crop
-		if(!(map.locationOf(actor).getGround() instanceof Crop)) {
+		//Farmer can only fertilise unfertilised and unripe crops.
+		if(map.locationOf(actor).getGround().getDisplayChar()!='^') {
 			return null;
 		}
-		Crop crop=(Crop)map.locationOf(actor).getGround();
 		
-		//conditions to determine if fertilisation is possible
-		if(crop.isFertilised()|| crop.getripeTurns()>=20) {
-			return null;
-		}
-		return new FertiliseAction(crop);
+		return new FertiliseAction();
 	}
 
 }
