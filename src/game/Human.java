@@ -54,10 +54,12 @@ public class Human extends ZombieActor {
 		return new DoNothingAction();	
 	}
 	
+	@Override
 	public int getHp() {
 		return this.hitPoints;
 	}
 	
+	@Override
 	public int getMaxHp() {
 		return this.maxHitPoints;
 	}
