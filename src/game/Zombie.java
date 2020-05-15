@@ -2,6 +2,7 @@ package game;
 
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actions;
+import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.DoNothingAction;
 import edu.monash.fit2099.engine.GameMap;
@@ -29,12 +30,12 @@ public class Zombie extends ZombieActor {
 		super(name, 'Z', 100, ZombieCapability.UNDEAD);
 	}
 	
-	public void setArm(int newArm) {
-		numArm = newArm;
+	public void dropArm(int Arm) {
+		numArm -= Arm;
 	}
 	
-	public void setLeg(int newLeg) {
-		numArm = newLeg;
+	public void dropLeg(int Leg) {
+		numArm -= Leg;
 	}
 	
 	public int getArm() {
@@ -51,6 +52,7 @@ public class Zombie extends ZombieActor {
 	}
 
 	/**
+	 * Before Zombie attack, it has a 10% chance of shouting "BRAAAAAAAINS!" but this will not take an action.
 	 * If a Zombie can attack, it will.  If not, it will chase any human within 10 spaces.  
 	 * If no humans are close enough it will wander randomly.
 	 * 
@@ -61,6 +63,9 @@ public class Zombie extends ZombieActor {
 	 */
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
+		if (Math.random()<0.1) {
+			System.out.println(this.name + " shout BRAAAAAAAINS!");
+		}
 		for (Behaviour behaviour : behaviours) {
 			Action action = behaviour.getAction(this, map);
 			if (action != null)
