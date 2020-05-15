@@ -24,4 +24,10 @@ public class Fence extends Ground {
 	public boolean blocksThrownObjects() {
 		return true;
 	}
+
+	@Override
+	public void setDisplayChar(char display) {
+		// TODO Auto-generated method stub
+		
+	}
 }
