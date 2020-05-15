@@ -5,7 +5,6 @@ import edu.monash.fit2099.engine.Location;
 
 public class Crop extends Ground{
 	private int ripeTurns=0;
-	private Boolean isFertilised=false;
 	
 	public Crop() {
 		super('^');
@@ -15,23 +14,15 @@ public class Crop extends Ground{
 	public void tick(Location location) {
 		ripeTurns+=1;
 		//Change display character if crop is ripe
-		if(ripeTurns==20)this.displayChar='!';
+		if(ripeTurns==20){
+			this.displayChar='!';
+			System.out.println("Crop at "+location.x()+','+location.y()+" is ripe.");
+		}
 	}
-	
-	public int getripeTurns() {
-		return ripeTurns;
+
+	@Override
+	public void setDisplayChar(char display) {
+		this.displayChar=display;
 	}
-	
-	public void fertilise() {
-		ripeTurns+=10;
-		isFertilised=true;
-		this.displayChar='|';
-		if(ripeTurns==20)this.displayChar='!';
-	}
-	
-	public Boolean isFertilised(){
-		return isFertilised;
-	}
-	
 	
 }
