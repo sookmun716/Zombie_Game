@@ -48,9 +48,23 @@ public class Zombie extends ZombieActor {
 
 	@Override
 	public IntrinsicWeapon getIntrinsicWeapon() {
-		return new IntrinsicWeapon(15, "punches");
+		if(Math.random()<0.5) {
+			return getBite();
+		}
+		else {
+			return new IntrinsicWeapon(15,"punches");
+		}
 	}
-
+	/**
+	 * Zombie can bite human with damage 20 , verb "bites".
+	 * After Zombie bites, it heals 5 health point. 
+	 */
+	
+	public IntrinsicWeapon getBite() {
+		this.heal(5);
+		return new IntrinsicWeapon(20, "bites");
+	}
+	
 	/**
 	 * Before Zombie attack, it has a 10% chance of shouting "BRAAAAAAAINS!" but this will not take an action.
 	 * If a Zombie can attack, it will.  If not, it will chase any human within 10 spaces.  
