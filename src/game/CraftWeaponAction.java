@@ -16,12 +16,12 @@ public class CraftWeaponAction extends Action{
 	public String execute(Actor actor, GameMap map) {
 		// TODO Auto-generated method stub
 		
-		if(weapon instanceof ZombieArm) {
+		if(weapon.getDisplayChar()=='A') {
 			actor.addItemToInventory(new ZombieClub());
 			actor.removeItemFromInventory(weapon);
 			return actor+"crafted a zombie club";
-			}
-		else if(weapon instanceof ZombieLeg) {
+		}
+		else if(weapon.getDisplayChar()=='L') {
 			actor.addItemToInventory(new ZombieMace());
 			actor.removeItemFromInventory(weapon);
 			return actor+"crafted a zombie mace";

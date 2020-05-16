@@ -15,12 +15,8 @@ public class HarvestBehaviour implements Behaviour{
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
 		//Harvest crop when standing on a ripe crop
-		if (map.locationOf(actor).getGround() instanceof Crop) {
-			Crop crop=(Crop)map.locationOf(actor).getGround();
-			if(crop.getripeTurns()>=20) {
+		if(map.locationOf(actor).getGround().getDisplayChar()=='!') {
 				return new HarvestAction(map.locationOf(actor));
-			}
-			return null;
 		}
 		
 		ArrayList<Action> actions = new ArrayList<Action>();
@@ -30,22 +26,17 @@ public class HarvestBehaviour implements Behaviour{
 		if (!actions.isEmpty()) {
 			return actions.get(random.nextInt(actions.size()));
 		}
-		else {
-			return null;
-		}
+		return null;
 	}
 	
 	public ArrayList<Action> checkCrop(Actor actor, GameMap map, ArrayList<Action> actions){
 		//Harvest crop next to farmer
 		for (Exit exit : map.locationOf(actor).getExits()) {
 		      Location destination = exit.getDestination();
-		        if (destination.getGround() instanceof Crop){
-		        	Crop crop=(Crop) destination.getGround();
-		         if(crop.getripeTurns()>=20) {
+		      if(destination.getGround().getDisplayChar()=='!') {
 		           actions.add(new HarvestAction(destination));
-		            }
-		            }
-		        }
+		      }
+		}
 		return actions;
 	}
 }

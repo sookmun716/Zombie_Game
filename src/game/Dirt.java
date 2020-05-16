@@ -10,4 +10,10 @@ public class Dirt extends Ground {
 	public Dirt() {
 		super('.');
 	}
+
+	@Override
+	public void setDisplayChar(char display) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -9,16 +9,17 @@ public class EatFoodBehaviour implements Behaviour{
 
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
+		//Undead cannot heal through food
+		if(actor.hasCapability(ZombieCapability.UNDEAD)) return null;
+		
 		for(Item item : map.locationOf(actor).getItems()) {
 			//if location contains food humans can eat it
-			if(item instanceof Food) {
-				Food food=(Food) item;
-				Human human= (Human) actor;
+			if(item.getDisplayChar()=='f') {
 				//only eat food when human is hurt
-				if(human.getMaxHp()==human.getHp()) {
+				if(actor.getMaxHp()==actor.getHp()) {
 					return null;
 				}
-				return new EatAction(food);
+				return new EatAction(item);
 			}
 		}
 		return null;

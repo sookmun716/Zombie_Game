@@ -36,12 +36,10 @@ public class Player extends Human {
 			}
 		}
 		//check player location for ripe crop
-		if(map.locationOf(this).getGround() instanceof Crop) {
-			Crop crop=(Crop)map.locationOf(this).getGround();
-			if(crop.getripeTurns()>=20) {
+		if(map.locationOf(this).getGround().getDisplayChar()=='!'){
 				actions.add(new HarvestAction(map.locationOf(this))) ;
-			}
 		}
+		
 		return actions;
 	}
 	@Override
