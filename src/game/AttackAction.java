@@ -1,13 +1,13 @@
 package game;
 
 import java.util.Random;
-
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.Weapon;
+import game.Zombie;
 
 /**
  * Special Action for attacking other Actors.
@@ -43,9 +43,24 @@ public class AttackAction extends Action {
 
 		int damage = weapon.damage();
 		String result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
-
 		target.hurt(damage);
-		if (!target.isConscious()) {
+		
+		if (target.isConscious()) {
+			if(target.hasCapability(ZombieCapability.UNDEAD)) {
+				if(Math.random()<0.25) {
+					if (target.getArm()!=0) {
+						target.dropArm(1);
+						result += System.lineSeparator() + target + " drops an Arm.";
+					}
+					else if (target.getLeg()!=0) {
+						target.dropLeg(1);
+						result += System.lineSeparator() + target + " drops a Leg.";
+					}
+				}
+			}
+		}
+		
+		else if (!target.isConscious()) {
 			Corpse corpse = new Corpse(target);
 			map.locationOf(target).addItem(corpse);
 			
