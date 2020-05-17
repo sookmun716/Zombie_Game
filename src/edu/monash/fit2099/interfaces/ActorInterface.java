@@ -8,4 +8,8 @@ package edu.monash.fit2099.interfaces;
 public interface ActorInterface {
 	public int getHp();
 	public int getMaxHp();
+	public void dropArm(int Arm);
+	public void dropLeg(int Leg);
+	public int getArm();
+	public int getLeg();
 }
