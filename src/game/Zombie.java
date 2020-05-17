@@ -23,7 +23,8 @@ public class Zombie extends ZombieActor {
 	private Behaviour[] behaviours = {
 			new AttackBehaviour(ZombieCapability.ALIVE),
 			new HuntBehaviour(Human.class, 10),
-			new WanderBehaviour()
+			new WanderBehaviour(),
+			new PickUpBehaviour()
 	};
 
 	public Zombie(String name) {
@@ -31,11 +32,15 @@ public class Zombie extends ZombieActor {
 	}
 	
 	public void dropArm(int Arm) {
-		numArm -= Arm;
+		if (numArm>0) {
+			numArm -= Arm;
+		}
 	}
 	
 	public void dropLeg(int Leg) {
-		numArm -= Leg;
+		if (numLeg>0) {
+			numLeg -= Leg;
+		}
 	}
 	
 	public int getArm() {
