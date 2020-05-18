@@ -9,9 +9,9 @@ Class interactions of ZombieBite
 
 ZombiePickUp
 - PickUpBehaviour: A new behaviour for Zombie that implements the Behaviour interface where zombies pick up the weapon near their locations.
-- PickUpAction: A class that extends Action represents the picking up of weapons for zombies.
+- PickUpItemAction: A class that extends Action represents the picking up of weapons for zombies.
 Class interactions of ZombiePickUp
-- If there are any weapons located near the zombies, they will pick up the weapon and use the weapon instead of intrinsic punch attack.
+- If there are any weapons located at the zombie's location, they will pick up the weapon using an action and use the weapon instead of intrinsic punch attack.
 
 ZombieShout
 - Zombie: Made changes in playTurn() to print a string with probability of 10%.
