@@ -48,12 +48,26 @@ public class AttackAction extends Action {
 		if (target.isConscious()) {
 			if(target.hasCapability(ZombieCapability.UNDEAD)) {
 				if(Math.random()<0.25) {
-					if (target.getArm()!=0) {
+					if(target.getArm()!=0 || target.getLeg()!=0) {
+						if(Math.random()<0.5) {
+							target.dropArm(1);
+							map.locationOf(target).addItem(new ZombieArm());
+							result += System.lineSeparator() + target + " drops an Arm.";
+						}
+						else {
+							target.dropLeg(1);
+							map.locationOf(target).addItem(new ZombieLeg());
+							result += System.lineSeparator() + target + " drops a Leg.";
+						}
+					}
+					else if (target.getArm()!=0 && target.getLeg()==0) {
 						target.dropArm(1);
+						map.locationOf(target).addItem(new ZombieArm());
 						result += System.lineSeparator() + target + " drops an Arm.";
 					}
-					else if (target.getLeg()!=0) {
+					else if (target.getLeg()!=0 && target.getArm()==0) {
 						target.dropLeg(1);
+						map.locationOf(target).addItem(new ZombieLeg());
 						result += System.lineSeparator() + target + " drops a Leg.";
 					}
 				}
