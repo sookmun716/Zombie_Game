@@ -44,11 +44,11 @@ public class Zombie extends ZombieActor {
 	}
 	
 	public int getArm() {
-		return numArm;
+		return this.numArm;
 	}
 	
 	public int getLeg() {
-		return numLeg;
+		return this.numLeg;
 	}
 
 	@Override
