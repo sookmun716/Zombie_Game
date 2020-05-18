@@ -31,28 +31,43 @@ public class Zombie extends ZombieActor {
 		super(name, 'Z', 100, ZombieCapability.UNDEAD);
 	}
 	
+	/**
+	 * method for zombie to drop arm.
+	 * If numArm == 0 where it already dropped 2 arms then it can't drop any as Zombie has only 2 arms.
+	 */
 	public void dropArm(int Arm) {
 		if (numArm>0) {
 			numArm -= Arm;
 		}
 	}
 	
+	/**
+	 * method for zombie to drop leg.
+	 * If numleg == 0 where it already dropped 2 legs then it can't drop any as Zombie has only 2 legs.
+	 */
 	public void dropLeg(int Leg) {
 		if (numLeg>0) {
 			numLeg -= Leg;
 		}
 	}
 	
+	/**
+	 * method to return the number of arm of zombie.
+	 */
 	public int getArm() {
 		return this.numArm;
 	}
 	
+	/**
+	 * method to return the number of leg of zombie.
+	 */
 	public int getLeg() {
 		return this.numLeg;
 	}
 
 	@Override
 	public IntrinsicWeapon getIntrinsicWeapon() {
+		//set 50% probability for zombie bites
 		if(Math.random()<0.5) {
 			return getBite();
 		}
