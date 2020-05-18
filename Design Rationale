@@ -1,11 +1,11 @@
 The UML diagram only contains classes that are modified, new classes and inheritance for better readability. 
 
 ZombieBite
--BiteAction: Zombies can bite human giving more damage to human around them. If zombies bite successfully, zombies restore 5 health points.
--Zombie: Added a method IntrinsicWeapon getBite() where it returns new IntrinsicWeapon(25,”bite”).
+-Zombie: Added a method IntrinsicWeapon getBite() where it will heal 5 health points to zombie and returns new IntrinsicWeapon(25,”bite”).
 Class interactions of ZombieBite
 -With a 50% probability , zombies can bite human instead of their normal attack giving more damage to the nearest human.In class Zombie, 
- I call IntrinsicWeapon getBite() which performs BiteAction. If getBite() is performed, getIntrinsicWeapon() will not be performed
+ I create IntrinsicWeapon getBite() which return a new intrinsicWeapon() where do more damage and heal 5 health points to zombie. 
+ If getBite() is performed, intrinsicWeapon(15,punches) will not be performed in getIntrinsicWeapon().
 
 ZombiePickUp
 - PickUpBehaviour: A new behaviour for Zombie that implements the Behaviour interface where zombies pick up the weapon near their locations.
