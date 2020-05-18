@@ -45,10 +45,15 @@ public class AttackAction extends Action {
 		String result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
 		target.hurt(damage);
 		
+		//when target received damage
 		if (target.isConscious()) {
+			//check if the target is Zombie
 			if(target.hasCapability(ZombieCapability.UNDEAD)) {
+				//25% of dropping limbs
 				if(Math.random()<0.25) {
+					//if zombie's arm and leg is not 0 , it can drop either arm or leg
 					if(target.getArm()!=0 || target.getLeg()!=0) {
+						//set 50% of dropping arm and leg is Zombie has both
 						if(Math.random()<0.5) {
 							target.dropArm(1);
 							map.locationOf(target).addItem(new ZombieArm());
@@ -60,11 +65,13 @@ public class AttackAction extends Action {
 							result += System.lineSeparator() + target + " drops a Leg.";
 						}
 					}
+					//if zombie dropped both leg then it can only drop arm
 					else if (target.getArm()!=0 && target.getLeg()==0) {
 						target.dropArm(1);
 						map.locationOf(target).addItem(new ZombieArm());
 						result += System.lineSeparator() + target + " drops an Arm.";
 					}
+					//if zombie drop both arm it can only drop leg
 					else if (target.getLeg()!=0 && target.getArm()==0) {
 						target.dropLeg(1);
 						map.locationOf(target).addItem(new ZombieLeg());
