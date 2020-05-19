@@ -15,7 +15,7 @@ public class PlantAction extends Action{
 	@Override
 	public String execute(Actor actor, GameMap map) {
 		map.at(location.x(), location.y()).setGround(new Crop());
-		return actor +" planted a crop in"+location.x()+", "+location.y();
+		return actor +" planted a crop in "+location.x()+", "+location.y();
 	}
 
 	@Override
