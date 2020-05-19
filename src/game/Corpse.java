@@ -32,7 +32,7 @@ public class Corpse extends PortableItem {
 	}
 
 	/**
-	 * This method overrides the tick method from PortableItem class and is called in every
+	 * This method overrides the tick method from Item class and is called in every
 	 * turn, in this case it tracks the turns a Corpse is created and reanimate the
 	 * corpse if the conditions are met.
 	 * 
@@ -47,19 +47,19 @@ public class Corpse extends PortableItem {
 			return;
 		}
 		deadTurns += 1;
-		System.out.println(deadActor+" dead for "+deadTurns+" turns.");
-		//cannot resurrect if there is an actor standing on the location
-		if(currentLocation.containsAnActor()) {
+		System.out.println(deadActor + " dead for " + deadTurns + " turns.");
+		// cannot resurrect if there is an actor standing on the location
+		if (currentLocation.containsAnActor()) {
 			return;
 		}
-		
+
 		// if deadTurns more than 5, the corpse has a 25 percent chance to
 		// rise up as a corpse
 		if (deadTurns >= 5 && random.nextInt(101) >= 75) {
 			System.out.println(actor_name + " has risen as a zombie!");
 			currentLocation.addActor(new Zombie(actor_name));
 			currentLocation.removeItem(this);
-			
+
 		}
 		// guaranteed to rise from the dead if the dead turns reach 10
 		else if (deadTurns >= 10) {
@@ -69,17 +69,28 @@ public class Corpse extends PortableItem {
 		}
 
 	}
-	
+
+	/**
+	 * This method overrides the tick method from Item class and is called in every
+	 * turn if an actor is carrying the Corpse, and the corpse will be removed and a
+	 * new Zombie will be created at a random adjacent location to the actor if the
+	 * conditions are met.
+	 * 
+	 * @actor Actor that is carrying the Corpse
+	 * @param currentLocation Location of the actor
+	 * 
+	 **/
 	@Override
-	public void tick(Location currentLocation,Actor actor) {
+	public void tick(Location currentLocation, Actor actor) {
 		// if actor is human proceed with resurrection.
 		if (deadActor.hasCapability(ZombieCapability.UNDEAD)) {
 			return;
 		}
 		deadTurns += 1;
-		System.out.println(deadActor+" dead for "+deadTurns+" turns.");
-		ArrayList<Location> locations= new ArrayList<Location>();
-		//check exits around actor carrying the corpse to get valid exits for zombie to rise up
+		System.out.println(deadActor + " dead for " + deadTurns + " turns.");
+		ArrayList<Location> locations = new ArrayList<Location>();
+		// check exits around actor carrying the corpse to get valid exits for zombie to
+		// rise up
 		for (Exit exit : currentLocation.getExits()) {
 			Location destination = exit.getDestination();
 			if (destination.canActorEnter(actor)) {
@@ -88,9 +99,9 @@ public class Corpse extends PortableItem {
 		}
 		Location spawn_point;
 		if (!locations.isEmpty()) {
-			spawn_point=locations.get(random.nextInt(locations.size()));
+			spawn_point = locations.get(random.nextInt(locations.size()));
 		}
-		//quit method if no available location for zombie to spawn
+		// quit method if no available location for zombie to spawn
 		else {
 			return;
 		}
@@ -99,18 +110,20 @@ public class Corpse extends PortableItem {
 		if (deadTurns >= 5 && random.nextInt(101) >= 75) {
 			System.out.println(actor_name + " has risen as a zombie!");
 			spawn_point.addActor(new Zombie(actor_name));
-			actor.removeItemFromInventory(this);;
-					
+			actor.removeItemFromInventory(this);
+			;
+
 		}
 		// guaranteed to rise from the dead if the dead turns reach 10
 		else if (deadTurns == 10) {
 			System.out.println(actor_name + " has risen as a zombie!");
 			spawn_point.addActor(new Zombie(actor_name));
-			actor.removeItemFromInventory(this);;
+			actor.removeItemFromInventory(this);
+			;
 		}
-		
+
 	}
-	
+
 	@Override
 	public String craft(Actor actor) {
 		// TODO Auto-generated method stub
