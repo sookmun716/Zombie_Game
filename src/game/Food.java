@@ -18,5 +18,10 @@ public class Food extends PortableItem{
 		// TODO Auto-generated constructor stub
 	}
 	
+	@Override
+	public Boolean isFood() {
+		return true;
+	}
+	
 
 }
