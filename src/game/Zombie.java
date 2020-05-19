@@ -67,8 +67,8 @@ public class Zombie extends ZombieActor {
 
 	@Override
 	public IntrinsicWeapon getIntrinsicWeapon() {
-		//set 50% probability for zombie bites
-		if(Math.random()<0.5) {
+		//set 30% probability for zombie bites
+		if(Math.random()<0.3) {
 			return getBite();
 		}
 		else {
