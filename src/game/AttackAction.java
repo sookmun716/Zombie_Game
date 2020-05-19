@@ -45,7 +45,10 @@ public class AttackAction extends Action {
 		String result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
 		target.hurt(damage);
 		
-		//when target received damage
+		Boolean dropArm = Boolean.FALSE;
+		Boolean dropLeg = Boolean.FALSE;
+		
+		//if target receive damage
 		if (target.isConscious()) {
 			//check if the target is Zombie
 			if(target.hasCapability(ZombieCapability.UNDEAD)) {
@@ -55,27 +58,19 @@ public class AttackAction extends Action {
 					if(target.getArm()!=0 && target.getLeg()!=0) {
 						//set 50% of dropping arm and leg is Zombie has both
 						if(Math.random()<0.5) {
-							target.dropArm(1);
-							map.locationOf(target).addItem(new ZombieArm());
-							result += System.lineSeparator() + target + " drops an Arm.";
+							dropArm = Boolean.TRUE;
 						}
 						else {
-							target.dropLeg(1);
-							map.locationOf(target).addItem(new ZombieLeg());
-							result += System.lineSeparator() + target + " drops a Leg.";
-						}
+							dropLeg = Boolean.TRUE;
+							}
 					}
 					//if zombie dropped both leg then it can only drop arm
 					else if (target.getArm()!=0 && target.getLeg()==0) {
-						target.dropArm(1);
-						map.locationOf(target).addItem(new ZombieArm());
-						result += System.lineSeparator() + target + " drops an Arm.";
+						dropArm = Boolean.TRUE;
 					}
 					//if zombie drop both arm it can only drop leg
 					else if (target.getLeg()!=0 && target.getArm()==0) {
-						target.dropLeg(1);
-						map.locationOf(target).addItem(new ZombieLeg());
-						result += System.lineSeparator() + target + " drops a Leg.";
+						dropLeg = Boolean.TRUE;
 					}
 				}
 			}
@@ -95,8 +90,20 @@ public class AttackAction extends Action {
 			result += System.lineSeparator() + target + " is killed.";
 		}
 
+		if (dropArm == Boolean.TRUE) {
+			target.dropArm(1);
+			map.locationOf(target).addItem(new ZombieArm());
+			result += System.lineSeparator() + target + " drops an Arm.";
+		}
+		else if (dropLeg == Boolean.TRUE) {
+			target.dropLeg(1);
+			map.locationOf(target).addItem(new ZombieLeg());
+			result += System.lineSeparator() + target + " drops a Leg.";
+		}
+		
 		return result;
 	}
+		
 
 	@Override
 	public String menuDescription(Actor actor) {
