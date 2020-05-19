@@ -6,5 +6,8 @@ package edu.monash.fit2099.interfaces;
  */
 
 public interface GroundInterface {
-	public void setDisplayChar(char display);
+	public Boolean canPlant();
+	public Boolean isFertilised();
+	public void fertilise();
+	public Boolean isRipe();
 }
