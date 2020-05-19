@@ -7,6 +7,6 @@ import edu.monash.fit2099.engine.Actor;
  * or downcasting references in the game.   
  */
 public interface ItemInterface {
-	public String transform(Actor actor);
+	public String craft(Actor actor);
 	public String craftDescription(Actor actor);
 }
