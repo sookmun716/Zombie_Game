@@ -53,7 +53,7 @@ public class AttackAction extends Action {
 			//check if the target is Zombie
 			if(target.hasCapability(ZombieCapability.UNDEAD)) {
 				//25% of dropping limbs
-				if(Math.random()<0.99) {
+				if(Math.random()<0.25) {
 					//if zombie's arm and leg is not 0 , it can drop either arm or leg
 					if(target.getArm()!=0 && target.getLeg()!=0) {
 						//set 50% of dropping arm and leg is Zombie has both
