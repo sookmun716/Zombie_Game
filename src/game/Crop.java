@@ -36,6 +36,8 @@ public class Crop extends Ground{
 		//Change display character if crop is ripe
 		if(ripeTurns>=20){
 			this.displayChar='!';
+			//set fertilised to true because ripe crops should not be fertilised
+			fertilised=true;
 			System.out.println("Crop at "+location.x()+','+location.y()+" is ripe.");
 		}
 	}
@@ -55,8 +57,6 @@ public class Crop extends Ground{
 	@Override
 	public Boolean isRipe() {
 		if (ripeTurns>=20) {
-			//set fertilised to true because ripe crops should not be fertilised
-			fertilised=true;
 			return true;
 		}
 		return false;
