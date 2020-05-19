@@ -25,30 +25,41 @@ public class Player extends Human {
 	public Player(String name, char displayChar, int hitPoints) {
 		super(name, displayChar, hitPoints);
 	}
-	
+
+	/**
+	 * Method to check whether location of player and the adjacent locations have
+	 * crop available for harvest, the available actions are added into actions so
+	 * that player can perform an action to harvest crop. This method is required
+	 * because player have to behaviour
+	 * 
+	 * @param actions Actions that represents the actions a player can take
+	 * @param map GameMap the player is in
+	 * @return
+	 */
 	public Actions availableHarvest(Actions actions, GameMap map) {
-		ArrayList<Action> availableCrops= new ArrayList<Action>();
-		//check location adjacent to player for ripe crops
-		availableCrops=new HarvestBehaviour().checkCrop(this, map, availableCrops);
-		if(availableCrops.size()!=0) {
-			for(Action harvest : availableCrops) {
+		ArrayList<Action> availableCrops = new ArrayList<Action>();
+		// check location adjacent to player for ripe crops
+		availableCrops = new HarvestBehaviour().checkCrop(this, map, availableCrops);
+		if (availableCrops.size() != 0) {
+			for (Action harvest : availableCrops) {
 				actions.add(harvest);
 			}
 		}
-		//check player location for ripe crop
-		if(map.locationOf(this).getGround().getDisplayChar()=='!'){
-				actions.add(new HarvestAction(map.locationOf(this))) ;
+		// check player location for ripe crop
+		if (map.locationOf(this).getGround().getDisplayChar() == '!') {
+			actions.add(new HarvestAction(map.locationOf(this)));
 		}
-		
+
 		return actions;
 	}
+
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
-		actions=availableHarvest(actions,map);
+		actions = availableHarvest(actions, map);
 		// Handle multi-turn Actions
 		if (lastAction.getNextAction() != null)
 			return lastAction.getNextAction();
 		return menu.showMenu(this, actions, display);
 	}
-	
+
 }

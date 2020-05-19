@@ -23,4 +23,10 @@ public class PortableItem extends Item {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Boolean isFood() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

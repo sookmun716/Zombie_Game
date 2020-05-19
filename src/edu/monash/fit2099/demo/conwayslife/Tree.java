@@ -21,9 +21,27 @@ public class Tree extends Ground {
 		if (age == 20)
 			displayChar = 'T';
 	}
+	
+	@Override
+	public Boolean canPlant() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
-	public void setDisplayChar(char display) {
+	public Boolean isFertilised() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean isRipe() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void fertilise() {
 		// TODO Auto-generated method stub
 		
 	}

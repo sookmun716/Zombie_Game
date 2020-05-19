@@ -24,4 +24,11 @@ public class ZombieLeg extends WeaponItem{
 		// TODO Auto-generated method stub
 		return actor + " crafts zombie mace";
 	}
+
+
+	@Override
+	public Boolean isFood() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

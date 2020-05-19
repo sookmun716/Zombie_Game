@@ -21,4 +21,10 @@ public class Stick extends WeaponItem {
 		return null;
 	}
 
+	@Override
+	public Boolean isFood() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

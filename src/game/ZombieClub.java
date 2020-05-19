@@ -32,4 +32,10 @@ public class ZombieClub extends WeaponItem {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Boolean isFood() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
