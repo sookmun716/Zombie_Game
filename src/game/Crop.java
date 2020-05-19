@@ -11,6 +11,7 @@ import edu.monash.fit2099.engine.Location;
  */
 public class Crop extends Ground{
 	private int ripeTurns=0;
+	private Boolean fertilised=false;
 	/**
 	 * This is the constructor for the Crop class, the super constructor is
 	 * called to instantiate the object.
@@ -33,25 +34,39 @@ public class Crop extends Ground{
 	public void tick(Location location) {
 		ripeTurns+=1;
 		//Change display character if crop is ripe
-		if(ripeTurns==20){
+		if(ripeTurns>=20){
 			this.displayChar='!';
 			System.out.println("Crop at "+location.x()+','+location.y()+" is ripe.");
 		}
 	}
 	
-	/**
-	 * This is the mutator of displayChar, a guard is set in place to only allow certain
-	 * characters to be set as the display character.
-	 * 
-	 * @param display The display character to be set.
-	 * 
-	 **/
 	@Override
-	public void setDisplayChar(char display) {
-		if(display!='|' || display!='!') {
-			return;
+	public Boolean canPlant() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean isFertilised() {
+		// TODO Auto-generated method stub
+		return fertilised;
+	}
+	
+	@Override
+	public Boolean isRipe() {
+		if (ripeTurns>=20) {
+			//set fertilised to true because ripe crops should not be fertilised
+			fertilised=true;
+			return true;
 		}
-		this.displayChar=display;
+		return false;
+	}
+
+	@Override
+	public void fertilise() {
+		ripeTurns+=10;
+		fertilised=true;
+		this.displayChar='|';
 	}
 	
 }
