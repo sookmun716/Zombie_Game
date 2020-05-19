@@ -36,22 +36,12 @@ public class CraftWeaponAction extends Action {
 	 **/
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		if (weapon instanceof ZombieArm) {
-			actor.addItemToInventory(new ZombieClub());
-			actor.removeItemFromInventory(weapon);
-			return actor + "crafted a zombie club";
-		} else if (weapon instanceof ZombieLeg) {
-			actor.addItemToInventory(new ZombieMace());
-			actor.removeItemFromInventory(weapon);
-			return actor + "crafted a zombie mace";
-		} else {
-			return null;
-		}
+		return weapon.transform(actor);
 	}
 
 	/**
 	 * This method overrides the menuDescription method, and displays the available
-	 * crafting options for the player.
+	 * crafting option for the player.
 	 * 
 	 * @param actor The actor that is holding the weapon
 	 * 
@@ -59,11 +49,6 @@ public class CraftWeaponAction extends Action {
 	 **/
 	@Override
 	public String menuDescription(Actor actor) {
-		if (weapon instanceof ZombieArm) {
-			return actor + " crafts zombie club";
-		} else if (weapon instanceof ZombieLeg) {
-			return actor + " crafts zombie mace";
-		}
-		return null;
+		return weapon.craftDescription(actor);
 	}
 }
