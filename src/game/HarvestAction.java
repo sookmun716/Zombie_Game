@@ -14,12 +14,18 @@ public class HarvestAction extends Action {
 	}
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		// TODO Auto-generated method stub
+		//replace Crop with Dirt
 		map.at(location.x(), location.y()).setGround(new Dirt());
 		if(actor.getDisplayChar()=='F') {
 			map.at(location.x(), location.y()).addItem(new Food());
 		}
-		actor.addItemToInventory(new Food());
+		else if(actor instanceof Player) {
+			actor.addItemToInventory(new Food());
+		}
+		else {
+			return null;
+		}
+		
 		return actor+" harvested a crop at "+location.x()+", "+location.y();
 	}
 
