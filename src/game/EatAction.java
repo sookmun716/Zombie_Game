@@ -14,7 +14,6 @@ public class EatAction extends Action {
 	
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		// TODO Auto-generated method stub
 		actor.heal(25);
 		actor.removeItemFromInventory(food);
 		return actor+" eaten food";
@@ -22,7 +21,6 @@ public class EatAction extends Action {
 
 	@Override
 	public String menuDescription(Actor actor) {
-		// TODO Auto-generated method stub
 		return actor+" eats food";
 	}
 
