@@ -37,4 +37,40 @@ public class Bug extends Actor {
 	protected IntrinsicWeapon getIntrinsicWeapon() {
 		return new IntrinsicWeapon(1, "stings");
 	}
+
+	@Override
+	public int getHp() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getMaxHp() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void dropArm(int Arm) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void dropLeg(int Leg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getArm() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getLeg() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

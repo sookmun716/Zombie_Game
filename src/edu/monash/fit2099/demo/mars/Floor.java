@@ -8,4 +8,10 @@ public class Floor extends Ground {
 	public Floor() {
 		super('.');
 	}
+
+	@Override
+	public void setDisplayChar(char display) {
+		// TODO Auto-generated method stub
+		
+	}
 }

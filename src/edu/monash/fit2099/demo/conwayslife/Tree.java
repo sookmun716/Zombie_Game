@@ -21,4 +21,10 @@ public class Tree extends Ground {
 		if (age == 20)
 			displayChar = 'T';
 	}
+
+	@Override
+	public void setDisplayChar(char display) {
+		// TODO Auto-generated method stub
+		
+	}
 }

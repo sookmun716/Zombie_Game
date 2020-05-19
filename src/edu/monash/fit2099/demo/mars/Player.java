@@ -29,4 +29,40 @@ public class Player extends Actor {
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
 		return menu.showMenu(this, actions, display);
 	}
+
+	@Override
+	public int getHp() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getMaxHp() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void dropArm(int Arm) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void dropLeg(int Leg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getArm() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getLeg() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
