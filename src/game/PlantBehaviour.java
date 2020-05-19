@@ -19,7 +19,7 @@ public class PlantBehaviour implements Behaviour {
 		}
 		
 		ArrayList<Action> actions = new ArrayList<Action>();
-		
+		//check adjacent locations for suitable planting spots.
 		for (Exit exit : map.locationOf(actor).getExits()) {
             Location destination = exit.getDestination();
             if (destination.canActorEnter(actor)&& 
