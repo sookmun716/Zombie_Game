@@ -74,6 +74,17 @@ public class AttackAction extends Action {
 					}
 				}
 			}
+			
+			if (dropArm == Boolean.TRUE) {
+				target.dropArm(1);
+				map.locationOf(target).addItem(new ZombieArm());
+				result += System.lineSeparator() + target + " drops an Arm.";
+			}
+			else if (dropLeg == Boolean.TRUE) {
+				target.dropLeg(1);
+				map.locationOf(target).addItem(new ZombieLeg());
+				result += System.lineSeparator() + target + " drops a Leg.";
+			}
 		}
 		
 		else if (!target.isConscious()) {
@@ -88,17 +99,6 @@ public class AttackAction extends Action {
 			map.removeActor(target);	
 			
 			result += System.lineSeparator() + target + " is killed.";
-		}
-
-		if (dropArm == Boolean.TRUE) {
-			target.dropArm(1);
-			map.locationOf(target).addItem(new ZombieArm());
-			result += System.lineSeparator() + target + " drops an Arm.";
-		}
-		else if (dropLeg == Boolean.TRUE) {
-			target.dropLeg(1);
-			map.locationOf(target).addItem(new ZombieLeg());
-			result += System.lineSeparator() + target + " drops a Leg.";
 		}
 		
 		return result;
