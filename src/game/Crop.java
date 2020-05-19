@@ -22,6 +22,9 @@ public class Crop extends Ground{
 
 	@Override
 	public void setDisplayChar(char display) {
+		if(display!='|' || display!='!') {
+			return;
+		}
 		this.displayChar=display;
 	}
 	
