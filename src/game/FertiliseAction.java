@@ -15,7 +15,7 @@ public class FertiliseAction extends Action {
 		//change display character to represent a fertilised crop
 		map.locationOf(actor).getGround().setDisplayChar('|');
 		return actor+" fertilised crop at "+map.locationOf(actor).x()+
-				map.locationOf(actor).y();
+				", "+map.locationOf(actor).y();
 		
 	}
 
