@@ -11,7 +11,7 @@ public class ZombieArm extends WeaponItem{
 	}
 
 	@Override
-	public String transform(Actor actor) {
+	public String craft(Actor actor) {
 		actor.addItemToInventory(new ZombieClub());
 		actor.removeItemFromInventory(this);
 		return actor + "crafted a zombie club";

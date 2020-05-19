@@ -36,7 +36,7 @@ public class CraftWeaponAction extends Action {
 	 **/
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		return weapon.transform(actor);
+		return weapon.craft(actor);
 	}
 
 	/**

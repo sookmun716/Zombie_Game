@@ -12,7 +12,7 @@ public class ZombieLeg extends WeaponItem{
 
 
 	@Override
-	public String transform(Actor actor) {
+	public String craft(Actor actor) {
 		actor.addItemToInventory(new ZombieMace());
 		actor.removeItemFromInventory(this);
 		return actor + "crafted a zombie mace";
