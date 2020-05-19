@@ -1,5 +1,6 @@
 package game;
 
+import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.WeaponItem;
 
 /**
@@ -15,4 +16,17 @@ public class Plank extends WeaponItem {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String craft(Actor actor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String craftDescription(Actor actor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }

@@ -3,13 +3,32 @@ package game;
 import edu.monash.fit2099.engine.Ground;
 import edu.monash.fit2099.engine.Location;
 
+/**
+ * A subclass of Ground that represents an crop.
+ * 
+ * @author Tan Song Shun
+ *
+ */
 public class Crop extends Ground{
 	private int ripeTurns=0;
-	
+	/**
+	 * This is the constructor for the Crop class, the super constructor is
+	 * called to instantiate the object.
+	 * 
+	 */
 	public Crop() {
 		super('^');
 	}
 	
+	/**
+	 * This method overrides the tick method from Corpse class and is called in every
+	 * turn, in this case it increments the ripeTurns each time the method is called, 
+	 * and the display character will be changed ripeTurns>=20 to represent that a crop
+	 * is ripe
+	 * 
+	 * @param currentLocation Location of the Crop.
+	 * 
+	 **/
 	@Override
 	public void tick(Location location) {
 		ripeTurns+=1;
@@ -19,7 +38,14 @@ public class Crop extends Ground{
 			System.out.println("Crop at "+location.x()+','+location.y()+" is ripe.");
 		}
 	}
-
+	
+	/**
+	 * This is the mutator of displayChar, a guard is set in place to only allow certain
+	 * characters to be set as the display character.
+	 * 
+	 * @param display The display character to be set.
+	 * 
+	 **/
 	@Override
 	public void setDisplayChar(char display) {
 		if(display!='|' || display!='!') {
