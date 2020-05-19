@@ -9,4 +9,5 @@ import edu.monash.fit2099.engine.Actor;
 public interface ItemInterface {
 	public String craft(Actor actor);
 	public String craftDescription(Actor actor);
+	public Boolean isFood();
 }
