@@ -16,9 +16,11 @@ public class HarvestAction extends Action {
 	public String execute(Actor actor, GameMap map) {
 		//replace Crop with Dirt
 		map.at(location.x(), location.y()).setGround(new Dirt());
+		//If actor is farmer harvest and place on ground
 		if(actor.getDisplayChar()=='F') {
 			map.at(location.x(), location.y()).addItem(new Food());
 		}
+		//If actor is player add food to inventory
 		else if(actor instanceof Player) {
 			actor.addItemToInventory(new Food());
 		}
