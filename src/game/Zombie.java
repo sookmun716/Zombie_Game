@@ -73,7 +73,7 @@ public class Zombie extends ZombieActor {
 			return getBite();
 		}
 		else {
-			return new IntrinsicWeapon(1,"punches");
+			return new IntrinsicWeapon(15,"punches");
 		}
 	}
 	/**
@@ -83,7 +83,7 @@ public class Zombie extends ZombieActor {
 	
 	public IntrinsicWeapon getBite() {
 		this.heal(5);
-		return new IntrinsicWeapon(2, "bites");
+		return new IntrinsicWeapon(20, "bites");
 	}
 	
 	/**
