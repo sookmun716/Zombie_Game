@@ -7,6 +7,7 @@ import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.DoNothingAction;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.IntrinsicWeapon;
+import edu.monash.fit2099.engine.MoveActorAction;
 
 /**
  * A Zombie.
@@ -21,7 +22,6 @@ public class Zombie extends ZombieActor {
 	private int numLeg = 2;
 	
 	private Behaviour[] behaviours = {
-			new MoveBehaviour(),
 			new PickUpBehaviour(),
 			new AttackBehaviour(ZombieCapability.ALIVE),
 			new HuntBehaviour(Human.class, 10),
@@ -102,13 +102,24 @@ public class Zombie extends ZombieActor {
 			System.out.println(this.name + " shout BRAAAAAAAINS!");
 		}
 		for (Behaviour behaviour : behaviours) {
+			boolean hunt = HuntBehaviour.class.isInstance(behaviour);
+			boolean wander = WanderBehaviour.class.isInstance(behaviour);
+			
+			if (hunt || wander) {
+				if(this.numLeg==0) {
+					continue;
+				}
+				else if (this.numLeg==1 && MoveActorAction.class.isInstance(lastAction)) {
+					continue;
+				}
+			}
 			Action action = behaviour.getAction(this, map);
 			if (action != null)
 				return action;
+				
 		}
 		return new DoNothingAction();	
 	}
-
 	@Override
 	public int getHp() {
 		return this.hitPoints;
