@@ -5,13 +5,8 @@ import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.PickUpItemAction;
-import edu.monash.fit2099.engine.Weapon;
-
-import java.util.ArrayList;
 
 public class PickUpBehaviour implements Behaviour{
-	
-	ArrayList<Weapon> pickUpWeapon = new ArrayList<Weapon>();
 	
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
