@@ -80,6 +80,15 @@ public class AttackAction extends Action {
 				target.dropArm(1);
 				//add new ZombieArm at target's location
 				map.locationOf(target).addItem(new ZombieArm());
+				//check if zombie has dropped 2 arm
+				if (target.getArm()==0){
+					//if zombie has dropped 2 arms then drop item from it's inventory to the map
+					Actions dropActions = new Actions();
+					for (Item item : target.getInventory())
+						dropActions.add(item.getDropAction());
+					for (Action drop : dropActions)		
+						drop.execute(target, map);
+				}
 				result += System.lineSeparator() + target + " drops an Arm.";
 			}
 			//check if zombie has drop it's leg
@@ -90,7 +99,6 @@ public class AttackAction extends Action {
 				result += System.lineSeparator() + target + " drops a Leg.";
 			}
 		}
-		
 		else if (!target.isConscious()) {
 			Corpse corpse = new Corpse(target);
 			map.locationOf(target).addItem(corpse);
