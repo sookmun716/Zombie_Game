@@ -29,4 +29,8 @@ public class PortableItem extends Item {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public Boolean isWeapon() {
+		return null;
+	}
 }
