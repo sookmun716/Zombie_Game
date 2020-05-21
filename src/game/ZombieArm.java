@@ -4,6 +4,15 @@ import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Location;
 import edu.monash.fit2099.engine.WeaponItem;
 
+/**
+ * A subclass of WeaponItem that represents ZombieArm
+ * Arm will be dropped by zombie and picked up by Zombie or Player.
+ * It has damage of 20 and verb of "hits".
+ * Dropped arm can be crafted into Zombie Club by Player after Player picks up.
+ * @author SookMun
+ *
+ */
+
 public class ZombieArm extends WeaponItem {
 	CraftWeaponAction crafting_action = new CraftWeaponAction(this);
 
