@@ -20,4 +20,6 @@ public interface ItemInterface {
 	 */
 	public String craftDescription(Actor actor);
 	public Boolean isFood();
+	
+	public Boolean isWeapon();
 }
