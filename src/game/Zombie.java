@@ -73,8 +73,13 @@ public class Zombie extends ZombieActor {
 			return getBite();
 		}
 		else {
-			return new IntrinsicWeapon(15,"punches");
-		}
+			if (this.numArm==1){
+				return new IntrinsicWeapon(7,"punches");
+			}
+			else if(this.numArm==2)
+				{return new IntrinsicWeapon(15,"punches");}
+			}	
+		return getBite();
 	}
 	/**
 	 * Zombie can bite human with damage 20 , verb "bites".
@@ -104,12 +109,18 @@ public class Zombie extends ZombieActor {
 		for (Behaviour behaviour : behaviours) {
 			boolean hunt = HuntBehaviour.class.isInstance(behaviour);
 			boolean wander = WanderBehaviour.class.isInstance(behaviour);
+			boolean pickUp = PickUpBehaviour.class.isInstance(behaviours);
 			
 			if (hunt || wander) {
 				if(this.numLeg==0) {
 					continue;
 				}
 				else if (this.numLeg==1 && MoveActorAction.class.isInstance(lastAction)) {
+					continue;
+				}
+			}
+			if (pickUp) {
+				if(this.numArm==0) {
 					continue;
 				}
 			}
