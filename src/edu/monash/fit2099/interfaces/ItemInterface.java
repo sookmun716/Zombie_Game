@@ -13,13 +13,19 @@ public interface ItemInterface {
 	 * @return a String that represents the action that had been carried out
 	 */
 	public String craft(Actor actor);
+	
 	/**
 	 * Method that returns a description of the action that can be carried out
 	 * @param actor actor that is holding the weapon
 	 * @return a String that represents the action that can be carried out
 	 */
 	public String craftDescription(Actor actor);
+	
 	public Boolean isFood();
 	
+	/**
+	 * Method that returns a Boolean to determine if the Item is a weapon.
+	 * @return Boolean to determine if the Item is weapon
+	 */
 	public Boolean isWeapon();
 }
