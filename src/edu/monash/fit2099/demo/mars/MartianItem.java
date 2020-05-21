@@ -31,4 +31,7 @@ public class MartianItem extends Item{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public Boolean isWeapon() {
+		return null;
+	}
 }
