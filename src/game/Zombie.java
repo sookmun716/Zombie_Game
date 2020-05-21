@@ -73,12 +73,14 @@ public class Zombie extends ZombieActor {
 			return getBite();
 		}
 		else {
+			//if zombie left one arm, the damage is halved.
 			if (this.numArm==1){
 				return new IntrinsicWeapon(7,"punches");
 			}
 			else if(this.numArm==2)
 				{return new IntrinsicWeapon(15,"punches");}
 			}	
+		//if zombie has dropped both arm then it will only perform getBite().
 		return getBite();
 	}
 	/**
@@ -103,6 +105,7 @@ public class Zombie extends ZombieActor {
 	 */
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
+		//by 10%,zombie can shout "BRAAAAAAAINS!"
 		if (Math.random()<0.1) {
 			System.out.println(this.name + " shout BRAAAAAAAINS!");
 		}
