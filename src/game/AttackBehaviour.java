@@ -44,10 +44,15 @@ public class AttackBehaviour implements Behaviour {
 		Collections.shuffle(exits);
 		
 		for (Exit e: exits) {
+			try {
 			if (!(e.getDestination().containsAnActor()))
 				continue;
 			if (e.getDestination().getActor().hasCapability(attackableTeam)) {
 				return new AttackAction(e.getDestination().getActor());
+			}
+		}
+			catch(NullPointerException E){
+				continue;
 			}
 		}
 		return null;
