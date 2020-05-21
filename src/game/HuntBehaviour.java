@@ -43,12 +43,16 @@ public class HuntBehaviour implements Behaviour {
 		layer.add(now);
 
 		for (int i = 0; i<maxRange; i++) {
+			try {
 			layer = getNextLayer(actor, layer);
 			Location there = search(layer);
 			if (there != null)
 				return there.getMoveAction(actor, "towards a " + targetName, null);
 		}
-
+			catch(NullPointerException e){
+				continue;
+			}
+		}
 		return null;
 	}
 
