@@ -10,14 +10,17 @@ public class PickUpBehaviour implements Behaviour{
 	
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
+		try {
 		if(actor.hasCapability(ZombieCapability.UNDEAD)) {
 			for(Item item : map.locationOf(actor).getItems()) {
-				if(item.getDisplayChar()==')'||item.getDisplayChar()=='A'||item.getDisplayChar()=='L'
-											||item.getDisplayChar()=='M'||item.getDisplayChar()=='C') {
+				if(item.isWeapon()) {
 					return new PickUpItemAction(item);
 				}
 			}
 		}
+		}
+		catch(NullPointerException e) {
+			}
 		return null;
 	}	
 }
