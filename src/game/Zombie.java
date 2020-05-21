@@ -109,7 +109,7 @@ public class Zombie extends ZombieActor {
 		for (Behaviour behaviour : behaviours) {
 			boolean hunt = HuntBehaviour.class.isInstance(behaviour);
 			boolean wander = WanderBehaviour.class.isInstance(behaviour);
-			boolean pickUp = PickUpBehaviour.class.isInstance(behaviours);
+			boolean pickUp = PickUpBehaviour.class.isInstance(behaviour);
 			
 			if (hunt || wander) {
 				if(this.numLeg==0) {
