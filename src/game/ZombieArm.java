@@ -42,4 +42,8 @@ public class ZombieArm extends WeaponItem {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public Boolean isWeapon() {
+		return Boolean.TRUE;
+	}
 }
