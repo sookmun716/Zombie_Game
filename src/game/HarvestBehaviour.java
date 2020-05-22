@@ -25,14 +25,14 @@ public class HarvestBehaviour implements Behaviour {
 	public Action getAction(Actor actor, GameMap map) {
 		// Harvest crop when standing on a ripe crop
 		try {
-		if (map.locationOf(actor).getGround().isRipe()) {
-			return new HarvestAction(map.locationOf(actor));
+			if (map.locationOf(actor).getGround().isRipe()) {
+				return new HarvestAction(map.locationOf(actor));
+			}
 		}
-		}
-		//ignore exception and continue because it just indicates the ground is not a 
-		//crop
-		catch(NullPointerException e) {
-			
+		// ignore exception and continue because it just indicates the ground is not a
+		// crop
+		catch (NullPointerException e) {
+
 		}
 
 		ArrayList<Action> actions = new ArrayList<Action>();
@@ -64,11 +64,10 @@ public class HarvestBehaviour implements Behaviour {
 		for (Exit exit : map.locationOf(actor).getExits()) {
 			Location destination = exit.getDestination();
 			try {
-			if (destination.getGround().isRipe()) {
-				actions.add(new HarvestAction(destination));
-			}
-			}
-			catch(NullPointerException e) {
+				if (destination.getGround().isRipe()) {
+					actions.add(new HarvestAction(destination));
+				}
+			} catch (NullPointerException e) {
 				continue;
 			}
 		}
