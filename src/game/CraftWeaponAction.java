@@ -36,7 +36,13 @@ public class CraftWeaponAction extends Action {
 	 **/
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		return weapon.craft(actor);
+		try {
+			return weapon.craft(actor);
+		}
+		catch(NullPointerException e) {
+			
+		}
+		return null;
 	}
 
 	/**
