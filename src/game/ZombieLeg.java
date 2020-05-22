@@ -15,6 +15,10 @@ import edu.monash.fit2099.engine.WeaponItem;
 
 public class ZombieLeg extends WeaponItem{
 	CraftWeaponAction crafting_action= new CraftWeaponAction(this);
+	/**
+	 * This is the constructor for the ZombieLeg class, the super constructor is
+	 * called to instantiate the object.
+	 */
 	public ZombieLeg() {
 		super("zombie leg",'L',25,"hits");
 		this.allowableActions.add(new CraftWeaponAction(this));
