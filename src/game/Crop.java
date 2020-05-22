@@ -25,10 +25,10 @@ public class Crop extends Ground{
 	/**
 	 * This method overrides the tick method from Corpse class and is called in every
 	 * turn, in this case it increments the ripeTurns each time the method is called, 
-	 * and the display character will be changed ripeTurns>=20 to represent that a crop
+	 * and the display character will be changed if ripeTurns more than or equals 20 to represent that a crop
 	 * is ripe
 	 * 
-	 * @param currentLocation Location of the Crop.
+	 * @param location Location of the Crop.
 	 * 
 	 **/
 	@Override

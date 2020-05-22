@@ -76,7 +76,7 @@ public class Corpse extends PortableItem {
 	 * new Zombie will be created at a random adjacent location to the actor if the
 	 * conditions are met.
 	 * 
-	 * @actor Actor that is carrying the Corpse
+	 * @param actor Actor that is carrying the Corpse
 	 * @param currentLocation Location of the actor
 	 * 
 	 **/

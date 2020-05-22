@@ -34,7 +34,7 @@ public class Player extends Human {
 	 * 
 	 * @param actions Actions that represents the actions a player can take
 	 * @param map GameMap the player is in
-	 * @return
+	 * @return The original Actions with the new added Action classes
 	 */
 	public Actions availableHarvest(Actions actions, GameMap map) {
 		ArrayList<Action> availableCrops = new ArrayList<Action>();

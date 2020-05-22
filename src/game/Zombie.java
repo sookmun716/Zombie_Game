@@ -86,6 +86,8 @@ public class Zombie extends ZombieActor {
 	/**
 	 * Zombie can bite human with damage 20 , verb "bites".
 	 * After Zombie bites, it heals 5 health point. 
+	 * 
+	 * @return a new InstricticWeapon represent the mouth of a zombie which is used to bite.
 	 */
 	
 	public IntrinsicWeapon getBite() {
