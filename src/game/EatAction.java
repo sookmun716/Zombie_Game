@@ -36,9 +36,17 @@ public class EatAction extends Action {
 	 **/
 	@Override
 	public String execute(Actor actor, GameMap map) {
+		int heal_amount;
+		//assign heal amount to show how much hp has been healed
+		if(actor.getMaxHp()-actor.getHp()>25) {
+			heal_amount=25;
+		}
+		else {
+			heal_amount=actor.getMaxHp()-actor.getHp();
+		}
 		actor.heal(25);
 		actor.removeItemFromInventory(food);
-		return actor + " eaten food";
+		return actor + " eaten food and healed for "+heal_amount+" hit points. ";
 	}
 
 	@Override
