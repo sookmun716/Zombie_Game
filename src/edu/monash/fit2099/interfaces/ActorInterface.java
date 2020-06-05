@@ -20,4 +20,8 @@ public interface ActorInterface {
 	public void dropLeg(int Leg);
 	public int getArm();
 	public int getLeg();
+	public void add_sniper_ammo(int count);
+	public int get_sniper_ammo();
+	public void add_shotgun_ammo(int count);
+	public int get_shotgun_ammo();
 }
