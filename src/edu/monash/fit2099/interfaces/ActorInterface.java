@@ -24,4 +24,5 @@ public interface ActorInterface {
 	public int get_sniper_ammo();
 	public void add_shotgun_ammo(int count);
 	public int get_shotgun_ammo();
+	public int get_turn_count();
 }
