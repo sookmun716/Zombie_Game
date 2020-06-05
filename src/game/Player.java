@@ -14,6 +14,8 @@ import edu.monash.fit2099.engine.Menu;
 public class Player extends Human {
 
 	private Menu menu = new Menu();
+	private int shotgun_ammo=0;
+	private int sniper_ammo=0;
 
 	/**
 	 * Constructor.
@@ -55,11 +57,34 @@ public class Player extends Human {
 
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
+		System.out.println(this.name+" shotgun ammunition count: "+shotgun_ammo);
+		System.out.println(this.name+" sniper rifle ammunition count: "+sniper_ammo);
 		actions = availableHarvest(actions, map);
 		// Handle multi-turn Actions
 		if (lastAction.getNextAction() != null)
 			return lastAction.getNextAction();
 		return menu.showMenu(this, actions, display);
 	}
+	
+	@Override
+	public int get_shotgun_ammo() {
+		return shotgun_ammo;
+	}
+	
+	@Override
+	public int get_sniper_ammo() {
+		return sniper_ammo;
+	}
+	
+	@Override
+	public void add_shotgun_ammo(int count) {
+		shotgun_ammo+=count;
+	}
+	
+	@Override
+	public void add_sniper_ammo(int count) {
+		sniper_ammo+=count;
+	}
+
 
 }
