@@ -97,4 +97,29 @@ public class Player extends Actor {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public void add_sniper_ammo(int count) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int get_sniper_ammo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public int get_shotgun_ammo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void add_shotgun_ammo(int count) {
+		// TODO Auto-generated method stub
+		
+	}
 }
