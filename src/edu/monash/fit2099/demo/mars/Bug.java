@@ -98,4 +98,10 @@ public class Bug extends Actor {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public int get_turn_count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

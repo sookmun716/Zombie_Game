@@ -112,4 +112,10 @@ public class Human extends ZombieActor {
 		return 0;
 	}
 
+	@Override
+	public int get_turn_count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
