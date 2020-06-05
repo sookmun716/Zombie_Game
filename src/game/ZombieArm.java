@@ -22,7 +22,7 @@ public class ZombieArm extends WeaponItem {
 	 * called to instantiate the object.
 	 */
 	public ZombieArm() {
-		super("zombie arm", 'A', 20, "hits");
+		super("zombie arm", 'A', 200, "hits");
 	}
 
 	@Override
@@ -35,6 +35,7 @@ public class ZombieArm extends WeaponItem {
 
 	@Override
 	public void tick(Location currentLocation, Actor actor) {
+		this.allowableActions.remove(crafting_action);
 		this.allowableActions.add(crafting_action);
 	}
 

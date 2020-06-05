@@ -33,6 +33,7 @@ public class ZombieLeg extends WeaponItem{
 	
 	@Override
 	public void tick(Location currentLocation, Actor actor) {
+		this.allowableActions.remove(crafting_action);
 		this.allowableActions.add(crafting_action);
 	}
 	@Override
