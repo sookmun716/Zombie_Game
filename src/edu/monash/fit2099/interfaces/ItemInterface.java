@@ -1,7 +1,7 @@
 package edu.monash.fit2099.interfaces;
 
 import edu.monash.fit2099.engine.Actor;
-
+import edu.monash.fit2099.engine.GameMap;
 /**
  * This interface provides the ability to add methods to Item, without modifying code in the engine,
  * or downcasting references in the game.   
@@ -28,4 +28,11 @@ public interface ItemInterface {
 	 * @return Boolean to determine if the Item is weapon
 	 */
 	public Boolean isWeapon();
+	public void changeMap(GameMap map);
+	public void setTarget(Actor actor);
+	public Actor getTarget();
+	public void set_aim_turns(int count);
+	public int get_aim_turns();
+	public void reset() ;
+	public int getRangedDamage();
 }
