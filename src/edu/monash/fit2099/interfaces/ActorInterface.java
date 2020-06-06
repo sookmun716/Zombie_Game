@@ -1,5 +1,7 @@
 package edu.monash.fit2099.interfaces;
 
+import edu.monash.fit2099.engine.Action;
+
 /**
  * This interface provides the ability to add methods to Actor, without modifying code in the engine,
  * or downcasting references in the game.   
@@ -25,4 +27,8 @@ public interface ActorInterface {
 	public void add_shotgun_ammo(int count);
 	public int get_shotgun_ammo();
 	public int get_turn_count();
+	public Action get_lastAction();
+	public void set_previous_health();
+	public Boolean damaged();
+	
 }
