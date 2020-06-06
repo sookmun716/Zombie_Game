@@ -28,4 +28,10 @@ public class KickAction extends Action {
 	public String menuDescription(Actor actor) {
 		return actor + " kicks " + target;
 	}
+
+	@Override
+	public Boolean isSniperAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

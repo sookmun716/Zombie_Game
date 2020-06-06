@@ -121,4 +121,10 @@ public class AttackAction extends Action {
 	public String menuDescription(Actor actor) {
 		return actor + " attacks " + target;
 	}
+
+	@Override
+	public Boolean isSniperAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

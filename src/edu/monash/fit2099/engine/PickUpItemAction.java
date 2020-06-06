@@ -42,4 +42,10 @@ public class PickUpItemAction extends Action {
 	public String menuDescription(Actor actor) {
 		return actor + " picks up the " + item;
 	}
+
+	@Override
+	public Boolean isSniperAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

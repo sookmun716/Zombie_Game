@@ -42,4 +42,10 @@ public class SpitBehaviour extends Action implements Behaviour{
 	public String menuDescription(Actor actor) {
 		return "";
 	}
+
+	@Override
+	public Boolean isSniperAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

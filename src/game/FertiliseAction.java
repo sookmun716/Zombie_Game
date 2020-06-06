@@ -36,5 +36,11 @@ public class FertiliseAction extends Action {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Boolean isSniperAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

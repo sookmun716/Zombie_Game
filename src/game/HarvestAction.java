@@ -60,4 +60,10 @@ public class HarvestAction extends Action {
 		return actor + " harvests crop at " + location.x() + ", " + location.y();
 	}
 
+	@Override
+	public Boolean isSniperAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

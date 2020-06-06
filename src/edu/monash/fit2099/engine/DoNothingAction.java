@@ -24,4 +24,10 @@ public class DoNothingAction extends Action {
 	public String hotkey() {
 		return "5";
 	}
+
+	@Override
+	public Boolean isSniperAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

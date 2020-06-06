@@ -54,4 +54,10 @@ public class EatAction extends Action {
 		return actor + " eats food";
 	}
 
+	@Override
+	public Boolean isSniperAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -57,4 +57,10 @@ public class CraftWeaponAction extends Action {
 	public String menuDescription(Actor actor) {
 		return weapon.craftDescription(actor);
 	}
+
+	@Override
+	public Boolean isSniperAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

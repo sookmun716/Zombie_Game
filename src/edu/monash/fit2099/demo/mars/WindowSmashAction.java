@@ -34,4 +34,10 @@ public class WindowSmashAction extends Action {
 	public String menuDescription(Actor actor) {
 		return actor + " smashes the window to the " + direction;
 	}
+
+	@Override
+	public Boolean isSniperAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

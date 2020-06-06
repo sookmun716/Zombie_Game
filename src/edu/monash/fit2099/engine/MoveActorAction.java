@@ -78,4 +78,10 @@ public class MoveActorAction extends Action {
 	public String hotkey() {
 		return hotKey;
 	}
+
+	@Override
+	public Boolean isSniperAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

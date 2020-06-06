@@ -40,4 +40,10 @@ public class DropItemAction extends Action {
 	public String menuDescription(Actor actor) {
 		return actor + " drops the " + item;
 	}
+
+	@Override
+	public Boolean isSniperAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
