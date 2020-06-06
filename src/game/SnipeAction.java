@@ -70,7 +70,7 @@ public class SnipeAction extends Action{
 	@Override
 	public Boolean isSniperAction() {
 		// TODO Auto-generated method stub
-		return true;
+		return null;
 	}
 
 }

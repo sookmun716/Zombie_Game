@@ -36,7 +36,7 @@ public class AimAction extends Action{
 	}
 	@Override
 	public Boolean isSniperAction() {
-		return true;
+		return null;
 	}
 
 }
