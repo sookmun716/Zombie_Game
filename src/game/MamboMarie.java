@@ -21,7 +21,7 @@ public class MamboMarie extends ZombieActor{
 	@Override
 	public int getHp() {
 		// TODO Auto-generated method stub
-		return 0;
+		return super.hitPoints;
 	}
 
 	@Override
@@ -97,6 +97,24 @@ public class MamboMarie extends ZombieActor{
 	
 	public void set_turn_count() {
 		turn_count=0;
+	}
+
+	@Override
+	public Action get_lastAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void set_previous_health() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Boolean damaged() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

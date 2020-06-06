@@ -95,4 +95,23 @@ public class Player extends Actor {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public Action get_lastAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void set_previous_health() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Boolean damaged() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }
