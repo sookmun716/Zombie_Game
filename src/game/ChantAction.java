@@ -34,4 +34,10 @@ public class ChantAction extends Action{
 		return null;
 	}
 
+	@Override
+	public Boolean isSniperAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
