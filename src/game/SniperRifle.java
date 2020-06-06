@@ -20,7 +20,7 @@ public class SniperRifle extends WeaponItem {
 	@Override
 	public void tick(Location currentLocation, Actor actor) {
 		try {
-			if(actor.damaged()) {
+			if(aim_turns>=1&&actor.damaged()) {
 				reset();
 				System.out.println(actor+" concentration was broken due to receiving damage!");
 			}
