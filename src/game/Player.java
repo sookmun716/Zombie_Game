@@ -16,7 +16,8 @@ public class Player extends Human {
 	private Menu menu = new Menu();
 	private int shotgun_ammo=0;
 	private int sniper_ammo=0;
-
+	private Action lastAction;
+	private int previous_health;
 	/**
 	 * Constructor.
 	 *
@@ -63,7 +64,10 @@ public class Player extends Human {
 		// Handle multi-turn Actions
 		if (lastAction.getNextAction() != null)
 			return lastAction.getNextAction();
-		return menu.showMenu(this, actions, display);
+		set_previous_health();
+		Action action_this_round=menu.showMenu(this, actions, display);
+		this.lastAction=action_this_round;
+		return action_this_round;
 	}
 	
 	@Override
@@ -85,6 +89,21 @@ public class Player extends Human {
 	public void add_sniper_ammo(int count) {
 		sniper_ammo+=count;
 	}
+	
+	@Override 
+	public Action get_lastAction() {
+		return lastAction;
+	}
+	
+	@Override
+	public void set_previous_health() {
+		previous_health=this.hitPoints;
+	}
 
+	@Override
+	public Boolean damaged() {
+		if (this.hitPoints!=previous_health) return true;
+		return false;
+	}
 
 }
