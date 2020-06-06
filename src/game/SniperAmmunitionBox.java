@@ -7,7 +7,6 @@ public class SniperAmmunitionBox extends PortableItem{
 
 	public SniperAmmunitionBox() {
 		super("Sniper Ammunition Box", 'B');
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
