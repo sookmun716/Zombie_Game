@@ -38,18 +38,7 @@ public class SniperRifle extends WeaponItem {
 		}
 		
 		super.allowableActions.clear();
-		for (int y : map.getYRange()) {
-			for (int x : map.getXRange()) {
-				if(map.at(x, y).containsAnActor()) {
-					Actor snipe_target=map.at(x, y).getActor();
-					if(snipe_target.hasCapability(ZombieCapability.UNDEAD)) {
-						super.allowableActions.add(new AimAction(snipe_target,this));
-						super.allowableActions.add(new SnipeAction(snipe_target, this));
-					}
-					
-				}
-			}
-		}
+		super.allowableActions.add(new TargetMenuAction(this));
 	}
 	
 	@Override
