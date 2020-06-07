@@ -81,13 +81,13 @@ public class Player extends Human {
 	}
 	
 	@Override
-	public void add_shotgun_ammo(int count) {
-		shotgun_ammo+=count;
+	public void set_shotgun_ammo(int count) {
+		shotgun_ammo=count;
 	}
 	
 	@Override
-	public void add_sniper_ammo(int count) {
-		sniper_ammo+=count;
+	public void set_sniper_ammo(int count) {
+		sniper_ammo=count;
 	}
 	
 	@Override 
