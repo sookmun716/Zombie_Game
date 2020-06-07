@@ -28,12 +28,16 @@ public class BlastMenuAction extends Action {
 
 	@Override
 	public String execute(Actor actor, GameMap map) {
+		if(actor.get_shotgun_ammo()==0) {
+			return actor+" has no "+shotgun+" ammunition left, "+shotgun+" cannot be fired.";
+		}
 		Location actor_location=map.locationOf(actor);
 		for (Exit exit : actor_location.getExits()) {
 			actions.add(new BlastAction(shotgun, exit));
 		}
 		Action action=menu.showMenu(actor, actions, display);
-		return action.execute(actor,map);
+		String blast=actor+" fires the "+ shotgun+"!";
+		return blast+action.execute(actor,map);
 	}
 
 	@Override
