@@ -20,6 +20,7 @@ public class SnipeAction extends Action{
 	}
 	@Override
 	public String execute(Actor actor, GameMap map) {
+		sniper.use_ammo(actor);
 		String result=null;
 		if(actor.get_sniper_ammo()==0) {
 			return actor+" has no sufficient sniper ammunition, sniper cannot be fired";
@@ -29,7 +30,9 @@ public class SnipeAction extends Action{
 			if(random.nextInt(101)>=25) {
 				target.hurt(sniper.getRangedDamage());
 				result=actor+" "+" snipes "+target+ " for "+sniper.getRangedDamage()+" damage";
-				
+			}
+			else {
+				result=actor+" misses "+target+"!";
 			}
 			
 		}
@@ -39,6 +42,9 @@ public class SnipeAction extends Action{
 				target.hurt(double_damage);
 				result=actor+" snipes "+ target+" for "+(double_damage)+" damage";
 			}
+			else {
+				result=actor+" misses "+target+"!";
+			}
 		}
 		else if(sniper.get_aim_turns()>=2) {
 			int max_damage=target.getHp();
@@ -46,19 +52,7 @@ public class SnipeAction extends Action{
 			result=actor+" snipes "+target+ " for "+max_damage+" damage";
 		}
 		
-		if (!target.isConscious()) {
-			Corpse corpse = new Corpse(target);
-			map.locationOf(target).addItem(corpse);
-			
-			Actions dropActions = new Actions();
-			for (Item item : target.getInventory())
-				dropActions.add(item.getDropAction());
-			for (Action drop : dropActions)		
-				drop.execute(target, map);
-			map.removeActor(target);	
-			
-			result += System.lineSeparator() + target + " is killed.";
-		}
+		result+=target.isDead(map);
 		return result;
 	}
 
