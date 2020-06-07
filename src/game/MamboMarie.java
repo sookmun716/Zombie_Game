@@ -5,6 +5,7 @@ import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.DoNothingAction;
 import edu.monash.fit2099.engine.GameMap;
+import edu.monash.fit2099.engine.Item;
 
 public class MamboMarie extends ZombieActor{
 	private Behaviour[] behaviours={
@@ -55,7 +56,7 @@ public class MamboMarie extends ZombieActor{
 	}
 
 	@Override
-	public void add_sniper_ammo(int count) {
+	public void set_sniper_ammo(int count) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -67,7 +68,7 @@ public class MamboMarie extends ZombieActor{
 	}
 
 	@Override
-	public void add_shotgun_ammo(int count) {
+	public void set_shotgun_ammo(int count) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -115,6 +116,25 @@ public class MamboMarie extends ZombieActor{
 	public Boolean damaged() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String isDead(GameMap map) {
+		 if (!this.isConscious()) {
+				Corpse corpse = new Corpse(this);
+				map.locationOf(this).addItem(corpse);
+				
+				Actions dropActions = new Actions();
+				for (Item item : this.getInventory())
+					dropActions.add(item.getDropAction());
+				for (Action drop : dropActions)		
+					drop.execute(this, map);
+				map.removeActor(this);	
+				
+				return System.lineSeparator() + this + " is killed.";
+		}
+		 return "";
+			
 	}
 
 }

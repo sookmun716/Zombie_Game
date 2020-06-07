@@ -2,11 +2,11 @@ package game;
 
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actions;
-import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.DoNothingAction;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.IntrinsicWeapon;
+import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.MoveActorAction;
 
 /**
@@ -22,10 +22,10 @@ public class Zombie extends ZombieActor {
 	private int numLeg = 2;
 	
 	private Behaviour[] behaviours = {
-			new PickUpBehaviour(),
-			new AttackBehaviour(ZombieCapability.ALIVE),
-			new HuntBehaviour(Human.class, 10),
-			new WanderBehaviour()
+			//new PickUpBehaviour(),
+			//new AttackBehaviour(ZombieCapability.ALIVE),
+			//new HuntBehaviour(Human.class, 10),
+			//new WanderBehaviour()
 	};
 
 	public Zombie(String name) {
@@ -147,7 +147,7 @@ public class Zombie extends ZombieActor {
 	}
 
 	@Override
-	public void add_sniper_ammo(int count) {
+	public void set_sniper_ammo(int count) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -159,7 +159,7 @@ public class Zombie extends ZombieActor {
 	}
 
 	@Override
-	public void add_shotgun_ammo(int count) {
+	public void set_shotgun_ammo(int count) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -192,5 +192,24 @@ public class Zombie extends ZombieActor {
 	public Boolean damaged() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String isDead(GameMap map) {
+		 if (!this.isConscious()) {
+				Corpse corpse = new Corpse(this);
+				map.locationOf(this).addItem(corpse);
+				
+				Actions dropActions = new Actions();
+				for (Item item : this.getInventory())
+					dropActions.add(item.getDropAction());
+				for (Action drop : dropActions)		
+					drop.execute(this, map);
+				map.removeActor(this);	
+				
+				return System.lineSeparator() + this + " is killed.";
+		}
+		 return "";
+			
 	}
 }
