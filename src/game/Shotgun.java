@@ -9,7 +9,7 @@ public class Shotgun extends WeaponItem{
 	private int ranged_damage=45;
 	
 	public Shotgun() {
-		super("Shotgun", 's', 18, "bash");
+		super("shotgun", 's', 18, "bash");
 	}
 	
 	@Override
@@ -89,6 +89,12 @@ public class Shotgun extends WeaponItem{
 	public void reset() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void use_ammo(Actor actor) {
+		int count=actor.get_shotgun_ammo()-1;
+		actor.set_shotgun_ammo(count);
 	}
 
 	

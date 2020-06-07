@@ -12,7 +12,7 @@ public class SniperRifle extends WeaponItem {
 	private int ranged_damage=40;
 	
 	public SniperRifle(GameMap map) {
-		super("Sniper Rifle", 'S', 15, "clubs");
+		super("sniper rifle", 'S', 15, "clubs");
 		this.map=map;
 		// TODO Auto-generated constructor stub
 	}
@@ -61,13 +61,11 @@ public class SniperRifle extends WeaponItem {
 
 	@Override
 	public Boolean isFood() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Boolean isWeapon() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
@@ -84,7 +82,6 @@ public class SniperRifle extends WeaponItem {
 	
 	@Override
 	public Actor getTarget() {
-		// TODO Auto-generated method stub
 		return target;
 	}
 	
@@ -106,8 +103,12 @@ public class SniperRifle extends WeaponItem {
 
 	@Override
 	public int getRangedDamage() {
-		// TODO Auto-generated method stub
 		return ranged_damage;
 	}
 
+	@Override
+	public void use_ammo(Actor actor) {
+		int count=actor.get_sniper_ammo()-1;
+		actor.set_sniper_ammo(count);
+	}
 }
