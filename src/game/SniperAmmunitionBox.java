@@ -11,7 +11,8 @@ public class SniperAmmunitionBox extends PortableItem{
 	
 	@Override
 	public void tick(Location currentLocation, Actor actor) {
-		actor.add_sniper_ammo(5);
+		int count=actor.get_sniper_ammo()+5;
+		actor.set_sniper_ammo(count);
 		actor.removeItemFromInventory(this);
 	}
 

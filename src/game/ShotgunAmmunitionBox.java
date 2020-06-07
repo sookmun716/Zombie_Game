@@ -10,7 +10,8 @@ public class ShotgunAmmunitionBox extends PortableItem{
 	
 	@Override
 	public void tick(Location currentLocation, Actor actor) {
-		actor.add_shotgun_ammo(5);
+		int count=actor.get_shotgun_ammo()+5;
+		actor.set_shotgun_ammo(count);
 		actor.removeItemFromInventory(this);
 	}
 
