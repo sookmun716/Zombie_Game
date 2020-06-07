@@ -116,6 +116,30 @@ public class Application {
 		train.addAction(new MoveActorAction(townMap.at(45, 10),"to the town!"));
 		gameMap.at(45, 10).addItem(train);
 		
+		//place zombie in townmap
+		townMap.at(20, 20).addActor(new Zombie("Ching"));
+		townMap.at(36,  18).addActor(new Zombie("Chong"));
+		townMap.at(13,  4).addActor(new Zombie("Ling"));
+		townMap.at(47, 18).addActor(new Zombie("Long"));
+		townMap.at(25, 11).addActor(new Zombie("Ding"));
+		townMap.at(62, 12).addActor(new Zombie("Dong"));	
+		
+		// Place human in townmap
+		townMap.at(17, 3).addActor(new Human("Gusion"));
+		townMap.at(41, 7).addActor(new Human("Eudora"));
+		townMap.at(60, 6).addActor(new Human("Alucard"));
+		townMap.at(25, 9).addActor(new Human("Guin"));
+		townMap.at(43, 12).addActor(new Human("Lesley"));
+		townMap.at(65, 18).addActor(new Human("Miya"));	
+		townMap.at(40, 21).addActor(new Human("Popoh"));
+		townMap.at(10, 15).addActor(new Human("Harley"));
+		townMap.at(14, 9).addActor(new Human("Gord"));
+		
+		//Place weapons
+		townMap.at(38, 4).addItem(new SniperRifle(townMap) );
+		townMap.at(28,15).addItem(new SniperAmmunitionBox());
+		townMap.at(38, 21).addItem(new Shotgun());
+		townMap.at(49, 15).addItem(new ShotgunAmmunitionBox());
 		
 		//test code for crafting weapons
 		//gameMap.at(42,15).addItem(new ZombieArm());
