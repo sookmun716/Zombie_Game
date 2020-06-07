@@ -35,4 +35,5 @@ public interface ItemInterface {
 	public int get_aim_turns();
 	public void reset() ;
 	public int getRangedDamage();
+	public void use_ammo(Actor actor);
 }
