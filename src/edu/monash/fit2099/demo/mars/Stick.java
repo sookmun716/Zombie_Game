@@ -73,4 +73,10 @@ public class Stick extends WeaponItem {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public void use_ammo(Actor actor) {
+		// TODO Auto-generated method stub
+		
+	}
 }

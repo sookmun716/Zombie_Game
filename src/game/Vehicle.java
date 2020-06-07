@@ -82,4 +82,10 @@ public class Vehicle extends Item {
 		return 0;
 	}
 
+	@Override
+	public void use_ammo(Actor actor) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
