@@ -75,7 +75,7 @@ public class Bug extends Actor {
 	}
 
 	@Override
-	public void add_sniper_ammo(int count) {
+	public void set_sniper_ammo(int count) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -94,7 +94,7 @@ public class Bug extends Actor {
 	}
 
 	@Override
-	public void add_shotgun_ammo(int count) {
+	public void set_shotgun_ammo(int count) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -119,6 +119,12 @@ public class Bug extends Actor {
 
 	@Override
 	public Boolean damaged() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String isDead(GameMap map) {
 		// TODO Auto-generated method stub
 		return null;
 	}
