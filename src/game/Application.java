@@ -7,6 +7,7 @@ import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.FancyGroundFactory;
 import edu.monash.fit2099.engine.GameMap;
+import edu.monash.fit2099.engine.MoveActorAction;
 import edu.monash.fit2099.engine.World;
 
 /**
@@ -76,36 +77,76 @@ public class Application {
 		gameMap.at(1, 10).addActor(new Zombie("Gaaaah"));
 		gameMap.at(62, 12).addActor(new Zombie("Aaargh"));	
 		
+		
+		FancyGroundFactory townFactory = new FancyGroundFactory(new Dirt(),new Fence());
+		
+		List<String> map2 = Arrays.asList(
+		"................................................................................",
+		"................................................................................",
+		"................................................................................",
+		"................................................................................",
+		"................................................................................",
+		"................................................................................",
+		"...........................#......................#.............................",
+		"..........................#........................#............................",
+		".........................#..........................#...........................",
+		"........................#............................#..........................",
+		".......................#..............................#.........................",
+		"......................#................................#........................",
+		".....................#..................................#.......................",
+		"....................#....................................#......................",
+		"...................#......................................#.....................",
+		"...................#########......................#########.....................",
+		"...........................#......................#.............................",
+		"...........................#......................#.............................",
+		"...........................#......................#.............................",
+		"...........................#......................#.............................",
+		"...........................#......................#.............................",
+		"...........................######............######.............................",
+		"................................................................................",
+		"................................................................................",
+		"................................................................................",
+		"................................................................................");
+		
+		GameMap townMap = new GameMap(townFactory, map2);
+		world.addGameMap(townMap);
+		
+		//place a vehicle
+		Vehicle train = new Vehicle("train",'T',false);
+		train.addAction(new MoveActorAction(townMap.at(45, 10),"to the town!"));
+		gameMap.at(45, 10).addItem(train);
+		
+		
 		//test code for crafting weapons
-		gameMap.at(42,15).addItem(new ZombieArm());
-		gameMap.at(42,15).addItem(new ZombieLeg());
+		//gameMap.at(42,15).addItem(new ZombieArm());
+		//gameMap.at(42,15).addItem(new ZombieLeg());
 		
 		//test code for rising from the dead
-		gameMap.at(65, 12).addActor(new Zombie("Brain"));
-		gameMap.at(64, 12).addActor(new Human("Fool"));
+		//gameMap.at(65, 12).addActor(new Zombie("Brain"));
+		//gameMap.at(64, 12).addActor(new Human("Fool"));
 		
 		//test code for planting crops
-		gameMap.at(44, 15).addActor(new Farmer("George"));
+		//gameMap.at(44, 15).addActor(new Farmer("George"));
 		
 		//test code for fertilising crop
-	    gameMap.at(44, 15).setGround(new Crop());;
+	    //gameMap.at(44, 15).setGround(new Crop());;
 		
 		//test code for harvesting crop
-		Crop crop= new Crop();
-		crop.fertilise();
-		crop.fertilise();
+		//Crop crop= new Crop();
+		//crop.fertilise();
+		//crop.fertilise();
 		//test harvesting farmer harvesting crop
-		gameMap.at(44, 15).setGround(crop);
+		//gameMap.at(44, 15).setGround(crop);
 		//test harvesting for player
-		gameMap.at(42, 15).setGround(crop);
+		//gameMap.at(42, 15).setGround(crop);
 		
 		//test code for eating food
 		//test for npc eating food
-		gameMap.at(44, 15).getActor().hurt(15);
-		gameMap.at(44,  15).addItem(new Food());
+		//gameMap.at(44, 15).getActor().hurt(15);
+		//gameMap.at(44,  15).addItem(new Food());
 		//test for player eating food
-		player.hurt(25);
-		player.addItemToInventory(new Food());
+		//player.hurt(25);
+		//player.addItemToInventory(new Food());
 		
 		//test code 
 		world.run();
