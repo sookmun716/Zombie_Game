@@ -37,7 +37,7 @@ public class BlastAction extends Action {
 		int num_range=0;
 	
 		if(exit.getName()=="North") {
-			while(num_range<3) {
+			while(num_range<shotgun.range()) {
 				for(int i=(x-num_range);i<(x+num_range+1);i++) {
 					try {
 						if(map.at(i,y-num_range).containsAnActor()) {
@@ -54,7 +54,7 @@ public class BlastAction extends Action {
 		}
 		
 		else if(exit.getName()=="South") {
-			while(num_range<3) {
+			while(num_range<shotgun.range()) {
 				for(int i=(x-num_range);i<(x+num_range+1);i++) {
 					try {
 						if(map.at(i,y+num_range).containsAnActor()) {
@@ -71,7 +71,7 @@ public class BlastAction extends Action {
 		}
 		
 		else if(exit.getName()=="East") {
-			while(num_range<3) {
+			while(num_range<shotgun.range()) {
 				for(int i=(y-num_range);i<(y+num_range+1);i++) {
 					try {
 						if(map.at(x+num_range,i).containsAnActor()) {
@@ -88,7 +88,7 @@ public class BlastAction extends Action {
 		}
 		
 		else if(exit.getName()=="West") {
-			while(num_range<3) {
+			while(num_range<shotgun.range()) {
 				for(int i=(y-num_range);i<(y+num_range+1);i++) {
 					try {
 						if(map.at(x-num_range,i).containsAnActor()) {
@@ -107,8 +107,8 @@ public class BlastAction extends Action {
 		else if(exit.getName()=="North-East") {
 			x=map.locationOf(actor).x();
 			y=map.locationOf(actor).y();
-			while(num_range<4) {
-				for(int i=x;i<x+4;i++)  {
+			while(num_range<=shotgun.range()) {
+				for(int i=x;i<=x+shotgun.range();i++)  {
 					try {
 						//the other condition are to ensure that the player doesn't get hurt by shotgun
 						if(map.at(i,y-num_range).containsAnActor()&&(i!=x||y!=y-num_range)) {
@@ -127,8 +127,8 @@ public class BlastAction extends Action {
 		else if(exit.getName()=="South-East") {
 			x=map.locationOf(actor).x();
 			y=map.locationOf(actor).y();
-			while(num_range<4) {
-				for(int i=x;i<x+4;i++)  {
+			while(num_range<=shotgun.range()) {
+				for(int i=x;i<=x+shotgun.range();i++)  {
 					try {
 						//the other condition are to ensure that the player doesn't get hurt by shotgun
 						if(map.at(i,y+num_range).containsAnActor()&&(i!=x||y!=y+num_range)) {
@@ -147,8 +147,8 @@ public class BlastAction extends Action {
 		else if(exit.getName()=="North-West") {
 			x=map.locationOf(actor).x();
 			y=map.locationOf(actor).y();
-			while(num_range<4) {
-				for(int i=x;i>x-4;i--)  {
+			while(num_range<=shotgun.range()) {
+				for(int i=x;i>=x-shotgun.range();i--)  {
 					try {
 						//the other condition are to ensure that the player doesn't get hurt by shotgun
 						if(map.at(i,y-num_range).containsAnActor()&&(i!=x||y!=y-num_range)) {
@@ -167,8 +167,8 @@ public class BlastAction extends Action {
 		else if(exit.getName()=="South-West") {
 			x=map.locationOf(actor).x();
 			y=map.locationOf(actor).y();
-			while(num_range<4) {
-				for(int i=x;i>x-4;i--)  {
+			while(num_range<=shotgun.range()) {
+				for(int i=x;i>=x-shotgun.range();i--)  {
 					try {
 						//the other condition are to ensure that the player doesn't get hurt by shotgun
 						if(map.at(i,y+num_range).containsAnActor()&&(i!=x||y!=y+num_range)) {
@@ -188,8 +188,8 @@ public class BlastAction extends Action {
 	
 	public String damageActor(Location location, GameMap map, Actor actor, String result) {
 		Actor target=location.getActor();
-		target.hurt(shotgun.getRangedDamage());
-		result+="\n"+actor+" hurts "+ target+" for "+shotgun.getRangedDamage()+" with a "+shotgun;
+		target.hurt(shotgun.ranged_damage());
+		result+="\n"+actor+" hurts "+ target+" for "+shotgun.ranged_damage()+" with a "+shotgun;
 		result+=target.isDead(map);
 		return result;
 	}
