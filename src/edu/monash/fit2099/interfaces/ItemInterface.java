@@ -30,10 +30,11 @@ public interface ItemInterface {
 	public Boolean isWeapon();
 	public void changeMap(GameMap map);
 	public void setTarget(Actor actor);
-	public Actor getTarget();
+	public Actor target();
 	public void set_aim_turns(int count);
-	public int get_aim_turns();
+	public int aim_turns();
 	public void reset() ;
-	public int getRangedDamage();
+	public int ranged_damage();
 	public void use_ammo(Actor actor);
+	public int range();
 }
