@@ -7,7 +7,7 @@ import edu.monash.fit2099.engine.WeaponItem;
 
 public class Shotgun extends WeaponItem{
 	private int ranged_damage=45;
-	public static int RANGE=3;
+	public static final int RANGE=3;
 	public Shotgun() {
 		super("shotgun", 's', 18, "bash");
 	}
