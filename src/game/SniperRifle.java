@@ -19,6 +19,11 @@ public class SniperRifle extends WeaponItem {
 	
 	@Override
 	public void tick(Location currentLocation, Actor actor) {
+		//change map if actor went to another map
+		if(currentLocation.map()!=map) {
+			map=currentLocation.map();
+		}
+		
 		try {
 			if(aim_turns>=1&&actor.damaged()) {
 				reset();
@@ -43,6 +48,10 @@ public class SniperRifle extends WeaponItem {
 	
 	@Override
 	public void tick(Location currentLocation) {
+		//change map if actor went to another map
+		if(currentLocation.map()!=map) {
+			map=currentLocation.map();
+		}
 		super.allowableActions.clear();
 		//broken concentration if sniper is dropped. 
 		reset();
