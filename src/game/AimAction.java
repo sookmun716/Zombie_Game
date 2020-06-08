@@ -15,14 +15,14 @@ public class AimAction extends Action{
 	@Override
 	public String execute(Actor actor, GameMap map) {
 		try {
-			if(target==sniper.getTarget()) {
-				sniper.set_aim_turns((sniper.get_aim_turns()+1));
+			if(target==sniper.target()) {
+				sniper.set_aim_turns((sniper.aim_turns()+1));
 			}
 			else {
 				sniper.set_aim_turns(1);
 				sniper.setTarget(target);
 			}
-			return actor+" aimed at "+ target+" for "+sniper.get_aim_turns()+" turn(s). ";
+			return actor+" aimed at "+ target+" for "+sniper.aim_turns()+" turn(s). ";
 		}
 		catch(NullPointerException e){
 			return null;
