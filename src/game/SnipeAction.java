@@ -13,7 +13,7 @@ public class SnipeAction extends Action{
 	private Actor target;
 	private WeaponItem sniper;
 	private Random random=new Random();
-	public static int MAXIMUM_FOCUS=2;
+	public static final int MAXIMUM_FOCUS=2;
 	public SnipeAction(Actor target, WeaponItem sniper) {
 		this.target=target;
 		this.sniper=sniper;
