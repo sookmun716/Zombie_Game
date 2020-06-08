@@ -30,13 +30,13 @@ public class BlastAction extends Action {
 			return "\n"+actor+" misses "+shotgun+" blast!";
 		}
 		String result="";
+		result+=actor+" fires shotgun at "+exit.getName()+"!";
 		Location destination = exit.getDestination();
 		int x=destination.x();
 		int y=destination.y();
-		int num_range;
+		int num_range=0;
 	
 		if(exit.getName()=="North") {
-			num_range=0;
 			while(num_range<3) {
 				for(int i=(x-num_range);i<(x+num_range+1);i++) {
 					try {
@@ -48,7 +48,7 @@ public class BlastAction extends Action {
 						}
 					}
 					catch(ArrayIndexOutOfBoundsException e){
-						
+						continue;
 					}
 				}
 				num_range+=1;
@@ -56,7 +56,6 @@ public class BlastAction extends Action {
 		}
 		
 		else if(exit.getName()=="South") {
-			num_range=0;
 			while(num_range<3) {
 				for(int i=(x-num_range);i<(x+num_range+1);i++) {
 					try {
@@ -68,7 +67,7 @@ public class BlastAction extends Action {
 						}
 					}
 					catch(ArrayIndexOutOfBoundsException e){
-						
+						continue;
 					}
 				}
 				num_range+=1;
@@ -76,7 +75,6 @@ public class BlastAction extends Action {
 		}
 		
 		else if(exit.getName()=="East") {
-			num_range=0;
 			while(num_range<3) {
 				for(int i=(y-num_range);i<(y+num_range+1);i++) {
 					try {
@@ -88,7 +86,7 @@ public class BlastAction extends Action {
 						}
 					}
 					catch(ArrayIndexOutOfBoundsException e){
-						
+						continue;
 					}
 				}
 				num_range+=1;
@@ -96,7 +94,6 @@ public class BlastAction extends Action {
 		}
 		
 		else if(exit.getName()=="West") {
-			num_range=0;
 			while(num_range<3) {
 				for(int i=(y-num_range);i<(y+num_range+1);i++) {
 					try {
@@ -108,13 +105,100 @@ public class BlastAction extends Action {
 						}
 					}
 					catch(ArrayIndexOutOfBoundsException e){
-						
+						continue;
 					}
 				}
 				num_range+=1;
 			}
 		}
 		
+		else if(exit.getName()=="North-East") {
+			x=map.locationOf(actor).x();
+			y=map.locationOf(actor).y();
+			while(num_range<4) {
+				for(int i=x;i<x+4;i++)  {
+					try {
+						//the other condition are to ensure that the player doesn't get hurt by shotgun
+						if(map.at(i,y-num_range).containsAnActor()&&(i!=x||y!=y-num_range)) {
+							Actor target=map.at(i,y-num_range).getActor();
+							target.hurt(shotgun.getRangedDamage());
+							result+="\n"+actor+" hurts "+ target+" for "+shotgun.getRangedDamage()+" with a "+shotgun;
+							result+=target.isDead(map);
+						}
+					}
+					catch(ArrayIndexOutOfBoundsException e){
+						continue;
+					}
+				}
+				num_range+=1;
+			}
+		}
+		
+		else if(exit.getName()=="South-East") {
+			x=map.locationOf(actor).x();
+			y=map.locationOf(actor).y();
+			while(num_range<4) {
+				for(int i=x;i<x+4;i++)  {
+					try {
+						//the other condition are to ensure that the player doesn't get hurt by shotgun
+						if(map.at(i,y+num_range).containsAnActor()&&(i!=x||y!=y+num_range)) {
+							Actor target=map.at(i,y+num_range).getActor();
+							target.hurt(shotgun.getRangedDamage());
+							result+="\n"+actor+" hurts "+ target+" for "+shotgun.getRangedDamage()+" with a "+shotgun;
+							result+=target.isDead(map);
+						}
+					}
+					catch(ArrayIndexOutOfBoundsException e){
+						continue;
+					}
+				}
+				num_range+=1;
+			}
+		}
+		
+		else if(exit.getName()=="North-West") {
+			x=map.locationOf(actor).x();
+			y=map.locationOf(actor).y();
+			while(num_range<4) {
+				for(int i=x;i>x-4;i--)  {
+					try {
+						//the other condition are to ensure that the player doesn't get hurt by shotgun
+						if(map.at(i,y-num_range).containsAnActor()&&(i!=x||y!=y-num_range)) {
+							Actor target=map.at(i,y-num_range).getActor();
+							target.hurt(shotgun.getRangedDamage());
+							result+="\n"+actor+" hurts "+ target+" for "+shotgun.getRangedDamage()+" with a "+shotgun;
+							result+=target.isDead(map);
+						}
+					}
+					catch(ArrayIndexOutOfBoundsException e){
+						continue;
+					}
+				}
+				num_range+=1;
+			}
+		}
+		
+		else if(exit.getName()=="South-West") {
+			x=map.locationOf(actor).x();
+			y=map.locationOf(actor).y();
+			while(num_range<4) {
+				for(int i=x;i>x-4;i--)  {
+					try {
+						//the other condition are to ensure that the player doesn't get hurt by shotgun
+						if(map.at(i,y+num_range).containsAnActor()&&(i!=x||y!=y+num_range)) {
+							Actor target=map.at(i,y+num_range).getActor();
+							target.hurt(shotgun.getRangedDamage());
+							result+="\n"+actor+" hurts "+ target+" for "+shotgun.getRangedDamage()+" with a "+shotgun;
+							result+=target.isDead(map);
+						}
+					}
+					catch(ArrayIndexOutOfBoundsException e){
+						continue;
+					}
+				}
+				num_range+=1;
+			}
+		}
 		return result;
 	}
 
