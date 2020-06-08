@@ -13,7 +13,7 @@ public class MamboMarie extends ZombieActor{
 		new WanderBehaviour()
 		};
 	private int turn_count=0;
-	public int CHANT_ROUND=10;
+	public static final int CHANT_ROUND=10;
 	public MamboMarie() {
 		super("Mambo Marie", 'M', 200, ZombieCapability.UNDEAD);
 		// TODO Auto-generated constructor stub
