@@ -32,5 +32,5 @@ public interface ActorInterface {
 	public void set_previous_health();
 	public Boolean damaged();
 	public String isDead(GameMap map);
-	
+	public int chant_round();
 }
