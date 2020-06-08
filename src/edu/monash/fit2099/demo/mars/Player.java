@@ -119,5 +119,11 @@ public class Player extends Actor {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public int chant_round() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }

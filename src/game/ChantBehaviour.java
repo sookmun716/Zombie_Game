@@ -8,7 +8,8 @@ public class ChantBehaviour implements Behaviour{
 
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
-		if(actor.get_turn_count()==10 || actor.get_turn_count()==20 || actor.get_turn_count()==30) return new ChantAction();
+		//chant every 10 rounds 
+		if(actor.get_turn_count()%actor.chant_round()==0) return new ChantAction();
 		return null;
 		
 	}

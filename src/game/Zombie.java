@@ -212,4 +212,10 @@ public class Zombie extends ZombieActor {
 		 return "";
 			
 	}
+
+	@Override
+	public int chant_round() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
