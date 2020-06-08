@@ -11,7 +11,7 @@ public class ZombieMap extends GameMap {
 	private Random random=new Random(); 
 	private MamboMarie mambo_marie=new MamboMarie();
 	private Boolean mambo_dead=false;
-	
+	public static final int VANISH_ROUND=30;
 	public ZombieMap(GroundFactory groundFactory, List<String> lines) {
 		super(groundFactory, lines);
 	}
@@ -29,7 +29,7 @@ public class ZombieMap extends GameMap {
 			mambo_dead=true;
 		}
 		
-		if(mambo_marie.isConscious()&&mambo_marie.get_turn_count()==30) {
+		if(mambo_marie.isConscious()&&mambo_marie.get_turn_count()==VANISH_ROUND) {
 			mambo_marie.set_turn_count();
 			this.removeActor(mambo_marie);
 			inMap=false;
