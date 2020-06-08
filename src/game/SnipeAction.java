@@ -13,7 +13,7 @@ public class SnipeAction extends Action{
 	private Actor target;
 	private WeaponItem sniper;
 	private Random random=new Random();
-	
+	public static int MAXIMUM_FOCUS=2;
 	public SnipeAction(Actor target, WeaponItem sniper) {
 		this.target=target;
 		this.sniper=sniper;
@@ -26,19 +26,19 @@ public class SnipeAction extends Action{
 			return actor+" has no sufficient sniper ammunition, sniper cannot be fired";
 		}
 		
-		if(sniper.get_aim_turns()==0) {
+		if(sniper.aim_turns()==0) {
 			if(random.nextInt(101)>=25) {
-				target.hurt(sniper.getRangedDamage());
-				result=actor+" "+" snipes "+target+ " for "+sniper.getRangedDamage()+" damage";
+				target.hurt(sniper.ranged_damage());
+				result=actor+" "+" snipes "+target+ " for "+sniper.ranged_damage()+" damage";
 			}
 			else {
 				result=actor+" misses "+target+"!";
 			}
 			
 		}
-		else if(sniper.get_aim_turns()==1) {
+		else if(sniper.aim_turns()>0&&sniper.aim_turns()<MAXIMUM_FOCUS) {
 			if(random.nextInt(101)>=10) {
-				int double_damage=sniper.getRangedDamage()*2;
+				int double_damage=sniper.ranged_damage()*2;
 				target.hurt(double_damage);
 				result=actor+" snipes "+ target+" for "+(double_damage)+" damage";
 			}
@@ -46,7 +46,7 @@ public class SnipeAction extends Action{
 				result=actor+" misses "+target+"!";
 			}
 		}
-		else if(sniper.get_aim_turns()>=2) {
+		else if(sniper.aim_turns()>=MAXIMUM_FOCUS) {
 			int max_damage=target.getHp();
 			target.hurt(max_damage);
 			result=actor+" snipes "+target+ " for "+max_damage+" damage";
