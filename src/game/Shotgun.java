@@ -7,7 +7,7 @@ import edu.monash.fit2099.engine.WeaponItem;
 
 public class Shotgun extends WeaponItem{
 	private int ranged_damage=45;
-	
+	public static int RANGE=3;
 	public Shotgun() {
 		super("shotgun", 's', 18, "bash");
 	}
@@ -26,7 +26,7 @@ public class Shotgun extends WeaponItem{
 	}
 	
 	@Override
-	public int getRangedDamage() {
+	public int ranged_damage() {
 		// TODO Auto-generated method stub
 		return ranged_damage;
 	}
@@ -68,7 +68,7 @@ public class Shotgun extends WeaponItem{
 	}
 
 	@Override
-	public Actor getTarget() {
+	public Actor target() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -80,7 +80,7 @@ public class Shotgun extends WeaponItem{
 	}
 
 	@Override
-	public int get_aim_turns() {
+	public int aim_turns() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -95,6 +95,11 @@ public class Shotgun extends WeaponItem{
 	public void use_ammo(Actor actor) {
 		int count=actor.get_shotgun_ammo()-1;
 		actor.set_shotgun_ammo(count);
+	}
+
+	@Override
+	public int range() {
+		return RANGE;
 	}
 
 	
