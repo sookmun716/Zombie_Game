@@ -75,7 +75,7 @@ public class ZombieLeg extends WeaponItem{
 	}
 
 	@Override
-	public Actor getTarget() {
+	public Actor target() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -87,7 +87,7 @@ public class ZombieLeg extends WeaponItem{
 	}
 
 	@Override
-	public int get_aim_turns() {
+	public int aim_turns() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -99,7 +99,7 @@ public class ZombieLeg extends WeaponItem{
 	}
 
 	@Override
-	public int getRangedDamage() {
+	public int ranged_damage() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -108,5 +108,11 @@ public class ZombieLeg extends WeaponItem{
 	public void use_ammo(Actor actor) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int range() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

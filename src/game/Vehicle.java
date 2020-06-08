@@ -53,7 +53,7 @@ public class Vehicle extends Item {
 	}
 
 	@Override
-	public Actor getTarget() {
+	public Actor target() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -65,7 +65,7 @@ public class Vehicle extends Item {
 	}
 
 	@Override
-	public int get_aim_turns() {
+	public int aim_turns() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -77,7 +77,7 @@ public class Vehicle extends Item {
 	}
 
 	@Override
-	public int getRangedDamage() {
+	public int ranged_damage() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -86,6 +86,12 @@ public class Vehicle extends Item {
 	public void use_ammo(Actor actor) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int range() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

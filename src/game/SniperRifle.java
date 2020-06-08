@@ -10,7 +10,7 @@ public class SniperRifle extends WeaponItem {
 	private Actor target;
 	private GameMap map;
 	private int ranged_damage=40;
-	
+	public static int MAXIMUM_FOCUS=2;
 	public SniperRifle(GameMap map) {
 		super("sniper rifle", 'S', 15, "clubs");
 		this.map=map;
@@ -90,7 +90,7 @@ public class SniperRifle extends WeaponItem {
 	}
 	
 	@Override
-	public Actor getTarget() {
+	public Actor target() {
 		return target;
 	}
 	
@@ -100,7 +100,7 @@ public class SniperRifle extends WeaponItem {
 	}
 	
 	@Override
-	public int get_aim_turns() {
+	public int aim_turns() {
 		return aim_turns;
 	}
 	
@@ -111,7 +111,7 @@ public class SniperRifle extends WeaponItem {
 	}
 
 	@Override
-	public int getRangedDamage() {
+	public int ranged_damage() {
 		return ranged_damage;
 	}
 
@@ -119,5 +119,11 @@ public class SniperRifle extends WeaponItem {
 	public void use_ammo(Actor actor) {
 		int count=actor.get_sniper_ammo()-1;
 		actor.set_sniper_ammo(count);
+	}
+
+	@Override
+	public int range() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
