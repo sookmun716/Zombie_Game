@@ -36,8 +36,7 @@ public class BlastMenuAction extends Action {
 			actions.add(new BlastAction(shotgun, exit));
 		}
 		Action action=menu.showMenu(actor, actions, display);
-		String blast=actor+" fires the "+ shotgun+"!";
-		return blast+action.execute(actor,map);
+		return action.execute(actor,map);
 	}
 
 	@Override
