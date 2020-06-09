@@ -17,7 +17,7 @@ public class ChantAction extends Action{
 			x=random.nextInt(map.getXRange().max());
 			y=random.nextInt(map.getYRange().max());
 			
-			while(map.at(x, y).containsAnActor()) {
+			while(map.at(x, y).containsAnActor()|| !map.at(x, y).canActorEnter(actor)) {
 				x=random.nextInt(map.getXRange().max());
 				y=random.nextInt(map.getYRange().max());
 			}
