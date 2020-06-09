@@ -36,4 +36,6 @@ public interface ItemInterface {
 	public int ranged_damage();
 	public void use_ammo(Actor actor);
 	public int range();
+	public Boolean isGun();
+	public String secondary_verb();
 }
