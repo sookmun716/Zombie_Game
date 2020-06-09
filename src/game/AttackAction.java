@@ -7,6 +7,7 @@ import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.Weapon;
+import edu.monash.fit2099.engine.WeaponItem;
 import game.Zombie;
 
 /**
@@ -22,7 +23,7 @@ public class AttackAction extends Action {
 	 * Random number generator
 	 */
 	protected Random rand = new Random();
-
+	private WeaponItem weapon;
 	/**
 	 * Constructor.
 	 * 
@@ -31,19 +32,37 @@ public class AttackAction extends Action {
 	public AttackAction(Actor target) {
 		this.target = target;
 	}
-
+	
+	public AttackAction(Actor target, WeaponItem weapon) {
+		this.target = target;
+		this.weapon = weapon;
+	}
 	@Override
 	public String execute(Actor actor, GameMap map) {
 
 		Weapon weapon = actor.getWeapon();
-
-		if (rand.nextBoolean()) {
+		if (this.weapon==null&&rand.nextBoolean()) {
 			return actor + " misses " + target + ".";
 		}
-
-		int damage = weapon.damage();
-		String result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
-		target.hurt(damage);
+		String result="";
+		if(this.weapon==null) {
+			int damage = weapon.damage();
+			result ="\n"+ actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
+			target.hurt(damage);
+		}
+		else {
+			try {
+				if(this.weapon.isGun()) {
+					int damage=this.weapon.ranged_damage();
+					result ="\n"+ actor +" "+this.weapon.secondary_verb() + target + " for " + damage + " damage.";
+					target.hurt(damage);
+				}
+			}
+			catch(NullPointerException e) {
+				System.out.println(this.weapon+" is not a gun but is passed to constructor with WeaponItem as parameter.");
+				System.exit(0);
+			}
+		}
 		
 		//dropArm and dropLeg to be in False, When Zombie has to drop then set it to True
 		Boolean dropArm = Boolean.FALSE;
