@@ -9,7 +9,7 @@ public class Shotgun extends WeaponItem{
 	private int ranged_damage=45;
 	public static final int RANGE=3;
 	public Shotgun() {
-		super("shotgun", 's', 18, "bash");
+		super("shotgun", 's', 18, "smacks");
 	}
 	
 	@Override
@@ -95,6 +95,18 @@ public class Shotgun extends WeaponItem{
 	@Override
 	public int range() {
 		return RANGE;
+	}
+
+	@Override
+	public Boolean isGun() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public String secondary_verb() {
+		// TODO Auto-generated method stub
+		return "blasts";
 	}
 
 	
