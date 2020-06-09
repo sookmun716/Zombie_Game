@@ -41,8 +41,8 @@ public class BlastAction extends Action {
 				for(int i=(x-num_range);i<(x+num_range+1);i++) {
 					try {
 						if(map.at(i,y-num_range).containsAnActor()) {
-							Location location=map.at(i,y-num_range);
-							result=this.damageActor(location, map, actor, result);
+							Actor target= map.at(x+num_range,i).getActor();
+							result+=new AttackAction(target,shotgun).execute(actor, map);
 						}
 					}
 					catch(ArrayIndexOutOfBoundsException e){
@@ -58,8 +58,8 @@ public class BlastAction extends Action {
 				for(int i=(x-num_range);i<(x+num_range+1);i++) {
 					try {
 						if(map.at(i,y+num_range).containsAnActor()) {
-							Location location=map.at(i,y+num_range);
-							result=this.damageActor(location, map, actor, result);
+							Actor target= map.at(x+num_range,i).getActor();
+							result+=new AttackAction(target,shotgun).execute(actor, map);
 						}
 					}
 					catch(ArrayIndexOutOfBoundsException e){
@@ -75,8 +75,8 @@ public class BlastAction extends Action {
 				for(int i=(y-num_range);i<(y+num_range+1);i++) {
 					try {
 						if(map.at(x+num_range,i).containsAnActor()) {
-							Location location=map.at(x+num_range,i);
-							result=this.damageActor(location, map, actor, result);
+							Actor target= map.at(x+num_range,i).getActor();
+							result+=new AttackAction(target,shotgun).execute(actor, map);
 						}
 					}
 					catch(ArrayIndexOutOfBoundsException e){
@@ -92,8 +92,8 @@ public class BlastAction extends Action {
 				for(int i=(y-num_range);i<(y+num_range+1);i++) {
 					try {
 						if(map.at(x-num_range,i).containsAnActor()) {
-							Location location=map.at(x-num_range,i);
-							result=this.damageActor(location, map, actor, result);
+							Actor target= map.at(x+num_range,i).getActor();
+							result+=new AttackAction(target,shotgun).execute(actor, map);
 						}
 					}
 					catch(ArrayIndexOutOfBoundsException e){
@@ -112,8 +112,8 @@ public class BlastAction extends Action {
 					try {
 						//the other condition are to ensure that the player doesn't get hurt by shotgun
 						if(map.at(i,y-num_range).containsAnActor()&&(i!=x||y!=y-num_range)) {
-							Location location=map.at(i,y-num_range);
-							result=this.damageActor(location, map, actor, result);
+							Actor target= map.at(x+num_range,i).getActor();
+							result+=new AttackAction(target,shotgun).execute(actor, map);
 						}
 					}
 					catch(ArrayIndexOutOfBoundsException e){
@@ -132,8 +132,8 @@ public class BlastAction extends Action {
 					try {
 						//the other condition are to ensure that the player doesn't get hurt by shotgun
 						if(map.at(i,y+num_range).containsAnActor()&&(i!=x||y!=y+num_range)) {
-							Location location=map.at(i,y+num_range);
-							result=this.damageActor(location, map, actor, result);
+							Actor target= map.at(x+num_range,i).getActor();
+							result+=new AttackAction(target,shotgun).execute(actor, map);
 						}
 					}
 					catch(ArrayIndexOutOfBoundsException e){
@@ -152,8 +152,8 @@ public class BlastAction extends Action {
 					try {
 						//the other condition are to ensure that the player doesn't get hurt by shotgun
 						if(map.at(i,y-num_range).containsAnActor()&&(i!=x||y!=y-num_range)) {
-							Location location=map.at(i,y-num_range);
-							result=this.damageActor(location, map, actor, result);
+							Actor target= map.at(x+num_range,i).getActor();
+							result+=new AttackAction(target,shotgun).execute(actor, map);
 						}
 					}
 					catch(ArrayIndexOutOfBoundsException e){
@@ -172,8 +172,8 @@ public class BlastAction extends Action {
 					try {
 						//the other condition are to ensure that the player doesn't get hurt by shotgun
 						if(map.at(i,y+num_range).containsAnActor()&&(i!=x||y!=y+num_range)) {
-							Location location=map.at(i,y+num_range);
-							result=this.damageActor(location, map, actor, result);
+							Actor target= map.at(x+num_range,i).getActor();
+							result+=new AttackAction(target,shotgun).execute(actor, map);
 						}
 					}
 					catch(ArrayIndexOutOfBoundsException e){
@@ -186,13 +186,6 @@ public class BlastAction extends Action {
 		return result;
 	}
 	
-	public String damageActor(Location location, GameMap map, Actor actor, String result) {
-		Actor target=location.getActor();
-		target.hurt(shotgun.ranged_damage());
-		result+="\n"+actor+" hurts "+ target+" for "+shotgun.ranged_damage()+" with a "+shotgun;
-		result+=target.isDead(map);
-		return result;
-	}
 	
 	@Override
 	public String menuDescription(Actor actor) {
