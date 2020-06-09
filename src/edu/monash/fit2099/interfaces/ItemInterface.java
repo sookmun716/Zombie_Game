@@ -28,7 +28,6 @@ public interface ItemInterface {
 	 * @return Boolean to determine if the Item is weapon
 	 */
 	public Boolean isWeapon();
-	public void changeMap(GameMap map);
 	public void setTarget(Actor actor);
 	public Actor target();
 	public void set_aim_turns(int count);
