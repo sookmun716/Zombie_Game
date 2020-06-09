@@ -16,7 +16,6 @@ public class SniperRifle extends WeaponItem {
 	
 	@Override
 	public void tick(Location currentLocation, Actor actor) {
-		
 		//concentration broken if taking damage
 		try {
 			if(aim_turns>=1&&actor.damaged()) {
@@ -110,5 +109,17 @@ public class SniperRifle extends WeaponItem {
 	public int range() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public Boolean isGun() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String secondary_verb() {
+		// TODO Auto-generated method stub
+		return "snipes";
 	}
 }
