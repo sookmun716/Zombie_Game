@@ -29,7 +29,13 @@ public class SnipeAction extends Action{
 		if(sniper.aim_turns()==0) {
 			if(random.nextInt(101)>=25) {
 				target.hurt(sniper.ranged_damage());
-				result=actor+" "+" snipes "+target+ " for "+sniper.ranged_damage()+" damage";
+				try {
+					result=actor+" "+sniper.secondary_verb()+" "+target+ " for "+sniper.ranged_damage()+" damage";
+				}
+				catch(NullPointerException e){
+					System.out.println(sniper+" is not a sniper rifle.");
+					System.exit(0);
+				}
 			}
 			else {
 				result=actor+" misses "+target+"!";
@@ -40,7 +46,13 @@ public class SnipeAction extends Action{
 			if(random.nextInt(101)>=10) {
 				int double_damage=sniper.ranged_damage()*2;
 				target.hurt(double_damage);
-				result=actor+" snipes "+ target+" for "+(double_damage)+" damage";
+				try {
+					result=actor+" "+sniper.secondary_verb()+" "+target+ " for "+double_damage+" damage";
+				}
+				catch(NullPointerException e){
+					System.out.println(sniper+" is not a sniper rifle.");
+					System.exit(0);
+				}
 			}
 			else {
 				result=actor+" misses "+target+"!";
@@ -49,7 +61,13 @@ public class SnipeAction extends Action{
 		else if(sniper.aim_turns()>=MAXIMUM_FOCUS) {
 			int max_damage=target.getHp();
 			target.hurt(max_damage);
-			result=actor+" snipes "+target+ " for "+max_damage+" damage";
+			try {
+				result=actor+" "+sniper.secondary_verb()+" "+target+ " for "+max_damage+" damage";
+			}
+			catch(NullPointerException e){
+				System.out.println(sniper+" is not a sniper rifle.");
+				System.exit(0);
+			}
 		}
 		
 		result+=target.isDead(map);
