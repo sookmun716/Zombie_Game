@@ -21,7 +21,9 @@ public class Human extends ZombieActor {
 	//EatFoodBehaviour has priority to ensure humans eat food when they are hurt
 	protected ArrayList<Behaviour> behaviour = new ArrayList<Behaviour>(
 			Arrays.asList(new EatFoodBehaviour(),new WanderBehaviour())); 
-
+	
+	private int shotgun_ammo=0;
+	private int sniper_ammo=0;
 
 	/**
 	 * The default constructor creates default Humans
@@ -90,27 +92,23 @@ public class Human extends ZombieActor {
 	}
 
 	@Override
-	public void set_sniper_ammo(int count) {
-		// TODO Auto-generated method stub
-		
+	public int get_shotgun_ammo() {
+		return shotgun_ammo;
 	}
-
+	
 	@Override
 	public int get_sniper_ammo() {
-		// TODO Auto-generated method stub
-		return 0;
+		return sniper_ammo;
 	}
-
+	
 	@Override
 	public void set_shotgun_ammo(int count) {
-		// TODO Auto-generated method stub
-		
+		shotgun_ammo=count;
 	}
-
+	
 	@Override
-	public int get_shotgun_ammo() {
-		// TODO Auto-generated method stub
-		return 0;
+	public void set_sniper_ammo(int count) {
+		sniper_ammo=count;
 	}
 
 	@Override
