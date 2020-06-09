@@ -47,7 +47,7 @@ public class AttackAction extends Action {
 		String result="";
 		if(this.weapon==null) {
 			int damage = weapon.damage();
-			result ="\n"+ actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
+			result =actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
 			target.hurt(damage);
 		}
 		else {
