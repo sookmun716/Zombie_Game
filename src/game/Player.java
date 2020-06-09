@@ -56,8 +56,8 @@ public class Player extends Human {
 
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
-		System.out.println(this.name+" shotgun ammunition count: "+super.get_shotgun_ammo());
-		System.out.println(this.name+" sniper rifle ammunition count: "+super.get_sniper_ammo());
+		display.println(this.name+" shotgun ammunition count: "+super.get_shotgun_ammo());
+		display.println(this.name+" sniper rifle ammunition count: "+super.get_sniper_ammo());
 		actions = availableHarvest(actions, map);
 		// Handle multi-turn Actions
 		if (lastAction.getNextAction() != null)

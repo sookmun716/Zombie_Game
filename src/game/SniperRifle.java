@@ -1,6 +1,7 @@
 package game;
 
 import edu.monash.fit2099.engine.Actor;
+import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Location;
 import edu.monash.fit2099.engine.WeaponItem;
@@ -16,11 +17,12 @@ public class SniperRifle extends WeaponItem {
 	
 	@Override
 	public void tick(Location currentLocation, Actor actor) {
+		Display display=new Display();
 		//concentration broken if taking damage
 		try {
 			if(aim_turns>=1&&actor.damaged()) {
 				reset();
-				System.out.println(actor+" concentration was broken due to receiving damage!");
+				display.println(actor+" concentration was broken due to receiving damage!");
 			}
 		}
 		catch(NullPointerException e){
@@ -32,7 +34,7 @@ public class SniperRifle extends WeaponItem {
 		}
 		catch(NullPointerException e){
 			reset();
-			System.out.println(actor+" concentration was broken due to taking an action other than aiming and firing.");
+			display.println(actor+" concentration was broken due to taking an action other than aiming and firing.");
 		}
 		
 		super.allowableActions.clear();

@@ -5,6 +5,7 @@ import java.util.Random;
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Actor;
+import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.WeaponItem;
@@ -20,6 +21,7 @@ public class SnipeAction extends Action{
 	}
 	@Override
 	public String execute(Actor actor, GameMap map) {
+		Display display = new Display();
 		sniper.use_ammo(actor);
 		String result=null;
 		if(actor.get_sniper_ammo()==0) {
@@ -33,7 +35,7 @@ public class SnipeAction extends Action{
 					result=actor+" "+sniper.secondary_verb()+" "+target+ " for "+sniper.ranged_damage()+" damage";
 				}
 				catch(NullPointerException e){
-					System.out.println(sniper+" is not a sniper rifle.");
+					display.println(sniper+" is not a sniper rifle.");
 					System.exit(0);
 				}
 			}
@@ -50,7 +52,7 @@ public class SnipeAction extends Action{
 					result=actor+" "+sniper.secondary_verb()+" "+target+ " for "+double_damage+" damage";
 				}
 				catch(NullPointerException e){
-					System.out.println(sniper+" is not a sniper rifle.");
+					display.println(sniper+" is not a sniper rifle.");
 					System.exit(0);
 				}
 			}
@@ -65,7 +67,7 @@ public class SnipeAction extends Action{
 				result=actor+" "+sniper.secondary_verb()+" "+target+ " for "+max_damage+" damage";
 			}
 			catch(NullPointerException e){
-				System.out.println(sniper+" is not a sniper rifle.");
+				display.println(sniper+" is not a sniper rifle.");
 				System.exit(0);
 			}
 		}
