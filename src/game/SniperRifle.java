@@ -8,22 +8,16 @@ import edu.monash.fit2099.engine.WeaponItem;
 public class SniperRifle extends WeaponItem {
 	private int aim_turns=0;
 	private Actor target;
-	private GameMap map;
 	private int ranged_damage=40;
 	public static int MAXIMUM_FOCUS=2;
-	public SniperRifle(GameMap map) {
+	public SniperRifle() {
 		super("sniper rifle", 'S', 15, "clubs");
-		this.map=map;
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
 	public void tick(Location currentLocation, Actor actor) {
-		//change map if actor went to another map
-		if(currentLocation.map()!=map) {
-			map=currentLocation.map();
-		}
 		
+		//concentration broken if taking damage
 		try {
 			if(aim_turns>=1&&actor.damaged()) {
 				reset();
@@ -33,7 +27,7 @@ public class SniperRifle extends WeaponItem {
 		catch(NullPointerException e){
 			return;
 		}
-		
+		//concentration broken if taking other action
 		try {
 			if(aim_turns>=1&&actor.get_lastAction().isSniperAction());
 		}
@@ -48,10 +42,6 @@ public class SniperRifle extends WeaponItem {
 	
 	@Override
 	public void tick(Location currentLocation) {
-		//change map if actor went to another map
-		if(currentLocation.map()!=map) {
-			map=currentLocation.map();
-		}
 		super.allowableActions.clear();
 		//broken concentration if sniper is dropped. 
 		reset();
@@ -78,11 +68,6 @@ public class SniperRifle extends WeaponItem {
 		return true;
 	}
 
-	@Override
-	public void changeMap(GameMap map) {
-		this.map=map;
-		
-	}
 	
 	@Override
 	public void setTarget(Actor actor) {
