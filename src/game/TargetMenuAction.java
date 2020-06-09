@@ -19,7 +19,6 @@ public class TargetMenuAction extends Action{
 	}
 	@Override
 	public Boolean isSniperAction() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
@@ -42,8 +41,7 @@ public class TargetMenuAction extends Action{
 
 	@Override
 	public String menuDescription(Actor actor) {
-		// TODO Auto-generated method stub
-		return actor+" chooses target";
+		return actor+" chooses target with sniper rifle";
 	}
 
 }
