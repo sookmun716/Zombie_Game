@@ -42,7 +42,7 @@ public class BlastMenuAction extends Action {
 	@Override
 	public String menuDescription(Actor actor) {
 		// TODO Auto-generated method stub
-		return actor+" fires shotgun\n";
+		return actor+" fires shotgun";
 	}
 
 }
