@@ -54,7 +54,7 @@ public class AttackAction extends Action {
 			try {
 				if(this.weapon.isGun()) {
 					int damage=this.weapon.ranged_damage();
-					result ="\n"+ actor +" "+this.weapon.secondary_verb() + target + " for " + damage + " damage.";
+					result ="\n"+ actor +" "+this.weapon.secondary_verb() +" "+target + " for " + damage + " damage.";
 					target.hurt(damage);
 				}
 			}
