@@ -55,11 +55,6 @@ public class Shotgun extends WeaponItem{
 		return null;
 	}
 
-	@Override
-	public void changeMap(GameMap map) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void setTarget(Actor actor) {

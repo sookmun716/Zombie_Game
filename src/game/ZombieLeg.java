@@ -62,11 +62,6 @@ public class ZombieLeg extends WeaponItem{
 		return Boolean.TRUE;
 	}
 
-	@Override
-	public void changeMap(GameMap map) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void setTarget(Actor actor) {

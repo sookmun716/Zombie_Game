@@ -36,12 +36,6 @@ public class PortableItem extends Item {
 	}
 
 	@Override
-	public void changeMap(GameMap map) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void setTarget(Actor actor) {
 		// TODO Auto-generated method stub
 		
