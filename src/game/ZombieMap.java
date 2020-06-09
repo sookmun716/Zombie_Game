@@ -1,5 +1,6 @@
 package game;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
@@ -12,8 +13,17 @@ public class ZombieMap extends GameMap {
 	private MamboMarie mambo_marie=new MamboMarie();
 	private Boolean mambo_dead=false;
 	public static final int VANISH_ROUND=30;
+	
+	public ZombieMap(GroundFactory groundFactory, char groundChar, int width, int height) {
+		super(groundFactory,groundChar,width,height);
+	}
+	
 	public ZombieMap(GroundFactory groundFactory, List<String> lines) {
 		super(groundFactory, lines);
+	}
+	
+	public ZombieMap(GroundFactory groundFactory, String mapFile) throws IOException{
+		super(groundFactory,mapFile);
 	}
 	
 	@Override
