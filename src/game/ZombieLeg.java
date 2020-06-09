@@ -110,4 +110,16 @@ public class ZombieLeg extends WeaponItem{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public Boolean isGun() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String secondary_verb() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

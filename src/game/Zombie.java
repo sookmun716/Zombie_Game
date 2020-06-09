@@ -22,10 +22,10 @@ public class Zombie extends ZombieActor {
 	private int numLeg = 2;
 	
 	private Behaviour[] behaviours = {
-			new PickUpBehaviour(),
-			new AttackBehaviour(ZombieCapability.ALIVE),
-			new HuntBehaviour(Human.class, 10),
-			new WanderBehaviour()
+			//new PickUpBehaviour(),
+			//new AttackBehaviour(ZombieCapability.ALIVE),
+			//new HuntBehaviour(Human.class, 10),
+			//new WanderBehaviour()
 	};
 
 	public Zombie(String name) {

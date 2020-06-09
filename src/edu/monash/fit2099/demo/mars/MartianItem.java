@@ -83,4 +83,16 @@ public class MartianItem extends Item{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public Boolean isGun() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String secondary_verb() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
