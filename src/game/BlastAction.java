@@ -25,8 +25,11 @@ public class BlastAction extends Action {
 
 	@Override
 	public String execute(Actor actor, GameMap map) {
+		if(actor.get_shotgun_ammo()==0) {
+			return actor+" has no sufficient shotgun ammunition, shotgun cannot be fired";
+		}
 		shotgun.use_ammo(actor);
-		if(random.nextInt(101)<0) {
+		if(random.nextInt(101)<30) {
 			return "\n"+actor+" misses "+shotgun+" blast!";
 		}
 		String result="";

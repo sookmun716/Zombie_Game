@@ -29,7 +29,7 @@ public class TargetMenuAction extends Action{
 				if(map.at(x, y).containsAnActor()) {
 					Actor snipe_target=map.at(x, y).getActor();
 					if(snipe_target.hasCapability(ZombieCapability.UNDEAD)) {
-						actions.add(new ShootAimMenu(sniper,snipe_target));
+						actions.add(new SnipeAimMenuAction(sniper,snipe_target));
 					}
 					
 				}

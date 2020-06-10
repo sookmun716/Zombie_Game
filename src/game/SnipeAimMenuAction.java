@@ -8,13 +8,13 @@ import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Menu;
 import edu.monash.fit2099.engine.WeaponItem;
 
-public class ShootAimMenu extends Action {
+public class SnipeAimMenuAction extends Action {
 	private Menu menu=new Menu();
 	private Display display=new Display();
 	private Actions actions=new Actions();
 	private WeaponItem sniper;
 	private Actor target;
-	public ShootAimMenu(WeaponItem weapon, Actor target) {
+	public SnipeAimMenuAction(WeaponItem weapon, Actor target) {
 		sniper=weapon;
 		this.target=target;
 		actions.add(new AimAction(target,sniper));

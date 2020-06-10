@@ -21,57 +21,40 @@ public class SnipeAction extends Action{
 	}
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		Display display = new Display();
-		sniper.use_ammo(actor);
 		String result=null;
 		if(actor.get_sniper_ammo()==0) {
 			return actor+" has no sufficient sniper ammunition, sniper cannot be fired";
 		}
-		
-		if(sniper.aim_turns()==0) {
+		sniper.use_ammo(actor);
+		int aim_turns=sniper.aim_turns();
+		if(aim_turns==0) {
 			if(random.nextInt(101)>=25) {
 				target.hurt(sniper.ranged_damage());
-				try {
-					result=actor+" "+sniper.secondary_verb()+" "+target+ " for "+sniper.ranged_damage()+" damage";
-				}
-				catch(NullPointerException e){
-					display.println(sniper+" is not a sniper rifle.");
-					System.exit(0);
-				}
+				result=actor+" "+sniper.secondary_verb()+" "+target+ " for "+sniper.ranged_damage()+" damage";
+				
 			}
 			else {
 				result=actor+" misses "+target+"!";
 			}
 			
 		}
-		else if(sniper.aim_turns()>0&&sniper.aim_turns()<MAXIMUM_FOCUS) {
+		else if(aim_turns>0&&aim_turns<MAXIMUM_FOCUS) {
 			if(random.nextInt(101)>=10) {
 				int double_damage=sniper.ranged_damage()*2;
 				target.hurt(double_damage);
-				try {
-					result=actor+" "+sniper.secondary_verb()+" "+target+ " for "+double_damage+" damage";
-				}
-				catch(NullPointerException e){
-					display.println(sniper+" is not a sniper rifle.");
-					System.exit(0);
-				}
+				result=actor+" "+sniper.secondary_verb()+" "+target+ " for "+double_damage+" damage";
 			}
 			else {
 				result=actor+" misses "+target+"!";
 			}
 		}
-		else if(sniper.aim_turns()>=MAXIMUM_FOCUS) {
+		else if(aim_turns>=MAXIMUM_FOCUS) {
 			int max_damage=target.getHp();
 			target.hurt(max_damage);
-			try {
-				result=actor+" "+sniper.secondary_verb()+" "+target+ " for "+max_damage+" damage";
-			}
-			catch(NullPointerException e){
-				display.println(sniper+" is not a sniper rifle.");
-				System.exit(0);
-			}
+			result=actor+" "+sniper.secondary_verb()+" "+target+ " for "+max_damage+" damage";
+			
 		}
-		
+
 		result+=target.isDead(map);
 		return result;
 	}
