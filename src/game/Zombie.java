@@ -109,7 +109,7 @@ public class Zombie extends ZombieActor {
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
 		//by 10%,zombie can shout "BRAAAAAAAINS!"
 		if (Math.random()<0.1) {
-			System.out.println(this.name + " shout BRAAAAAAAINS!");
+			display.println(this.name + " shout BRAAAAAAAINS!");
 		}
 		for (Behaviour behaviour : behaviours) {
 			boolean hunt = HuntBehaviour.class.isInstance(behaviour);
