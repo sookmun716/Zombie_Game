@@ -8,40 +8,35 @@ import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Menu;
 import edu.monash.fit2099.engine.WeaponItem;
 
-public class TargetMenuAction extends Action{
+public class SnipeAimMenuAction extends Action {
 	private Menu menu=new Menu();
 	private Display display=new Display();
 	private Actions actions=new Actions();
 	private WeaponItem sniper;
-	
-	public TargetMenuAction(WeaponItem weapon) {
+	private Actor target;
+	public SnipeAimMenuAction(WeaponItem weapon, Actor target) {
 		sniper=weapon;
+		this.target=target;
+		actions.add(new AimAction(target,sniper));
+		actions.add(new SnipeAction(target,sniper));
 	}
 	@Override
 	public Boolean isSniperAction() {
-		return true;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		for (int y : map.getYRange()) {
-			for (int x : map.getXRange()) {
-				if(map.at(x, y).containsAnActor()) {
-					Actor snipe_target=map.at(x, y).getActor();
-					if(snipe_target.hasCapability(ZombieCapability.UNDEAD)) {
-						actions.add(new SnipeAimMenuAction(sniper,snipe_target));
-					}
-					
-				}
-			}
-		}
+		
 		Action action=menu.showMenu(actor, actions, display);
 		return action.execute(actor,map);
 	}
 
 	@Override
 	public String menuDescription(Actor actor) {
-		return actor+" chooses target with sniper rifle";
+		// TODO Auto-generated method stub
+		return actor+" targets "+ target+" with "+sniper;
 	}
 
 }
