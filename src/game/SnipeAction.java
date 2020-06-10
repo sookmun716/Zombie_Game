@@ -21,11 +21,11 @@ public class SnipeAction extends Action{
 	}
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		sniper.use_ammo(actor);
 		String result=null;
 		if(actor.get_sniper_ammo()==0) {
 			return actor+" has no sufficient sniper ammunition, sniper cannot be fired";
 		}
+		sniper.use_ammo(actor);
 		if(sniper.aim_turns()==0) {
 			if(random.nextInt(101)>=25) {
 				target.hurt(sniper.ranged_damage());
