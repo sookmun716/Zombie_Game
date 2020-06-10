@@ -17,6 +17,8 @@ public class ShootAimMenu extends Action {
 	public ShootAimMenu(WeaponItem weapon, Actor target) {
 		sniper=weapon;
 		this.target=target;
+		actions.add(new AimAction(target,sniper));
+		actions.add(new SnipeAction(target,sniper));
 	}
 	@Override
 	public Boolean isSniperAction() {
@@ -26,8 +28,7 @@ public class ShootAimMenu extends Action {
 
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		actions.add(new AimAction(target,sniper));
-		actions.add(new SnipeAction(target,sniper));
+		
 		Action action=menu.showMenu(actor, actions, display);
 		return action.execute(actor,map);
 	}
