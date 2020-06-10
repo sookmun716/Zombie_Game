@@ -26,7 +26,8 @@ public class SnipeAction extends Action{
 			return actor+" has no sufficient sniper ammunition, sniper cannot be fired";
 		}
 		sniper.use_ammo(actor);
-		if(sniper.aim_turns()==0) {
+		int aim_turns=sniper.aim_turns();
+		if(aim_turns==0) {
 			if(random.nextInt(101)>=25) {
 				target.hurt(sniper.ranged_damage());
 				result=actor+" "+sniper.secondary_verb()+" "+target+ " for "+sniper.ranged_damage()+" damage";
@@ -37,7 +38,7 @@ public class SnipeAction extends Action{
 			}
 			
 		}
-		else if(sniper.aim_turns()>0&&sniper.aim_turns()<MAXIMUM_FOCUS) {
+		else if(aim_turns>0&&aim_turns<MAXIMUM_FOCUS) {
 			if(random.nextInt(101)>=10) {
 				int double_damage=sniper.ranged_damage()*2;
 				target.hurt(double_damage);
@@ -47,7 +48,7 @@ public class SnipeAction extends Action{
 				result=actor+" misses "+target+"!";
 			}
 		}
-		else if(sniper.aim_turns()>=MAXIMUM_FOCUS) {
+		else if(aim_turns>=MAXIMUM_FOCUS) {
 			int max_damage=target.getHp();
 			target.hurt(max_damage);
 			result=actor+" "+sniper.secondary_verb()+" "+target+ " for "+max_damage+" damage";
