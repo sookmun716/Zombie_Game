@@ -103,8 +103,10 @@ public class SniperRifle extends WeaponItem {
 
 	@Override
 	public void use_ammo(Actor actor) {
-		int count=actor.get_sniper_ammo()-1;
-		actor.set_sniper_ammo(count);
+		if(actor.get_sniper_ammo()>0) {
+			int count=actor.get_sniper_ammo()-1;
+			actor.set_sniper_ammo(count);
+		}
 	}
 
 	@Override

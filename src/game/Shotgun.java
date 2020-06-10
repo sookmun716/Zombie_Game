@@ -88,8 +88,10 @@ public class Shotgun extends WeaponItem{
 
 	@Override
 	public void use_ammo(Actor actor) {
-		int count=actor.get_shotgun_ammo()-1;
-		actor.set_shotgun_ammo(count);
+		if(actor.get_shotgun_ammo()>0) {
+			int count=actor.get_shotgun_ammo()-1;
+			actor.set_shotgun_ammo(count);
+		}
 	}
 
 	@Override
