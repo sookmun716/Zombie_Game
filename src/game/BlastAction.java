@@ -30,7 +30,7 @@ public class BlastAction extends Action {
 		}
 		shotgun.use_ammo(actor);
 		if(random.nextInt(101)<30) {
-			return "\n"+actor+" misses "+shotgun+" blast!";
+			return actor+" misses "+shotgun+" blast!";
 		}
 		String result="";
 		result+=actor+" fires shotgun at "+exit.getName()+"!";
