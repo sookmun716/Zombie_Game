@@ -46,37 +46,41 @@ public class endGame extends World{
 	
 	@Override
 	protected boolean stillRunning() {
+		//create boolean to check if human and zombie still exist in the map.
 		boolean humanExist = false;
 		boolean zombieExist = false;
 		for(Actor actor : actorLocations) {
 			if(humanExist && zombieExist) {
 				break;
 			}
-			if(!actor.hasCapability(ZombieCapability.PLAYER)) {
-				if(actor.hasCapability(ZombieCapability.ALIVE)) {
-					humanExist = true;
+			//if actor is human and it's not player then human exists
+			if(actor.hasCapability(ZombieCapability.ALIVE) && actor.getDisplayChar() != '@') {
+				humanExist = true;
 				}
-			}
-			else if(actor.hasCapability(ZombieCapability.UNDEAD)) {
+			//if actor is zombie then zombie exists
+			if(actor.hasCapability(ZombieCapability.UNDEAD)) {
 				zombieExist = true;
 			}
 			
 		}
-		if(!zombieExist) {
+		//return false when all zombie has been killed.
+		if(zombieExist == false) {
 			Message = "Player won! Zombie and MamboMarie have been wiped out.";
 			return false;
 		}
 		
+		//return false when all human is dead and return true if there are still human in the map
 		else if(actorLocations.contains(player)) {
-			if (humanExist) {
-				return true;
-			}
-			else{
+			if (humanExist == false) {
 				Message = "Game Over! All human dead.";
 				return false;
 			}
+			else{
+				return true;
+			}
 			
 		}
+		//if player is dead then return false.
 		else {
 			Message = "Game Over! Player is dead.";
 			return false;
