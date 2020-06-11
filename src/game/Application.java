@@ -112,9 +112,9 @@ public class Application {
 		world.addGameMap(townMap);
 		
 		//place a vehicle
-		Vehicle train = new Vehicle("train",'T',false);
-		train.addAction(new MoveActorAction(townMap.at(45, 10),"to the town!"));
-		gameMap.at(45, 10).addItem(train);
+		Vehicle trainToTown = new Vehicle("train",'T',false);
+		trainToTown.addAction(new MoveActorAction(townMap.at(0, 0),"to the town!"));
+		gameMap.at(45, 10).addItem(trainToTown);
 		
 		//place zombie in townmap
 		townMap.at(20, 20).addActor(new Zombie("Ching"));
@@ -136,43 +136,17 @@ public class Application {
 		townMap.at(14, 9).addActor(new Human("Gord"));
 		
 		//Place weapons
-		townMap.at(38, 4).addItem(new SniperRifle(townMap) );
+		townMap.at(38, 4).addItem(new SniperRifle() );
 		townMap.at(28,15).addItem(new SniperAmmunitionBox());
 		townMap.at(38, 21).addItem(new Shotgun());
 		townMap.at(49, 15).addItem(new ShotgunAmmunitionBox());
 		
-		//test code for crafting weapons
-		//gameMap.at(42,15).addItem(new ZombieArm());
-		//gameMap.at(42,15).addItem(new ZombieLeg());
+		//place a vehicle where player can move from townmap to gamemap
+		Vehicle train = new Vehicle("train",'T',false);
+		train.addAction(new MoveActorAction(gameMap.at(0, 0),"to gameMap!"));
+		townMap.at(45, 10).addItem(train);
 		
-		//test code for rising from the dead
-		//gameMap.at(65, 12).addActor(new Zombie("Brain"));
-		//gameMap.at(64, 12).addActor(new Human("Fool"));
 		
-		//test code for planting crops
-		//gameMap.at(44, 15).addActor(new Farmer("George"));
-		
-		//test code for fertilising crop
-	    //gameMap.at(44, 15).setGround(new Crop());;
-		
-		//test code for harvesting crop
-		//Crop crop= new Crop();
-		//crop.fertilise();
-		//crop.fertilise();
-		//test harvesting farmer harvesting crop
-		//gameMap.at(44, 15).setGround(crop);
-		//test harvesting for player
-		//gameMap.at(42, 15).setGround(crop);
-		
-		//test code for eating food
-		//test for npc eating food
-		//gameMap.at(44, 15).getActor().hurt(15);
-		//gameMap.at(44,  15).addItem(new Food());
-		//test for player eating food
-		//player.hurt(25);
-		//player.addItemToInventory(new Food());
-		
-		//test code 
 		world.run();
 	}
 }
