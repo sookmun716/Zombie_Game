@@ -88,9 +88,8 @@ public class Application {
 		 * gameMap.at(39,12).addActor(new Zombie("srrr"));
 		 */
 	    // Place some random humans
-		String[] humans = {"Carlton"};
-		//"May", "Vicente", "Andrea", "Wendy",
-		//		"Elina", "Winter", "Clem", "Jacob", "Jaquelyn"};
+		String[] humans = {"Carlton","May", "Vicente", "Andrea", "Wendy",
+			"Elina", "Winter", "Clem", "Jacob", "Jaquelyn"};
 		int x, y;
 		for (String name : humans) {
 			do {
@@ -161,7 +160,6 @@ public class Application {
 		
 		
 		// Place human in townmap
-		/*
 		townMap.at(17, 3).addActor(new Human("Gusion"));
 		townMap.at(41, 7).addActor(new Human("Eudora"));
 		townMap.at(60, 6).addActor(new Human("Alucard"));
@@ -170,7 +168,6 @@ public class Application {
 		townMap.at(65, 18).addActor(new Human("Miya"));	
 		townMap.at(40, 21).addActor(new Human("Popoh"));
 		townMap.at(10, 15).addActor(new Human("Harley"));
-		*/
 		townMap.at(14, 9).addActor(new Human("Gord"));
 		
 		//Place weapons
