@@ -44,7 +44,7 @@ public class BlastAction extends Action {
 				for(int i=(x-num_range);i<(x+num_range+1);i++) {
 					try {
 						if(map.at(i,y-num_range).containsAnActor()) {
-							Actor target= map.at(x+num_range,i).getActor();
+							Actor target= map.at(i,y-num_range).getActor();
 							result+=new AttackAction(target,shotgun).execute(actor, map);
 						}
 					}
@@ -61,7 +61,7 @@ public class BlastAction extends Action {
 				for(int i=(x-num_range);i<(x+num_range+1);i++) {
 					try {
 						if(map.at(i,y+num_range).containsAnActor()) {
-							Actor target= map.at(x+num_range,i).getActor();
+							Actor target= map.at(i,y+num_range).getActor();
 							result+=new AttackAction(target,shotgun).execute(actor, map);
 						}
 					}
@@ -95,7 +95,7 @@ public class BlastAction extends Action {
 				for(int i=(y-num_range);i<(y+num_range+1);i++) {
 					try {
 						if(map.at(x-num_range,i).containsAnActor()) {
-							Actor target= map.at(x+num_range,i).getActor();
+							Actor target= map.at(x-num_range,i).getActor();
 							result+=new AttackAction(target,shotgun).execute(actor, map);
 						}
 					}
@@ -115,7 +115,7 @@ public class BlastAction extends Action {
 					try {
 						//the other condition are to ensure that the player doesn't get hurt by shotgun
 						if(map.at(i,y-num_range).containsAnActor()&&(i!=x||y!=y-num_range)) {
-							Actor target= map.at(x+num_range,i).getActor();
+							Actor target= map.at(i,y-num_range).getActor();
 							result+=new AttackAction(target,shotgun).execute(actor, map);
 						}
 					}
@@ -135,7 +135,7 @@ public class BlastAction extends Action {
 					try {
 						//the other condition are to ensure that the player doesn't get hurt by shotgun
 						if(map.at(i,y+num_range).containsAnActor()&&(i!=x||y!=y+num_range)) {
-							Actor target= map.at(x+num_range,i).getActor();
+							Actor target= map.at(i,y+num_range).getActor();
 							result+=new AttackAction(target,shotgun).execute(actor, map);
 						}
 					}
@@ -155,7 +155,7 @@ public class BlastAction extends Action {
 					try {
 						//the other condition are to ensure that the player doesn't get hurt by shotgun
 						if(map.at(i,y-num_range).containsAnActor()&&(i!=x||y!=y-num_range)) {
-							Actor target= map.at(x+num_range,i).getActor();
+							Actor target= map.at(i,y-num_range).getActor();
 							result+=new AttackAction(target,shotgun).execute(actor, map);
 						}
 					}
@@ -175,7 +175,7 @@ public class BlastAction extends Action {
 					try {
 						//the other condition are to ensure that the player doesn't get hurt by shotgun
 						if(map.at(i,y+num_range).containsAnActor()&&(i!=x||y!=y+num_range)) {
-							Actor target= map.at(x+num_range,i).getActor();
+							Actor target= map.at(i,y+num_range).getActor();
 							result+=new AttackAction(target,shotgun).execute(actor, map);
 						}
 					}
