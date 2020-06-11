@@ -16,7 +16,7 @@ public abstract class ZombieActor extends Actor {
 		
 		addCapability(team);
 	}
-	
+
 	@Override
 	public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
 		Actions list = super.getAllowableActions(otherActor, direction, map);

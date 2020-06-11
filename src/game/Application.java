@@ -50,9 +50,40 @@ public class Application {
 		GameMap gameMap = new GameMap(groundFactory, map );
 		world.addGameMap(gameMap);
 		
-		Actor player = new Player("Player", '@', 100);
+		Actor player = new Player("Player", '@', 10000);
+		player.addItemToInventory(new SniperRifle());
+		player.addItemToInventory(new SniperAmmunitionBox());
 		world.addPlayer(player, gameMap.at(42, 15));
+		//gameMap.at(43, 15).addActor(new Zombie("Bum"));
+		//cardinal directions
 		
+		 gameMap.at(43,15).addActor(new Zombie("Brrrr"));
+		 gameMap.at(44,14).addActor(new Zombie("beww"));
+		 gameMap.at(44,15).addActor(new Zombie("beww"));
+		 gameMap.at(44,16).addActor(new Zombie("beww"));
+		 gameMap.at(45,13).addActor(new Zombie("srrr"));
+		 gameMap.at(45,14).addActor(new Zombie("Brrrr"));
+		 gameMap.at(45,15).addActor(new Zombie("marrr"));
+		 gameMap.at(45,16).addActor(new Zombie("beww"));
+		 gameMap.at(45,17).addActor(new Zombie("srrr"));
+	
+		//intercardinal directions
+		/*
+		 * gameMap.at(41,15).addActor(new Zombie("grr")); gameMap.at(40,15).addActor(new
+		 * Zombie("harr")); gameMap.at(39,15).addActor(new Zombie("Kiaa"));
+		 * gameMap.at(42,14).addActor(new Zombie("Brrrr"));
+		 * gameMap.at(41,14).addActor(new Zombie("marrr"));
+		 * gameMap.at(40,14).addActor(new Zombie("beww"));
+		 * gameMap.at(39,14).addActor(new Zombie("srrr"));
+		 * gameMap.at(42,13).addActor(new Zombie("Brrrr"));
+		 * gameMap.at(41,13).addActor(new Zombie("marrr"));
+		 * gameMap.at(40,13).addActor(new Zombie("beww"));
+		 * gameMap.at(39,13).addActor(new Zombie("srrr"));
+		 * gameMap.at(42,12).addActor(new Zombie("Brrrr"));
+		 * gameMap.at(41,12).addActor(new Zombie("marrr"));
+		 * gameMap.at(40,12).addActor(new Zombie("beww"));
+		 * gameMap.at(39,12).addActor(new Zombie("srrr"));
+		 */
 	    // Place some random humans
 		String[] humans = {"Carlton", "May", "Vicente", "Andrea", "Wendy",
 				"Elina", "Winter", "Clem", "Jacob", "Jaquelyn"};
@@ -112,9 +143,9 @@ public class Application {
 		world.addGameMap(townMap);
 		
 		//place a vehicle
-		Vehicle trainToTown = new Vehicle("train",'T',false);
-		trainToTown.addAction(new MoveActorAction(townMap.at(0, 0),"to the town!"));
-		gameMap.at(45, 10).addItem(trainToTown);
+		Vehicle train = new Vehicle();
+		train.addAction(new MoveActorAction(townMap.at(45, 10),"to the town!"));
+		gameMap.at(45, 10).addItem(train);
 		
 		//place zombie in townmap
 		townMap.at(20, 20).addActor(new Zombie("Ching"));
@@ -141,12 +172,39 @@ public class Application {
 		townMap.at(38, 21).addItem(new Shotgun());
 		townMap.at(49, 15).addItem(new ShotgunAmmunitionBox());
 		
-		//place a vehicle where player can move from townmap to gamemap
-		Vehicle train = new Vehicle("train",'T',false);
-		train.addAction(new MoveActorAction(gameMap.at(0, 0),"to gameMap!"));
-		townMap.at(45, 10).addItem(train);
+		//test code for crafting weapons
+		//gameMap.at(42,15).addItem(new ZombieArm());
+		//gameMap.at(42,15).addItem(new ZombieLeg());
 		
+		//test code for rising from the dead
+		//gameMap.at(65, 12).addActor(new Zombie("Brain"));
+		//gameMap.at(64, 12).addActor(new Human("Fool"));
 		
+		//test code for planting crops
+		//gameMap.at(44, 15).addActor(new Farmer("George"));
+		
+		//test code for fertilising crop
+	    //gameMap.at(44, 15).setGround(new Crop());;
+		
+		//test code for harvesting crop
+		//Crop crop= new Crop();
+		//crop.fertilise();
+		//crop.fertilise();
+		//test harvesting farmer harvesting crop
+		//gameMap.at(44, 15).setGround(crop);
+		//test harvesting for player
+		//gameMap.at(42, 15).setGround(crop);
+		
+		//test code for eating food
+		//test for npc eating food
+		//gameMap.at(44, 15).getActor().hurt(15);
+		//gameMap.at(44,  15).addItem(new Food());
+		//test for player eating food
+		//player.hurt(25);
+		//player.addItemToInventory(new Food());
+		
+		//test code 
+		System.out.println("Bum"+null);
 		world.run();
 	}
 }

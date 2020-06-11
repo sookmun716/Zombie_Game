@@ -19,6 +19,7 @@ public class Corpse extends PortableItem {
 	private String actor_name;
 	private Actor deadActor;
 	private int deadTurns = 0;
+	public static int MAX_DEAD_TURNS=10;
 
 	/**
 	 * This is the constructor for the ZombieClub class.
@@ -47,7 +48,6 @@ public class Corpse extends PortableItem {
 			return;
 		}
 		deadTurns += 1;
-		System.out.println(deadActor + " dead for " + deadTurns + " turns.");
 		// cannot resurrect if there is an actor standing on the location
 		if (currentLocation.containsAnActor()) {
 			return;
@@ -62,7 +62,7 @@ public class Corpse extends PortableItem {
 
 		}
 		// guaranteed to rise from the dead if the dead turns reach 10
-		else if (deadTurns >= 10) {
+		else if (deadTurns >= MAX_DEAD_TURNS) {
 			System.out.println(actor_name + " has risen as a zombie!");
 			currentLocation.addActor(new Zombie(actor_name));
 			currentLocation.removeItem(this);
@@ -87,7 +87,6 @@ public class Corpse extends PortableItem {
 			return;
 		}
 		deadTurns += 1;
-		System.out.println(deadActor + " dead for " + deadTurns + " turns.");
 		ArrayList<Location> locations = new ArrayList<Location>();
 		// check exits around actor carrying the corpse to get valid exits for zombie to
 		// rise up

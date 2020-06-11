@@ -8,8 +8,8 @@ import edu.monash.fit2099.engine.Item;
 public class Vehicle extends Item {
 
 
-	public Vehicle(String name, char displayChar, boolean portable) {
-		super(name, displayChar, portable);
+	public Vehicle() {
+		super("train",'T',false);
 		}
 
 	public void addAction(Action newAction) {
