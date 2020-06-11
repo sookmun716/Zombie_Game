@@ -17,7 +17,7 @@ import edu.monash.fit2099.engine.World;
 public class Application {
 
 	public static void main(String[] args) {
-		World world = new World(new Display());
+		World world = new endGame(new Display());
 
 		FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Fence(), new Tree());
 		
@@ -50,13 +50,14 @@ public class Application {
 		GameMap gameMap = new GameMap(groundFactory, map );
 		world.addGameMap(gameMap);
 		
-		Actor player = new Player("Player", '@', 10000);
+		Actor player = new Player("Player", '@', 100);
 		player.addItemToInventory(new SniperRifle());
 		player.addItemToInventory(new SniperAmmunitionBox());
 		world.addPlayer(player, gameMap.at(42, 15));
 		//gameMap.at(43, 15).addActor(new Zombie("Bum"));
 		//cardinal directions
 		
+		/*
 		 gameMap.at(43,15).addActor(new Zombie("Brrrr"));
 		 gameMap.at(44,14).addActor(new Zombie("beww"));
 		 gameMap.at(44,15).addActor(new Zombie("beww"));
@@ -67,10 +68,12 @@ public class Application {
 		 gameMap.at(45,16).addActor(new Zombie("beww"));
 		 gameMap.at(45,17).addActor(new Zombie("srrr"));
 	
+	*/
 		//intercardinal directions
 		/*
-		 * gameMap.at(41,15).addActor(new Zombie("grr")); gameMap.at(40,15).addActor(new
-		 * Zombie("harr")); gameMap.at(39,15).addActor(new Zombie("Kiaa"));
+		 * gameMap.at(41,15).addActor(new Zombie("grr")); 
+		 * gameMap.at(40,15).addActor(new Zombie("harr")); 
+		 * gameMap.at(39,15).addActor(new Zombie("Kiaa"));
 		 * gameMap.at(42,14).addActor(new Zombie("Brrrr"));
 		 * gameMap.at(41,14).addActor(new Zombie("marrr"));
 		 * gameMap.at(40,14).addActor(new Zombie("beww"));
@@ -85,8 +88,9 @@ public class Application {
 		 * gameMap.at(39,12).addActor(new Zombie("srrr"));
 		 */
 	    // Place some random humans
-		String[] humans = {"Carlton", "May", "Vicente", "Andrea", "Wendy",
-				"Elina", "Winter", "Clem", "Jacob", "Jaquelyn"};
+		String[] humans = {"Carlton"};
+		//"May", "Vicente", "Andrea", "Wendy",
+		//		"Elina", "Winter", "Clem", "Jacob", "Jaquelyn"};
 		int x, y;
 		for (String name : humans) {
 			do {
@@ -142,10 +146,10 @@ public class Application {
 		GameMap townMap = new GameMap(townFactory, map2);
 		world.addGameMap(townMap);
 		
-		//place a vehicle
-		Vehicle train = new Vehicle();
-		train.addAction(new MoveActorAction(townMap.at(45, 10),"to the town!"));
-		gameMap.at(45, 10).addItem(train);
+		//place a vehicle in gameMap
+		Vehicle trainToTown = new Vehicle();
+		trainToTown.addAction(new MoveActorAction(townMap.at(45,10),"to the town!"));
+		gameMap.at(45, 10).addItem(trainToTown);
 		
 		//place zombie in townmap
 		townMap.at(20, 20).addActor(new Zombie("Ching"));
@@ -155,7 +159,9 @@ public class Application {
 		townMap.at(25, 11).addActor(new Zombie("Ding"));
 		townMap.at(62, 12).addActor(new Zombie("Dong"));	
 		
+		
 		// Place human in townmap
+		/*
 		townMap.at(17, 3).addActor(new Human("Gusion"));
 		townMap.at(41, 7).addActor(new Human("Eudora"));
 		townMap.at(60, 6).addActor(new Human("Alucard"));
@@ -164,6 +170,7 @@ public class Application {
 		townMap.at(65, 18).addActor(new Human("Miya"));	
 		townMap.at(40, 21).addActor(new Human("Popoh"));
 		townMap.at(10, 15).addActor(new Human("Harley"));
+		*/
 		townMap.at(14, 9).addActor(new Human("Gord"));
 		
 		//Place weapons
@@ -172,39 +179,11 @@ public class Application {
 		townMap.at(38, 21).addItem(new Shotgun());
 		townMap.at(49, 15).addItem(new ShotgunAmmunitionBox());
 		
-		//test code for crafting weapons
-		//gameMap.at(42,15).addItem(new ZombieArm());
-		//gameMap.at(42,15).addItem(new ZombieLeg());
+		//place a vehicle where player can move from townmap to gamemap
+		Vehicle train = new Vehicle();
+		train.addAction(new MoveActorAction(gameMap.at(45, 10),"to gameMap!"));
+		townMap.at(45, 10).addItem(train);
 		
-		//test code for rising from the dead
-		//gameMap.at(65, 12).addActor(new Zombie("Brain"));
-		//gameMap.at(64, 12).addActor(new Human("Fool"));
-		
-		//test code for planting crops
-		//gameMap.at(44, 15).addActor(new Farmer("George"));
-		
-		//test code for fertilising crop
-	    //gameMap.at(44, 15).setGround(new Crop());;
-		
-		//test code for harvesting crop
-		//Crop crop= new Crop();
-		//crop.fertilise();
-		//crop.fertilise();
-		//test harvesting farmer harvesting crop
-		//gameMap.at(44, 15).setGround(crop);
-		//test harvesting for player
-		//gameMap.at(42, 15).setGround(crop);
-		
-		//test code for eating food
-		//test for npc eating food
-		//gameMap.at(44, 15).getActor().hurt(15);
-		//gameMap.at(44,  15).addItem(new Food());
-		//test for player eating food
-		//player.hurt(25);
-		//player.addItemToInventory(new Food());
-		
-		//test code 
-		System.out.println("Bum"+null);
 		world.run();
 	}
 }
