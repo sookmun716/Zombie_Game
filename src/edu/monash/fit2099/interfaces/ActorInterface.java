@@ -66,9 +66,9 @@ public interface ActorInterface {
 	public Boolean damaged();
 	/**
 	 * This method removes an actor and creates a corpse at the actor location when
-	 * the actor is killed
+	 * the actor is killed.
 	 * @param map The GameMap the actor is currently in
-	 * @return String that shows that an actor is killed.
+	 * @return String that shows that an actor is killed or empty String if actor is not killed.
 	 */
 	public String create_corpse(GameMap map);
 	/**
