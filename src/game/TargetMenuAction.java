@@ -21,8 +21,7 @@ public class TargetMenuAction extends Action{
 	
 	/**
 	 * This is the constructor for the TargetMenuAction class.
-	 * 
-	 * @param shotgun WeaponItem that represents a sniper rifle.
+	 * @param weapon WeaponItem that represents a sniper rifle.
 	 * 
 	 */
 	public TargetMenuAction(WeaponItem weapon) {
