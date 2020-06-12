@@ -147,7 +147,7 @@ public class Application {
 		
 		//place a vehicle in gameMap
 		Vehicle trainToTown = new Vehicle();
-		trainToTown.addAction(new MoveActorAction(townMap.at(45,10),"to the town!"));
+		trainToTown.addAction(new MoveActorAction(townMap.at(0,0),"to the town!"));
 		gameMap.at(45, 10).addItem(trainToTown);
 		
 		//place zombie in townmap
@@ -158,16 +158,7 @@ public class Application {
 		townMap.at(25, 11).addActor(new Zombie("Ding"));
 		townMap.at(62, 12).addActor(new Zombie("Dong"));	
 		
-		
-		// Place human in townmap
-		townMap.at(17, 3).addActor(new Human("Gusion"));
-		townMap.at(41, 7).addActor(new Human("Eudora"));
-		townMap.at(60, 6).addActor(new Human("Alucard"));
-		townMap.at(25, 9).addActor(new Human("Guin"));
-		townMap.at(43, 12).addActor(new Human("Lesley"));
-		townMap.at(65, 18).addActor(new Human("Miya"));	
-		townMap.at(40, 21).addActor(new Human("Popoh"));
-		townMap.at(10, 15).addActor(new Human("Harley"));
+
 		townMap.at(14, 9).addActor(new Human("Gord"));
 		
 		//Place weapons
@@ -178,7 +169,7 @@ public class Application {
 		
 		//place a vehicle where player can move from townmap to gamemap
 		Vehicle train = new Vehicle();
-		train.addAction(new MoveActorAction(gameMap.at(45, 10),"to gameMap!"));
+		train.addAction(new MoveActorAction(gameMap.at(0, 0),"to gameMap!"));
 		townMap.at(45, 10).addItem(train);
 		
 		world.run();
