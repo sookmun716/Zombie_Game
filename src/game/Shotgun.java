@@ -4,10 +4,19 @@ import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Location;
 import edu.monash.fit2099.engine.WeaponItem;
-
+/**
+ * A subclass of WeaponItem that represents shotgun.
+ * 
+ * @author Tan Song Shun
+ *
+ */
 public class Shotgun extends WeaponItem{
 	private int ranged_damage=45;
 	public static final int RANGE=3;
+	/**
+	 * This is the constructor for the Shotgun class, the super constructor is
+	 * called to instantiate the object.
+	 */
 	public Shotgun() {
 		super("shotgun", 's', 18, "smacks");
 	}

@@ -118,7 +118,7 @@ public class AttackAction extends Action {
 				result += System.lineSeparator() + target + " drops a Leg.";
 			}
 		}
-		result+=target.isDead(map);
+		result+=target.create_corpse(map);
 		
 		return result;
 	}

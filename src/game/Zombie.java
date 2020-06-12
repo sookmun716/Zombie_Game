@@ -195,7 +195,7 @@ public class Zombie extends ZombieActor {
 	}
 
 	@Override
-	public String isDead(GameMap map) {
+	public String create_corpse(GameMap map) {
 		 if (!this.isConscious()) {
 				Corpse corpse = new Corpse(this);
 				map.locationOf(this).addItem(corpse);

@@ -22,7 +22,18 @@ public class BlastAction extends Action {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	/**
+	 * This method overrides the execute method of Action, and is called to perform
+	 * an action, in this case this method will damage every actor in a given area depending
+	 * on the direction to simulate the area of effect when firing a shotgun.
+	 * 
+	 * @param actor The actor that is firing the shotgun
+	 * 
+	 * @param map   The game map the actor is in.
+	 * 
+	 * @return a String that shows the actors that have been damaged by shotgun
+	 **/
 	@Override
 	public String execute(Actor actor, GameMap map) {
 		if(actor.get_shotgun_ammo()==0) {
@@ -38,7 +49,8 @@ public class BlastAction extends Action {
 		int x=destination.x();
 		int y=destination.y();
 		int num_range=0;
-	
+		
+		//cardinal directions use a similar formula with minor differences
 		if(exit.getName()=="North") {
 			while(num_range<shotgun.range()) {
 				for(int i=(x-num_range);i<(x+num_range+1);i++) {
@@ -107,6 +119,7 @@ public class BlastAction extends Action {
 			}
 		}
 		
+		//intercardinal directions use a similar formula with minor differences
 		else if(exit.getName()=="North-East") {
 			x=map.locationOf(actor).x();
 			y=map.locationOf(actor).y();
