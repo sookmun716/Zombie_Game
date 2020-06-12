@@ -22,8 +22,7 @@ public class SnipeAimMenuAction extends Action {
 	/**
 	 * This is the constructor for the SnipeAimMenuAction class.
 	 * 
-	 * @param shotgun WeaponItem that represents a sniper rifle.
-	 * 
+	 * @param weapon WeaponItem that represents a sniper rifle.
 	 * @param target  Actor that is chosen as target. 
 	 * 
 	 */
