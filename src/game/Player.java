@@ -63,6 +63,7 @@ public class Player extends Human {
 		if (lastAction.getNextAction() != null)
 			return lastAction.getNextAction();
 		set_previous_health();
+		actions.add(new QuitAction());
 		Action action_this_round=menu.showMenu(this, actions, display);
 		this.lastAction=action_this_round;
 		return action_this_round;
