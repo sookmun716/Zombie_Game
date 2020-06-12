@@ -2,48 +2,32 @@ package game;
 
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Display;
-import edu.monash.fit2099.engine.DoNothingAction;
-import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.World;
 
+/**
+ * A subclass of World that represents the ending of game.
+ * @author SookMun
+ *
+ */
 public class endGame extends World{
 
 	private String Message;
 
+	/**
+	 * constructor for the endGame class
+	 * @param display the Display that will display this World.
+	 */
 	public endGame(Display display) {
 		super(display);
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void run() {
-		if (player == null)
-			throw new IllegalStateException();
-
-		// initialize the last action map to nothing actions;
-		for (Actor actor : actorLocations) {
-			lastActionMap.put(actor, new DoNothingAction());
-		}
-
-		// This loop is basically the whole game
-		while (stillRunning()) {
-			GameMap playersMap = actorLocations.locationOf(player).map();
-			playersMap.draw(display);
-
-			// Process all the actors.
-			for (Actor actor : actorLocations) {
-				if (stillRunning())
-					processActorTurn(actor);
-			}
-
-			// Tick over all the maps. For the map stuff.
-			for (GameMap gameMap : gameMaps) {
-				gameMap.tick();
-			}
-
-		}
-		display.println(endGameMessage());
-	}
-	
+	/**
+	 * Returns true if the game is still running.
+	 * The game is considered to still be running if the player is still around.
+	 * The game will end when all the human is dead or all zombie and mambo marie is dead. 
+	 * @return true if the player is still on the map, false if the game ends
+	 */
 	@Override
 	protected boolean stillRunning() {
 		//create boolean to check if human and zombie still exist in the map.
