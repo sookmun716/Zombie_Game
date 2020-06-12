@@ -19,9 +19,25 @@ public interface ActorInterface {
 	 * @return integer that represents the actor's maximum hit points
 	 */
 	public int getMaxHp();
+	/**
+	 * This method drop arm of zombie
+	 * @param Arm integer that represent the number of arms of the zombie
+	 */
 	public void dropArm(int Arm);
+	/**
+	 This method drop leg of zombie
+	 * @param Leg integer that represent the number of legs of the zombie
+	 */
 	public void dropLeg(int Leg);
+	/**
+	 *Getter for zombie Arm.
+	 * @return number of arm(s) of the zombie
+	 */
 	public int getArm();
+	/**
+	 *Getter for zombie Leg.
+	 * @return number of leg(s) of the zombie
+	 */
 	public int getLeg();
 	/**
 	 * Setter for the sniper_ammunition_count.
