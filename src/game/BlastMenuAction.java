@@ -23,8 +23,7 @@ public class BlastMenuAction extends Action {
 	
 	/**
 	 * This is the constructor for the BlastMenuAction class.
-	 * 
-	 * @param shotgun WeaponItem that represents a shotgun.
+	 * @param weapon WeaponItem that represents a shotgun.
 	 * 
 	 */
 	public BlastMenuAction(WeaponItem weapon) {
