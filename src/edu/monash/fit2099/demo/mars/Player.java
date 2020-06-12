@@ -115,7 +115,7 @@ public class Player extends Actor {
 	}
 
 	@Override
-	public String isDead(GameMap map) {
+	public String create_corpse(GameMap map) {
 		// TODO Auto-generated method stub
 		return null;
 	}

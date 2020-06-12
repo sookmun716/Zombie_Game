@@ -9,16 +9,44 @@ import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.WeaponItem;
-
+/**
+ * A subclass of Action that makes an actor fire at a target with a sniper rifle.
+ * 
+ * @author Tan Song Shun
+ *
+ */
 public class SnipeAction extends Action{
 	private Actor target;
 	private WeaponItem sniper;
 	private Random random=new Random();
+	//number of rounds to achieve maximum concentration
 	public static final int MAXIMUM_FOCUS=2;
+	
+	/**
+	 * This is the constructor for the SnipeAction class.
+	 * 
+	 * @param shotgun WeaponItem that represents a sniper rifle.
+	 * 
+	 * @param target  Actor that is chosen as target. 
+	 * 
+	 */
 	public SnipeAction(Actor target, WeaponItem sniper) {
 		this.target=target;
 		this.sniper=sniper;
 	}
+	
+	/**
+	 * This method overrides the execute method of Action, and is called to perform
+	 * an action, in this case it will fire at the target, with the appropriate damage
+	 * modifiers according to the requirements. A player cannot fire a sniper rifle it 
+	 * he/she does not have sniper ammunition left.
+	 * 
+	 * @param actor The actor that is using the sniper rifle
+	 * 
+	 * @param map   The game map the actor is in.
+	 * 
+	 * @return a String that shows the actor had fired at a target with the sniper rifle.
+	 **/
 	@Override
 	public String execute(Actor actor, GameMap map) {
 		String result=null;
@@ -55,7 +83,7 @@ public class SnipeAction extends Action{
 			
 		}
 
-		result+=target.isDead(map);
+		result+=target.create_corpse(map);
 		return result;
 	}
 

@@ -7,7 +7,11 @@ import java.util.Random;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.GroundFactory;
-
+/**
+ * Subclass of GameMap that handles functionality regarding Mambo Marie. 
+ * @author Tan Song Shun
+ *
+ */
 public class ZombieMap extends GameMap {
 	private Boolean inMap= false;
 	private Random random=new Random(); 
@@ -27,7 +31,11 @@ public class ZombieMap extends GameMap {
 	public ZombieMap(GroundFactory groundFactory, String mapFile) throws IOException{
 		super(groundFactory,mapFile);
 	}
-	
+	/**
+	 * Performs same functionality as the tick method in GameMap, however it also
+	 * has additional statements to handle the spawning and vanishing of Mambo 
+	 * Marie.
+	 */
 	@Override
 	public void tick() {
 		super.tick();

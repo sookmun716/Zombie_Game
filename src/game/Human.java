@@ -22,6 +22,7 @@ public class Human extends ZombieActor {
 	protected ArrayList<Behaviour> behaviour = new ArrayList<Behaviour>(
 			Arrays.asList(new EatFoodBehaviour(),new WanderBehaviour())); 
 	
+	//number of ammunition currently carried by a human/player
 	private int shotgun_ammo=0;
 	private int sniper_ammo=0;
 
@@ -136,7 +137,7 @@ public class Human extends ZombieActor {
 	}
 
 	@Override
-	public String isDead(GameMap map) {
+	public String create_corpse(GameMap map) {
 		 if (!this.isConscious()) {
 				Corpse corpse = new Corpse(this);
 				map.locationOf(this).addItem(corpse);

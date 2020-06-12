@@ -5,7 +5,12 @@ import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Location;
 import edu.monash.fit2099.engine.WeaponItem;
-
+/**
+ * A subclass of WeaponItem that represents a sniper rifle.
+ * 
+ * @author Tan Song Shun
+ *
+ */
 public class SniperRifle extends WeaponItem {
 	private int aim_turns=0;
 	private Actor target;
@@ -14,7 +19,10 @@ public class SniperRifle extends WeaponItem {
 	public SniperRifle() {
 		super("sniper rifle", 'S', 15, "clubs");
 	}
-	
+	/**
+	 * The tick method is used to determine whether the concentration of an actor
+	 * holding the sniper rifle is broken. 
+	 */
 	@Override
 	public void tick(Location currentLocation, Actor actor) {
 		Display display=new Display();

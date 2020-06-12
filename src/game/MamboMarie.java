@@ -6,14 +6,29 @@ import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.DoNothingAction;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
-
+/**
+ * A subclass of ZombieActor that represents an Mambo Marie.
+ * 
+ * @author Tan Song Shun
+ *
+ */
 public class MamboMarie extends ZombieActor{
+	//Mambo Marie can either wander around or perform a chant to create zombies
 	private Behaviour[] behaviours={
 		new ChantBehaviour(),
 		new WanderBehaviour()
 		};
+	//the number of turns Mambo Marie had appeared on the map
 	private int turn_count=0;
+	//the number of rounds between chanting
 	public static final int CHANT_ROUND=10;
+	
+	/**
+	 * This is the constructor for the MamboMarie class, ZombieCapability is set
+	 * as UNDEAD so player and humans can attack and kill her.
+	 * 
+	 * 
+	 */
 	public MamboMarie() {
 		super("Mambo Marie", 'M', 200, ZombieCapability.UNDEAD);
 		// TODO Auto-generated constructor stub
@@ -119,7 +134,7 @@ public class MamboMarie extends ZombieActor{
 	}
 
 	@Override
-	public String isDead(GameMap map) {
+	public String create_corpse(GameMap map) {
 		 if (!this.isConscious()) {
 				Corpse corpse = new Corpse(this);
 				map.locationOf(this).addItem(corpse);

@@ -5,9 +5,24 @@ import java.util.Random;
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
-
+/**
+ * A subclass of Action that represents an action to perform a chant and create 
+ * zombies in the map.
+ * 
+ * @author Tan Song Shun
+ *
+ */
 public class ChantAction extends Action{
 	private Random random= new Random();
+	/**
+	 * Creates 5 zombies at random locations. 
+	 * 
+	 * @param actor The actor that is fertilising the crop.
+	 * 
+	 * @param map   The game map the actor is in.
+	 * 
+	 * @return a String that shows a crop had been fertilised.
+	 **/
 	@Override
 	public String execute(Actor actor, GameMap map) {
 		int zombie_count=0;
