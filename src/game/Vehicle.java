@@ -5,9 +5,19 @@ import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
 
+/**
+ * A subclass of Item that represents vehicle. 
+ * Player can use vehicle to move across maps. 
+ * Vehicle is not a portableItem.
+ * @author SookMun
+ *
+ */
 public class Vehicle extends Item {
 
-
+	/**
+	 * This is the constructor for the Vehicle class, the super constructor is
+	 * called to instantiate the object.
+	 */
 	public Vehicle() {
 		super("train",'T',false);
 		}
