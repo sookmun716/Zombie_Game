@@ -127,9 +127,11 @@ public class BlastAction extends Action {
 				for(int i=x;i<=x+shotgun.range();i++)  {
 					try {
 						//the other condition are to ensure that the player doesn't get hurt by shotgun
-						if(map.at(i,y-num_range).containsAnActor()&&(i!=x||y!=y-num_range)) {
-							Actor target= map.at(i,y-num_range).getActor();
-							result+=new AttackAction(target,shotgun).execute(actor, map);
+						if(map.at(i,y-num_range).containsAnActor()) {
+							if(map.at(i,y-num_range).getActor()!=actor) {
+								Actor target= map.at(i,y-num_range).getActor();
+								result+=new AttackAction(target,shotgun).execute(actor, map);
+							}
 						}
 					}
 					catch(ArrayIndexOutOfBoundsException e){
@@ -147,9 +149,11 @@ public class BlastAction extends Action {
 				for(int i=x;i<=x+shotgun.range();i++)  {
 					try {
 						//the other condition are to ensure that the player doesn't get hurt by shotgun
-						if(map.at(i,y+num_range).containsAnActor()&&(i!=x||y!=y+num_range)) {
-							Actor target= map.at(i,y+num_range).getActor();
-							result+=new AttackAction(target,shotgun).execute(actor, map);
+						if(map.at(i,y+num_range).containsAnActor()) {
+							if(map.at(i,y+num_range).getActor()!=actor) {
+								Actor target= map.at(i,y+num_range).getActor();
+								result+=new AttackAction(target,shotgun).execute(actor, map);
+							}
 						}
 					}
 					catch(ArrayIndexOutOfBoundsException e){
@@ -167,9 +171,11 @@ public class BlastAction extends Action {
 				for(int i=x;i>=x-shotgun.range();i--)  {
 					try {
 						//the other condition are to ensure that the player doesn't get hurt by shotgun
-						if(map.at(i,y-num_range).containsAnActor()&&(i!=x||y!=y-num_range)) {
-							Actor target= map.at(i,y-num_range).getActor();
-							result+=new AttackAction(target,shotgun).execute(actor, map);
+						if(map.at(i,y-num_range).containsAnActor()) {
+							if(map.at(i,y-num_range).getActor()!=actor) {
+								Actor target= map.at(i,y-num_range).getActor();
+								result+=new AttackAction(target,shotgun).execute(actor, map);
+							}
 						}
 					}
 					catch(ArrayIndexOutOfBoundsException e){
@@ -187,9 +193,11 @@ public class BlastAction extends Action {
 				for(int i=x;i>=x-shotgun.range();i--)  {
 					try {
 						//the other condition are to ensure that the player doesn't get hurt by shotgun
-						if(map.at(i,y+num_range).containsAnActor()&&(i!=x||y!=y+num_range)) {
-							Actor target= map.at(i,y+num_range).getActor();
-							result+=new AttackAction(target,shotgun).execute(actor, map);
+						if(map.at(i,y+num_range).containsAnActor()) {
+							if(map.at(i,y+num_range).getActor()!=actor) {
+								Actor target= map.at(i,y+num_range).getActor();
+								result+=new AttackAction(target,shotgun).execute(actor, map);
+							}
 						}
 					}
 					catch(ArrayIndexOutOfBoundsException e){
