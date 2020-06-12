@@ -158,7 +158,16 @@ public class Application {
 		townMap.at(25, 11).addActor(new Zombie("Ding"));
 		townMap.at(62, 12).addActor(new Zombie("Dong"));	
 		
-
+		
+		// Place human in townmap
+		townMap.at(17, 3).addActor(new Human("Gusion"));
+		townMap.at(41, 7).addActor(new Human("Eudora"));
+		townMap.at(60, 6).addActor(new Human("Alucard"));
+		townMap.at(25, 9).addActor(new Human("Guin"));
+		townMap.at(43, 12).addActor(new Human("Lesley"));
+		townMap.at(65, 18).addActor(new Human("Miya"));	
+		townMap.at(40, 21).addActor(new Human("Popoh"));
+		townMap.at(10, 15).addActor(new Human("Harley"));
 		townMap.at(14, 9).addActor(new Human("Gord"));
 		
 		//Place weapons
