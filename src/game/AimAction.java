@@ -17,7 +17,7 @@ public class AimAction extends Action{
 	/**
 	 * This is the constructor for the AimAction class.
 	 * 
-	 * @param shotgun WeaponItem that represents a sniper rifle.
+	 * @param sniper WeaponItem that represents a sniper rifle.
 	 * 
 	 * @param target  Actor that is chosen as target. 
 	 * 
