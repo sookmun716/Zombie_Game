@@ -48,4 +48,10 @@ public class SpitBehaviour extends Action implements Behaviour{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Boolean isEnd() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

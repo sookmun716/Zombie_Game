@@ -66,6 +66,12 @@ public class Player extends Actor {
 			// TODO Auto-generated method stub
 			return null;
 		}
+
+		@Override
+		public Boolean isEnd() {
+			// TODO Auto-generated method stub
+			return null;
+		}
 	}
 
 	@Override

@@ -40,4 +40,10 @@ public class WindowSmashAction extends Action {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Boolean isEnd() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
