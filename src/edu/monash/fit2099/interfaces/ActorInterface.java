@@ -41,7 +41,7 @@ public interface ActorInterface {
 	public int getLeg();
 	/**
 	 * Setter for the sniper_ammunition_count.
-	 * @param count 
+	 * @param count the number of amno
 	 */
 	public void set_sniper_ammo(int count);
 	/**
@@ -51,7 +51,7 @@ public interface ActorInterface {
 	public int get_sniper_ammo();
 	/**
 	 * Setter for the shotgun_ammunition_count.
-	 * @param count 
+	 * @param count the number of ammo
 	 */
 	public void set_shotgun_ammo(int count);
 	/**
