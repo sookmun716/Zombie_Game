@@ -40,7 +40,7 @@ public class BlastAction extends Action {
 			return actor+" has no sufficient shotgun ammunition, shotgun cannot be fired";
 		}
 		shotgun.use_ammo(actor);
-		if(random.nextInt(101)<30) {
+		if(random.nextInt(101)<25) {
 			return actor+" misses "+shotgun+" blast!";
 		}
 		String result="";
