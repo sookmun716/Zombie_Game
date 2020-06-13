@@ -39,15 +39,17 @@ public class ZombieMap extends GameMap {
 	@Override
 	public void tick() {
 		super.tick();
+		
+		if(!mambo_marie.isConscious()) {
+			mambo_dead=true;
+		}
+		
 		if(random.nextInt(101)>=95 && !inMap && !mambo_dead) {
 			this.addActor(mambo_marie, this.at(this.heights.min(), this.widths.min()));
 			inMap=true;
 			display.println(mambo_marie+" spawns on the map!");
 		}
 		
-		if(!mambo_marie.isConscious()) {
-			mambo_dead=true;
-		}
 		
 		if(mambo_marie.isConscious()&&mambo_marie.get_turn_count()==VANISH_ROUND) {
 			mambo_marie.set_turn_count();
