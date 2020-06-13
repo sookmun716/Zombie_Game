@@ -64,5 +64,10 @@ public class TargetMenuAction extends Action{
 	public String menuDescription(Actor actor) {
 		return actor+" chooses target with sniper rifle";
 	}
+	@Override
+	public Boolean isEnd() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

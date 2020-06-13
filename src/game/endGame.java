@@ -33,10 +33,8 @@ public class endGame extends World{
 		//create boolean to check if human and zombie still exist in the map.
 		boolean humanExist = false;
 		boolean zombieExist = false;
+		boolean endGame = false;
 		for(Actor actor : actorLocations) {
-			if(humanExist && zombieExist) {
-				break;
-			}
 			//if actor is human and it's not player then human exists
 			if(actor.hasCapability(ZombieCapability.ALIVE) && actor.getDisplayChar() != '@') {
 				humanExist = true;
@@ -45,10 +43,19 @@ public class endGame extends World{
 			if(actor.hasCapability(ZombieCapability.UNDEAD)) {
 				zombieExist = true;
 			}
-			
+			try{if(actor.get_lastAction().isEnd()){
+				endGame = true;
+			}}catch(NullPointerException e){
+				continue;
 		}
+		}
+		if(endGame==true) {
+			Message = "GameOver";
+			return false;
+		}
+		
 		//return false when all zombie has been killed.
-		if(zombieExist == false) {
+		else if(zombieExist == false) {
 			Message = "Player won! Zombie and MamboMarie have been wiped out.";
 			return false;
 		}
@@ -69,7 +76,7 @@ public class endGame extends World{
 			Message = "Game Over! Player is dead.";
 			return false;
 		}
-		
+	
 	}
 	
 	@Override

@@ -67,7 +67,7 @@ public class AttackAction extends Action {
 		//dropArm and dropLeg to be in False, When Zombie has to drop then set it to True
 		Boolean dropArm = Boolean.FALSE;
 		Boolean dropLeg = Boolean.FALSE;
-		
+		try {
 		//if target receive damage
 		if (target.isConscious()) {
 			//check if the target is Zombie
@@ -118,6 +118,8 @@ public class AttackAction extends Action {
 				result += System.lineSeparator() + target + " drops a Leg.";
 			}
 		}
+		}catch(NullPointerException e) {
+		}
 		result+=target.create_corpse(map);
 		
 		return result;
@@ -131,6 +133,12 @@ public class AttackAction extends Action {
 
 	@Override
 	public Boolean isSniperAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean isEnd() {
 		// TODO Auto-generated method stub
 		return null;
 	}

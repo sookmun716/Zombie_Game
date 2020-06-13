@@ -18,7 +18,6 @@ public class QuitAction extends Action {
 	@Override
 	public String execute(Actor actor, GameMap map) {
 		if(actor.getDisplayChar() == '@') {
-			map.removeActor(actor);
 			return menuDescription(actor);
 		}
 		return null;
@@ -31,13 +30,19 @@ public class QuitAction extends Action {
 	 */
 	@Override
 	public String menuDescription(Actor actor) {
-		return actor + " quit the game!";
+		return actor + " quit the game";
 	}
 
 	@Override
 	public Boolean isSniperAction() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Boolean isEnd() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 }
 

@@ -12,4 +12,10 @@ public interface ActionInterface {
 	 * @return true if the Action is aiming or firing with sniper rifle
 	 */
 	public Boolean isSniperAction();
+	
+	/**
+	 * This method is used to determine whether player quit the game
+	 * @return true if player chose to quit
+	 */
+	public Boolean isEnd();
 }
