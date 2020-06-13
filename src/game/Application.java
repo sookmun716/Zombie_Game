@@ -51,42 +51,10 @@ public class Application {
 		world.addGameMap(gameMap);
 		
 		Actor player = new Player("Player", '@', 100);
-		player.addItemToInventory(new SniperRifle());
-		player.addItemToInventory(new SniperAmmunitionBox());
 		world.addPlayer(player, gameMap.at(42, 15));
-		//gameMap.at(43, 15).addActor(new Zombie("Bum"));
 		//cardinal directions
 		
-		/*
-		 gameMap.at(43,15).addActor(new Zombie("Brrrr"));
-		 gameMap.at(44,14).addActor(new Zombie("beww"));
-		 gameMap.at(44,15).addActor(new Zombie("beww"));
-		 gameMap.at(44,16).addActor(new Zombie("beww"));
-		 gameMap.at(45,13).addActor(new Zombie("srrr"));
-		 gameMap.at(45,14).addActor(new Zombie("Brrrr"));
-		 gameMap.at(45,15).addActor(new Zombie("marrr"));
-		 gameMap.at(45,16).addActor(new Zombie("beww"));
-		 gameMap.at(45,17).addActor(new Zombie("srrr"));
-	
-	*/
-		//intercardinal directions
-		/*
-		 * gameMap.at(41,15).addActor(new Zombie("grr")); 
-		 * gameMap.at(40,15).addActor(new Zombie("harr")); 
-		 * gameMap.at(39,15).addActor(new Zombie("Kiaa"));
-		 * gameMap.at(42,14).addActor(new Zombie("Brrrr"));
-		 * gameMap.at(41,14).addActor(new Zombie("marrr"));
-		 * gameMap.at(40,14).addActor(new Zombie("beww"));
-		 * gameMap.at(39,14).addActor(new Zombie("srrr"));
-		 * gameMap.at(42,13).addActor(new Zombie("Brrrr"));
-		 * gameMap.at(41,13).addActor(new Zombie("marrr"));
-		 * gameMap.at(40,13).addActor(new Zombie("beww"));
-		 * gameMap.at(39,13).addActor(new Zombie("srrr"));
-		 * gameMap.at(42,12).addActor(new Zombie("Brrrr"));
-		 * gameMap.at(41,12).addActor(new Zombie("marrr"));
-		 * gameMap.at(40,12).addActor(new Zombie("beww"));
-		 * gameMap.at(39,12).addActor(new Zombie("srrr"));
-		 */
+		
 	    // Place some random humans
 		String[] humans = {"Carlton","May", "Vicente", "Andrea", "Wendy",
 			"Elina", "Winter", "Clem", "Jacob", "Jaquelyn"};
@@ -104,6 +72,7 @@ public class Application {
 		gameMap.at(74, 20).addItem(new Plank());
 		
 		// FIXME: Add more zombies!
+		gameMap.at(32,15).addActor(new Farmer("George"));
 		gameMap.at(30, 20).addActor(new Zombie("Groan"));
 		gameMap.at(30,  18).addActor(new Zombie("Boo"));
 		gameMap.at(10,  4).addActor(new Zombie("Uuuurgh"));
@@ -151,6 +120,7 @@ public class Application {
 		gameMap.at(45, 10).addItem(trainToTown);
 		
 		//place zombie in townmap
+		
 		townMap.at(20, 20).addActor(new Zombie("Ching"));
 		townMap.at(36,  18).addActor(new Zombie("Chong"));
 		townMap.at(13,  4).addActor(new Zombie("Ling"));
@@ -160,6 +130,7 @@ public class Application {
 		
 		
 		// Place human in townmap
+		
 		townMap.at(17, 3).addActor(new Human("Gusion"));
 		townMap.at(41, 7).addActor(new Human("Eudora"));
 		townMap.at(60, 6).addActor(new Human("Alucard"));
