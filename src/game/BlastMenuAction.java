@@ -65,4 +65,10 @@ public class BlastMenuAction extends Action {
 		return actor+" fires shotgun";
 	}
 
+	@Override
+	public Boolean isEnd() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

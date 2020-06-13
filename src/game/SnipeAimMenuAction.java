@@ -61,5 +61,10 @@ public class SnipeAimMenuAction extends Action {
 		// TODO Auto-generated method stub
 		return actor+" targets "+ target+" with "+sniper;
 	}
+	@Override
+	public Boolean isEnd() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

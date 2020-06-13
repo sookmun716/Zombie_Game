@@ -66,4 +66,10 @@ public class HarvestAction extends Action {
 		return null;
 	}
 
+	@Override
+	public Boolean isEnd() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

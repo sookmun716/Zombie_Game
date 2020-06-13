@@ -216,5 +216,10 @@ public class BlastAction extends Action {
 		// TODO Auto-generated method stub
 		return actor+" fires "+ shotgun+" at "+exit.getName();
 	}
+	@Override
+	public Boolean isEnd() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
