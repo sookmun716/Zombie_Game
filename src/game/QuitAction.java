@@ -17,7 +17,7 @@ public class QuitAction extends Action {
 	 */
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		if(Player.class.isInstance(actor)) {
+		if(actor.getDisplayChar() == '@') {
 			map.removeActor(actor);
 			return menuDescription(actor);
 		}
